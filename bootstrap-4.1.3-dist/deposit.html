@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/main.css">
+    <title>Hello, world!</title>
+</head>
+
+<body>
+    <div class="container-fluid p-0" id="container">
+        <!--ADMIN PANEL-->
+        <div class="container">
+            <ul class="nav nav-pills py-2">
+                <li class="nav-item">
+                    <a class="nav-link px-3 py-1" href="#">Admin panel</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link px-3 py-1 active" href="#">Online store</a>
+                </li>
+            </ul>
+        </div>
+        <!--HEADER-->
+        <div class="container-fluid p-0 tour_header">
+            <div class="container">
+                <div class="row align-items-center justify-content-center">
+                    <div class="col-8 col-sm-4 p-0">
+                        <img src="img/logo.svg" class="img-fluid" alt="...">
+                    </div>
+                    <div class="col-12 col-sm-8 p-0">
+                        <ul class="nav justify-content-center justify-content-sm-end">
+                            <li class="nav-item">
+                                <a class="nav-link active" href="#"><i class="material-icons">attach_money</i><span>1990.00</span></a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#"><i id="order_profile" class="material-icons">account_circle</i><span>Orders</span></a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#"><i class="material-icons">exit_to_app</i><span>Exit</span></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--MENU-->
+        <div class="container-fluid py-2 px-0 tour_menu">
+            <div class="container">
+                <ul class="nav nav-pills">
+                    <li class="nav-item">
+                        <a class="nav-link py-2 px-5 text-uppercase active" href="#">Tour</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link py-2 px-5 text-uppercase" href="#">Taxi</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!--MAIN-->
+        <div class="container-fluid p-0 tour_main">
+            <div class="container pt-3">
+                <!--DEPOSIT BALANS-->
+                <div class="card mb-3">
+                    <!--TITLE-->
+                    <div class="card-header lead bg-light text-center">Personal account</div>
+                    <!--BALANS-->
+                    <div class="card-body text-center border-bottom">
+                        <h2 class="card-title m-0">1990,00<small>THB</small></h2>
+                        <p class="card-text">Account balance on 23/07/2018 13:51<i class="material-icons text-primary refresh" id="refresh_btn">refresh</i></p>
+                    </div>
+                    <div class="card-body border-bottom">
+                        <p class="lead text-center">Follow the steps below to top up your balance</p>
+                        <!--STEP-1-->
+                        <div class="d-flex align-items-baseline mb-3 px-2">
+                            <i class="material-icons mr-2">filter_1</i>
+                            <span>Choose your payment method and make the payment</span>
+                        </div>
+                        <div class="ml-4 pl-2" id="accordionExample">
+                            <div class="" id="headingOne">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                    <label class="form-check-label" for="exampleRadios1">
+                                        Transfer to card
+                                    </label>
+                                </div>
+                                <div class="row m-0">
+                                    <div class="ml-3 my-2 px-1 border">
+                                        <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+                                            <p class="m-0">Расчетный счет 40702810500000000001</p>
+                                            <p class="m-0">Полное наименование банка ОАО «Банк «Открытие», г.Москва</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                    <label class="form-check-label" for="exampleRadios2">
+                                        Bank transfer
+                                    </label>
+                                </div>
+                                <div class="row m-0">
+                                    <div class="ml-3 my-2 px-1 border">
+                                        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+                                            <p class="m-0">ИНН 1234567891</p>
+                                            <p class="m-0">КПП 123456789</p>
+                                            <p class="m-0">ОКПО 12345678</p>
+                                            <p class="m-0">ОГРН 1234567891234</p>
+                                            <p class="m-0">Расчетный счет 40702810500000000001</p>
+                                            <p class="m-0">Полное наименование банка ОАО «Банк «Открытие», г.Москва</p>
+                                            <p class="m-0">Корреспондентский счет банка 3010100000000000001</p>
+                                            <p class="m-0">БИК 045805777</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--STEP-2-->
+                        <div class="d-flex align-items-baseline mb-3 px-2">
+                            <i class="material-icons mr-2">filter_2</i>
+                            <span>After payment, you need to specify the amount of Deposit to your account and attach a receipt</span>
+                        </div>
+                        <div class="row align-items-center justify-content-center mx-2 mb-3 px-4">
+                            <div class="col-12 col-sm-6 col-lg-3 p-1">
+                                <label for="deposit_amount">Enter the deposit amount:</label>
+                            </div>
+                            <div class="col-12 col-sm-6 col-lg-3 p-1">
+                                <input type="text" class="form-control" id="deposit_amount" aria-describedby="basic-addon3">
+                            </div>
+                            <div class="col-12 col-sm-6 col-lg-3 p-1">
+                                <div class="custom-file">
+                                    <input type="file" class="custom-file-input" id="inputGroupFile04" aria-describedby="inputGroupFileAddon04">
+                                    <label class="custom-file-label" for="inputGroupFile04">Choose file</label>
+                                </div>
+                            </div>
+                            <div class="col-12 col-sm-6 col-lg-3 p-1">
+                                <button class="btn btn-block btn-primary" type="button" id="inputGroupFileAddon04">Send for verification</button>
+                            </div>
+                        </div>
+                    </div>
+                    <!--TABLE-->
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table-hover">
+                                <caption class="text-center h5 caption">History</caption>
+                                <thead>
+                                    <tr>
+                                        <th class="h6" scope="col">Date</th>
+                                        <th class="h6" scope="col">Time</th>
+                                        <th class="h6" scope="col">Discription</th>
+                                        <th class="h6" scope="col">Amount</th>
+                                        <th class="h6" scope="col">Balance</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr class="text-success">
+                                        <td>21/07/2018</td>
+                                        <td>21:15</td>
+                                        <td>Deposit</td>
+                                        <td>600</td>
+                                        <td>1200</td>
+                                    </tr>
+                                    <tr class="text-success">
+                                        <td>21/07/2018</td>
+                                        <td>21:15</td>
+                                        <td>Deposit</td>
+                                        <td>600</td>
+                                        <td>1200</td>
+                                    </tr>
+                                    <tr class="text-danger">
+                                        <td>21/07/2018</td>
+                                        <td>21:15</td>
+                                        <td>Sales</td>
+                                        <td>600</td>
+                                        <td>1200</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="js/bootstrap.min.js"></script>
+</body>
+
+</html>

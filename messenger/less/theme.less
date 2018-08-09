@@ -1,0 +1,225 @@
+// out: false, compress: false, strictMath: true
+
+/*THEME LIST*/
+
+ul {
+    max-height: 94vh;
+    overflow-y: auto;
+    /*ADD THEME*/
+    li.add_theme_li {
+        display: none;
+        .main_theme {
+            border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+            color: fade(@font-color-dark, 54%);
+            .add_theme {
+                margin: 0.5rem;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                position: relative;
+                .input_name_theme {
+                    width: 100%;
+                    overflow: hidden;
+                    white-space: nowrap;
+                    text-overflow: ellipsis;
+                    color: fade(@font-color-dark, 87%);
+                    font-weight: 500;
+                    font-size: @font-size;
+                    background-color: lighten(@bg-color, 5%);
+                    border: 1px solid rgba(0, 0, 0, 0.2);
+                    border-radius: 2px;
+                    padding: 0.5rem;
+                }
+                .error {
+                    display: block;
+                    margin-bottom: 0.2rem;
+                }
+                i {
+                    position: absolute;
+                    top: 0.7rem;
+                    right: 0.5rem;
+                    padding: 0;
+                    font-size: (@font-size*1.1);
+                }
+            }
+        }
+    }
+    /*LOAD THEME*/
+    li.theme_li {
+        position: relative;
+        /*АНИМАЦИЯ ТЕМЫ НА ХОВЕРЕ*/
+        .box {
+            position: absolute;
+            height: 100%;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1;
+            pointer-events: none;
+            &:before {
+                content: '';
+                height: 100%;
+                width: 0;
+                background-color: @main-color;
+                position: absolute;
+                top: 0;
+                left: 0;
+            }
+            &:after {
+                content: '';
+                height: 100%;
+                width: 0;
+                //background-color: fade(@font-color-dark, 5%);
+                background: -moz-linear-gradient(top, rgba(0, 0, 0, 0.05) 0%, rgba(0, 0, 0, 0) 20%, rgba(0, 0, 0, 0) 27%, rgba(0, 0, 0, 0.05) 100%);
+                /* FF3.6-15 */
+                background: -webkit-linear-gradient(top, rgba(0, 0, 0, 0.05) 0%, rgba(0, 0, 0, 0) 20%, rgba(0, 0, 0, 0) 27%, rgba(0, 0, 0, 0.05) 100%);
+                /* Chrome10-25,Safari5.1-6 */
+                background: linear-gradient(to bottom, rgba(0, 0, 0, 0.05) 0%, rgba(0, 0, 0, 0) 20%, rgba(0, 0, 0, 0) 27%, rgba(0, 0, 0, 0.05) 100%);
+                /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+                position: absolute;
+                top: 0;
+                left: 0;
+            }
+        }
+        /*АКТИВЕН ПРИ ВЫБРАННОЙ ТЕМЕ*/
+        .box-on {
+            position: absolute;
+            height: 100%;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1;
+            pointer-events: none;
+            &:before {
+                content: '';
+                height: 100%;
+                width: 0.8rem;
+                background-color: @main-color;
+                position: absolute;
+                top: 0;
+                left: 0;
+            }
+            &:after {
+                content: '';
+                height: 100%;
+                width: 100%;
+                //background-color: fade(@font-color-dark, 5%);
+                background: -moz-linear-gradient(top, rgba(0, 0, 0, 0.05) 0%, rgba(0, 0, 0, 0) 20%, rgba(0, 0, 0, 0) 27%, rgba(0, 0, 0, 0.05) 100%);
+                /* FF3.6-15 */
+                background: -webkit-linear-gradient(top, rgba(0, 0, 0, 0.05) 0%, rgba(0, 0, 0, 0) 20%, rgba(0, 0, 0, 0) 27%, rgba(0, 0, 0, 0.05) 100%);
+                /* Chrome10-25,Safari5.1-6 */
+                background: linear-gradient(to bottom, rgba(0, 0, 0, 0.05) 0%, rgba(0, 0, 0, 0) 20%, rgba(0, 0, 0, 0) 27%, rgba(0, 0, 0, 0.05) 100%);
+                /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+                position: absolute;
+                top: 0;
+                left: 0;
+            }
+        }
+        .main_theme {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 4.6rem;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+            padding-left: 1rem;
+            color: fade(@font-color-dark, 54%);
+            .theme {
+                display: flex;
+                align-items: center;
+                .theme_name {
+                    flex: 1;
+                    display: block;
+                    overflow: hidden;
+                    white-space: nowrap;
+                    text-overflow: ellipsis;
+                    color: fade(@font-color-dark, 87%);
+                    font-weight: 500;
+                    padding: 0.5rem;
+                    &:hover + i {
+                        color: fade(@font-color-dark, 26%);
+                    }
+                }
+                .edit_name {
+                    flex: 1;
+                    order: -1;
+                    display: none;
+                    overflow: hidden;
+                    white-space: nowrap;
+                    text-overflow: ellipsis;
+                    color: fade(@font-color-dark, 87%);
+                    font-weight: 500;
+                    font-size: (@font-size*0.9);
+                    background-color: lighten(@bg-color, 5%);
+                    border: 1px solid rgba(0, 0, 0, 0.2);
+                    border-radius: 2px;
+                    padding: 0.5rem;
+                }
+                /*КНОПКА РЕДАКТИРОВАНИЯ*/
+                i {
+                    font-size: (@font-size*1);
+                    color: transparent;
+                    &:hover {
+                        color: fade(@font-color-dark, 54%);
+                    }
+                }
+                .date {
+                    font-weight: 300;
+                    text-align: right;
+                    padding: 0.5rem;
+                }
+            }
+            .new_messages {
+                position: absolute;
+                right: 0.5rem;
+                top: 1.8rem;
+                display: block;
+                padding: 0.1rem 0.3rem;
+                border-radius: 1rem;
+                background-color: darken(@main-color, 15%);
+                text-align: center;
+                color: fade(@font-color-light, 87%);
+                font-size: (@font-size*0.75);
+                animation: newMessage 1s infinite;
+            }
+            .status {
+                padding: 0.5rem;
+                display: flex;
+                justify-content: flex-end;
+                align-items: center;
+                color: fade(@font-color-dark, 54%);
+                font-size: (@font-size*0.9);
+                cursor: default;
+                i {
+                    font-size: inherit;
+                    padding: 0;
+                    padding-right: 0.5rem;
+                    cursor: default;
+                    &:hover {
+                        color: fade(@font-color-dark, 26%);
+                    }
+                }
+                i:last-child {
+                    padding-right: 0;
+                }
+                /*ВЫЕЗЖАЮЩИЕ КНОПКИ РЕДАКТИРОВАНИЯ ТЕМЫ*/
+            }
+            &:hover ~ .box:before {
+                width: 0.8rem;
+            }
+            &:hover ~ .box:after {
+                width: 100%;
+            }
+            .box-option {
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                left: -5rem;
+                display: flex;
+                align-items: flex-end;
+                i {
+                    font-size: (@font-size*1.1);
+                }
+            }
+        }
+    }
+}

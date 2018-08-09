@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/main.css">
+    <title>Hello, world!</title>
+</head>
+
+<body>
+    <div class="container-fluid p-0" id="container">
+        <!--ADMIN TABS-->
+        <div class="admin_tabs">
+            <input id="store" type="radio" name="panel" checked>
+            <label for="store">online store</label>
+            <input id="admin" type="radio" name="panel">
+            <label for="admin">Admin panel</label>
+            <section class="container-fluid p-0" id="store_container">
+                <!--HEADER-->
+                <div class="container-fluid p-0 tour_header">
+                    <div class="container">
+                        <div class="row align-items-center justify-content-center">
+                            <div class="col-8 col-sm-4 p-0">
+                                <img src="img/logo.svg" class="img-fluid" alt="...">
+                            </div>
+                            <div class="col-12 col-sm-8 p-0">
+                                <ul class="nav justify-content-center justify-content-sm-end">
+                                    <li class="nav-item">
+                                        <a class="nav-link active" href="#"><i class="material-icons">attach_money</i><span>1990.00</span></a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="#"><i id="order_profile" class="material-icons">account_circle</i><span>Orders</span></a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="#"><i class="material-icons">exit_to_app</i><span>Exit</span></a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--MENU-->
+                <div class="container-fluid py-2 px-0 tour_menu">
+                    <div class="container">
+                        <ul class="nav nav-pills">
+                            <li class="nav-item">
+                                <a class="nav-link py-2 px-5 text-uppercase active" href="#">Tour</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link py-2 px-5 text-uppercase" href="#">Taxi</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <!--MAIN-->
+                <div class="container-fluid p-0 tour_main">
+                    <div class="container">
+                        <div class="row">
+                            <!--SEARCH-->
+                            <div class="col-lg-4 col-xl-4 p-0">
+                                <div class="shadow-sm p-3 bg-white rounded m-2">
+                                    <p class="lead">Search</p>
+                                    <form>
+                                        <div class="form-group">
+                                            <label for="inputAddress">Name of tour</label>
+                                            <input type="text" class="form-control" id="inputAddress">
+                                        </div>
+                                        <div class="form-row">
+                                            <div class="form-group col-md-6">
+                                                <label for="inputEmail4">Date</label>
+                                                <input type="date" class="form-control" id="inputEmail4">
+                                            </div>
+                                            <div class="form-group col-md-6">
+                                                <label for="inputPassword4">Date</label>
+                                                <input type="date" class="form-control" id="inputPassword4">
+                                            </div>
+                                        </div>
+                                        <div class="d-flex justify-content-end">
+                                            <button type="submit" class="btn btn-primary">Search</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                            <!--CARD-DECK-->
+                            <div class="col-lg-8 col-xl-8 p-0">
+                                <!--CARD-->
+                                <div class="card m-2">
+                                    <div class="row m-0">
+                                        <div class="col-sm-5 col-lg-6 p-0">
+                                            <img class="card-img-top" src="http://mobile-msg.ru/tours/files/tours/supplier3/10/tatil2.jpg" alt="Card image cap">
+                                        </div>
+                                        <div class="col-sm-7 col-lg-6 p-0 bd-highlight d-flex flex-column">
+                                            <h5 class="card-title p-2">Card title</h5>
+                                            <div class="d-flex bd-highlight">
+                                                <div class="px-2 bd-highlight min_width">Type of tour:</div>
+                                                <div class="px-2 bd-highlight">
+                                                    <span class="comma">Морские</span>
+                                                    <span class="comma">Сухопутные</span>
+                                                    <span class="comma">Sow</span>
+                                                    <span class="comma">Экстремальные</span>
+                                                </div>
+                                            </div>
+                                            <div class="d-flex bd-highlight">
+                                                <div class="px-2 bd-highlight min_width">Duration:</div>
+                                                <div class="px-2 bd-highlight">
+                                                    <span class="comma">3 hour 20 minute</span>
+                                                </div>
+                                            </div>
+                                            <div class="d-flex bd-highlight mb-2">
+                                                <div class="px-2 bd-highlight min_width">Guide:</div>
+                                                <div class="px-2 bd-highlight text_break"><span class="comma"><img width="16px" style="margin-right: 0.2rem;" src="http://www.mobile-msg.ru/tours/img/flags/Russian-Federation.png">Russian</span><span class="comma"><img width="16px" style="margin-right: 0.2rem;" src="http://www.mobile-msg.ru/tours/img/flags/Russian-Federation.png">English</span><span class="comma"><img width="16px" style="margin-right: 0.2rem;" src="http://www.mobile-msg.ru/tours/img/flags/Russian-Federation.png">Chinese</span></div>
+                                            </div>
+                                            <div class="d-flex mt-auto bd-highlight">
+                                                <div class="px-2 bd-highlight min_width">Price:</div>
+                                                <div class="d-flex px-2 bd-highlight">
+                                                    <p class="mr-1 mb-0 comma"><small>Adult - </small><strong>54 THB</strong></p>
+                                                    <p class="mr-1 mb-0 comma"><small>Adult - </small><span class="font-weight-bold">54 THB</span></p>
+                                                </div>
+                                            </div>
+                                            <div class="d-flex justify-content-end p-2 bd-highlight">
+                                                <button type="button" class="btn py-2 px-4 btn-link">Detail</button>
+                                                <button type="button" class="btn py-2 px-4 btn-primary">Order</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="container-fluid p-0" id="admin_container">
+
+            </section>
+        </div>
+    </div>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="js/bootstrap.min.js"></script>
+</body>
+
+</html>

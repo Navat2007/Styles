@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link href="https://fonts.googleapis.com/css?family=Fjalla+One|Open+Sans:300,300i,400,400i,500,500i,600,600i,700,700i,800,800i&amp;subset=cyrillic,cyrillic-ext,greek,greek-ext,latin-ext,vietnamese" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="/css/login.css">
+    <link rel="stylesheet" href="/css/button.css">
+    <link rel="stylesheet" href="/css/animation.css">
+    <link rel="stylesheet" href="/css/main.css">
+</head>
+<div class="main">
+	<div class="fon">
+		<!--Затемнение экрана при выезжании окна display: block;-->
+	</div>
+	<div class="left">
+		<!-- Боковое меню -->
+		<div class="left_menu">
+			<input id="search" type="text" name="search" placeholder="Найти..." onkeyup="loadThemes(this.value);">
+			<i id="add_theme_button" class="material-icons active_left_menu" title="Добавить">add</i>
+		</div>
+
+		<!-- Список тем -->
+		<ul id="theme_list">
+
+		</ul>
+	</div>
+	<div class="top_menu">
+		<i id="" class="material-icons" title="Темы">menu</i>
+		<div class="user">
+			<div class="status_name"></div>
+			<input type="text" class="edit_status_name" value="">
+			<div class="status_members"></div>
+		</div>
+		<i id="notification_check" class="material-icons" title="Уведомления">notifications</i>
+		<i id="toggleSound" class="material-icons">volume_up</i>
+		<!--Кнопка отключения/включения звука-->
+		<i id="settings_button" class="material-icons" title="Настройки">settings</i>
+		<i id="exit" class="material-icons" title="Выйти">input</i>
+		<!--Кнопка выхода из аккаунта-->
+		<div class="notification_window">
+			<?php
+			require $_SERVER['DOCUMENT_ROOT'] . '/view/Main/Main/notification.php';
+			?>
+		</div>
+	</div>
+	<div class="center_right">
+		<div class="task_window">
+			<!--Задачи-->
+			<div class="col_need_to_do">
+				<h3>Нужно сделать</h3>
+				<i id="addTask" class="material-icons">add</i>
+				<div class="dropZone" id="container_need_to_do" dropzone="true" ondragenter="drag_enter(event)" ondragleave="drag_leave(event)" ondrop="drag_drop(event)" ondragover="return false"></div>
+			</div>
+			<div class="col_in_work">
+				<h3>В работе</h3>
+				<div class="dropZone" id="container_in_work" dropzone="true" ondragenter="drag_enter(event)" ondragleave="drag_leave(event)" ondrop="drag_drop(event)" ondragover="return false"></div>
+			</div>
+			<div class="col_done">
+				<h3>Выполнено</h3>
+				<div class="dropZone" id="container_done" dropzone="true" ondragenter="drag_enter(event)" ondragleave="drag_leave(event)" ondrop="drag_drop(event)" ondragover="return false"></div>
+			</div>
+			<div class="card">
+
+			</div>
+			<div class="task_done_btn">
+				<i class="material-icons" title="Выполнено">done</i>
+			</div>
+		</div>
+		<div id="resize" class="resize">
+			<!--изменение размера окна-->
+		</div>
+		<div class="chat_container">
+			<div class="chat" id="chat">
+				<!--Чат-->
+			</div>
+			<div class="status_write"></div>
+		</div>
+	</div>
+	<div class="bottom_menu">
+		<i id="attach_file" class="material-icons" title="Вложить">attach_file</i>
+		<textarea name="textarea" id="textarea" placeholder="Напишите сообщение..."></textarea>
+		<i id="emojiButton" class="material-icons">mood</i>
+		<!--Модзи-->
+		<i id="textarea_send" class="material-icons" title="Отправить">send</i>
+	</div>
+    <div class="modal_users" id="modal-2_window">
+        <!--Пользователи-->
+    </div>
+    <div class="settings_window">
+        <?php
+        require $_SERVER['DOCUMENT_ROOT'] . '/view/Main/Main/settings_window.php';
+        ?>
+    </div>
+</div>

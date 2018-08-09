@@ -1,0 +1,82 @@
+// out: false, compress: false, strictMath: true
+
+/*ОКНО С КОЛОНКАМИ*/
+
+.task_window {
+    width: 50%;
+    min-width: 36rem;
+    display: flex;
+    position: relative;
+	z-index: 10;
+    box-shadow: @box-shadow;
+}
+
+
+/*КОЛОНКИ*/
+
+.col_need_to_do,
+.col_in_work,
+.col_done,
+.col_archive {
+    flex: 1 1;
+    overflow: hidden;
+    padding: 0.4rem 0;
+    background-color: rgb(255, 238, 238); //КРАСНЫЙ
+    text-align: center;
+    position: relative;
+    z-index: 6;
+    & > h3 {
+        color: fade(rgb(198, 36, 36), 54%);
+		padding-bottom: 0.4rem;
+    }
+    & > i {
+        color: fade(rgb(198, 36, 36), 54%);
+		padding: 0.4rem;
+		padding-top: 0;
+    }
+    .dropZone {
+        height: ~"calc(100% - 3.8rem)"; //расчитываем высоту блока
+		overflow-x: hidden;
+		overflow-y: auto;
+    }
+}
+
+.col_in_work {
+    background-color: rgb(238, 238, 255);
+    /*СИНИЙ*/
+    & > h3 {
+        color: fade(rgb(37, 68, 153), 54%);
+    }
+    .dropZone {
+        height: ~"calc(100% - 1rem)"; //расчитываем высоту блока
+    }
+}
+
+.col_done {
+    background-color: rgb(238, 255, 238);
+    /*ЗЕЛЕНЫЙ*/
+    & > h3 {
+        color: fade(@main-color, 87%);
+    }
+    .dropZone {
+        height: ~"calc(100% - 1em)"; //расчитываем высоту блока
+    }
+}
+
+.col_archive {
+	position: absolute;
+	z-index: 5;
+	top: 0;
+	bottom: 0;
+	right: 0rem;
+	width: 15rem;
+	box-shadow: @box-shadow;
+    background-color: @bg-color;
+    /*ЗЕЛЕНЫЙ*/
+    & > h3 {
+        color: fade(@font-color-dark, 54%);
+    }
+    .dropZone {
+        height: ~"calc(100% - 1em)"; //расчитываем высоту блока
+    }
+}

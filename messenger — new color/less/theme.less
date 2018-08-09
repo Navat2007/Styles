@@ -1,0 +1,208 @@
+// out: false, compress: false, strictMath: true
+
+/*THEME LIST*/
+
+ul {
+    /*ADD THEME*/
+    li.add_theme_li {
+        display: none;
+        height: 6rem;
+        .main_theme {
+            border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+            padding-left: 1rem;
+            color: fade(@font-color-dark, 54%);
+            height: 6rem;
+            .add_theme {
+                margin: 0.5rem;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                position: relative;
+                .input_name_theme {
+                    width: 100%;
+                    overflow: hidden;
+                    white-space: nowrap;
+                    text-overflow: ellipsis;
+                    color: fade(@font-color-dark, 87%);
+                    font-weight: 500;
+                    font-size: @font-size;
+                    background-color: lighten(@bg-color, 5%);
+                    border: 1px solid rgba(0, 0, 0, 0.2);
+                    border-radius: 2px;
+                    height: 2.2rem;
+                    padding: 0.5rem;
+                }
+                .error {
+                    display: block;
+                    margin-bottom: 0.5rem;
+                }
+                i {
+                    position: absolute;
+                    top: 0.5rem;
+                    right: 0.5rem;
+                    padding: 0;
+                    font-size: (@font-size*1.3);
+                }
+            }
+        }
+    }
+    /*LOAD THEME*/
+    li.theme_li {
+        height: 4.8rem;
+        position: relative;
+        /*АНИМАЦИЯ ТЕМЫ НА ХОВЕРЕ*/
+        .box {
+            position: absolute;
+            height: 100%;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1;
+            pointer-events: none;
+            &:before {
+                content: '';
+                height: 100%;
+                width: 0;
+                background-color: @main-color;
+                position: absolute;
+                top: 0;
+                left: 0;
+            }
+            &:after {
+                content: '';
+                height: 100%;
+                width: 0;
+                background-color: fade(@font-color-dark, 5%);
+                position: absolute;
+                top: 0;
+                left: 0;
+            }
+        }
+        /*АКТИВЕН ПРИ ВЫБРАННОЙ ТЕМЕ*/
+        .box-on {
+            position: absolute;
+            height: 100%;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1;
+            pointer-events: none;
+            &:before {
+                content: '';
+                height: 100%;
+                width: 0.8rem;
+                background-color: @main-color;
+                position: absolute;
+                top: 0;
+                left: 0;
+            }
+            &:after {
+                content: '';
+                height: 100%;
+                width: 100%;
+                background-color: fade(@font-color-dark, 5%);
+                position: absolute;
+                top: 0;
+                left: 0;
+            }
+        }
+        .main_theme {
+            border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+            padding-left: 1rem;
+            color: fade(@font-color-dark, 54%);
+            height: 4.8rem;
+            .theme {
+                display: flex;
+                align-items: center;
+                .theme_name {
+                    flex: 1;
+                    display: block;
+                    overflow: hidden;
+                    white-space: nowrap;
+                    text-overflow: ellipsis;
+                    color: fade(@font-color-dark, 87%);
+                    font-weight: 500;
+                    height: 2.2rem;
+                    padding: 0.5rem;
+                    &:hover + i {
+                        color: fade(@font-color-dark, 26%);
+                    }
+                }
+                .edit_name {
+                    flex: 1;
+                    order: -1;
+                    display: none;
+                    overflow: hidden;
+                    white-space: nowrap;
+                    text-overflow: ellipsis;
+                    color: fade(@font-color-dark, 87%);
+                    font-weight: 500;
+                    font-size: @font-size;
+                    background-color: lighten(@bg-color, 5%);
+                    border: 1px solid rgba(0, 0, 0, 0.2);
+                    border-radius: 2px;
+                    height: 2.2rem;
+                    padding: 0.5rem;
+                }
+                /*КНОПКА РЕДАКТИРОВАНИЯ*/
+                i {
+                    font-size: (@font-size*1.2);
+                    color: transparent;
+                    &:hover {
+                        color: fade(@font-color-dark, 54%);
+                    }
+                }
+                .date {
+                    font-weight: 300;
+                    text-align: right;
+                    padding: 0.5rem;
+                }
+            }
+            .status {
+                padding: 0.5rem;
+                margin-top: 0.5rem;
+                display: flex;
+                justify-content: flex-end;
+                align-items: flex-end;
+                color: fade(@font-color-dark, 54%);
+                cursor: default;
+                /*fade(rgb(198,36,36), 87%); КРАСНЫЙ*/
+                /*i:nth-child(4),
+p:nth-child(3){
+fade(rgb(37,68,153), 87%); СИНИЙ
+}
+i:nth-child(6),
+p:nth-child(5) {
+fade(@main-color, 87%) *ЗЕЛЕНЫЙ
+}*/
+                i {
+                    font-size: (@font-size*1.1);
+                    padding: 0;
+                    padding-right: 0.8rem;
+                    cursor: default;
+                    &:hover {
+                        color: fade(@font-color-dark, 26%);
+                    }
+                }
+                i:last-child {
+                    padding-right: 0;
+                }
+                /*ВЫЕЗЖАЮЩИЕ КНОПКИ РЕДАКТИРОВАНИЯ ТЕМЫ*/
+            }
+            &:hover ~ .box:before {
+                width: 0.8rem;
+            }
+            &:hover ~ .box:after {
+                width: 100%;
+            }
+            .box-option {
+                position: absolute;
+                bottom: 0;
+                left: -5rem;
+                i {
+                    font-size: (@font-size*1.1);
+                }
+            }
+        }
+    }
+}

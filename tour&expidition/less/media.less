@@ -1,0 +1,840 @@
+// out: false, compress: false, strictMath: true
+
+/* Smartphones (вертикальная) ----------- */
+
+.mobile(@rules) {
+    @media only screen and (max-width: 567px) and (orientation: portrait) {
+        @rules();
+    }
+}
+
+
+/* Smartphones (горизонтальная) ----------- */
+
+.mobile_landscape(@rules) {
+    @media only screen and (min-width: 568px) and (max-width: 767px) and (orientation: landscape) {
+        @rules();
+    }
+}
+
+
+/* iPads (вертикальная и горизонтальная) ----------- */
+
+.tablet(@rules) {
+    @media only screen and (min-width: 768px) and (max-width: 1024px) {
+        @rules();
+    }
+}
+
+
+/* Настольные компьютеры и ноутбуки ----------- */
+
+.netbook(@rules) {
+    @media only screen and (min-width: 1025px) and (max-width: 1824px) {
+        @rules();
+    }
+}
+
+
+/* Большие экраны ----------- */
+
+.desktop(@rules) {
+    @media only screen and (min-width: 1824px) {
+        @rules();
+    }
+}
+
+.center_container {
+    .mobile ( {
+        padding: 0;
+    }
+    );
+    .mobile_landscape ( {
+        padding: 0;
+    }
+    );
+    .tablet ( {
+        padding: 0;
+    }
+    );
+    .netbook ( {}
+    );
+    .desktop ( {}
+    );
+}
+
+
+/*МИНИ КАРТОЧКИ*/
+
+.layout_card {
+    .mobile ( {}
+    );
+    .mobile_landscape ( {}
+    );
+    .tablet ( {
+        margin-top: 3.5rem;
+        flex-direction: column;
+    }
+    );
+    .netbook ( {}
+    );
+    .desktop ( {}
+    );
+    .tour_card {
+        .mobile ( {
+            margin: 0.5rem 0;
+        }
+        );
+        .mobile_landscape ( {
+            margin: 0.5rem 0;
+        }
+        );
+        .tablet ( {
+            margin: 0.5rem 0;
+        }
+        );
+        .netbook ( {}
+        );
+        .desktop ( {}
+        );
+        .card {
+            .mobile ( {
+                display: block;
+                max-height: none;
+            }
+            );
+            .mobile_landscape ( {}
+            );
+            .tablet ( {}
+            );
+            .netbook ( {}
+            );
+            .desktop ( {}
+            );
+        }
+        .location {
+            .mobile ( {
+                max-width: 100%;
+                min-width: 100%;
+            }
+            );
+            .mobile_landscape ( {}
+            );
+            .tablet ( {}
+            );
+            .netbook ( {}
+            );
+            .desktop ( {}
+            );
+            .main_photo {
+                img {
+                    .mobile ( {
+                        width: 100%;
+                        transform: translate(0%, 0%);
+                    }
+                    );
+                    .mobile_landscape ( {
+                        width: 150%;
+                        transform: translate(-25%, 0%);
+                    }
+                    );
+                    .tablet ( {
+                        width: 100%;
+                        transform: translate(0%, 0%);
+                    }
+                    );
+                    .netbook ( {}
+                    );
+                    .desktop ( {}
+                    );
+                }
+            }
+        }
+        .suppliers_info {
+            .mobile ( {
+                max-width: 100%;
+                min-width: 100%;
+            }
+            );
+            .mobile_landscape ( {}
+            );
+            .tablet ( {}
+            );
+            .netbook ( {}
+            );
+            .desktop ( {}
+            );
+            h3 {
+                .mobile ( {
+                    align-self: center;
+                }
+                );
+                .mobile_landscape ( {}
+                );
+                .tablet ( {}
+                );
+                .netbook ( {}
+                );
+                .desktop ( {}
+                );
+            }
+            .card_box {
+                p {
+                    .mobile ( {}
+                    );
+                    .mobile_landscape ( {
+                        padding: 0.2rem;
+                        padding-left: 0.5rem;
+                    }
+                    );
+                    .tablet ( {
+                        padding: 0.1rem;
+                        padding-left: 0.5rem;
+                    }
+                    );
+                    .netbook ( {}
+                    );
+                    .desktop ( {}
+                    );
+                    &.flags span {
+                        .mobile ( {}
+                        );
+                        .mobile_landscape ( {
+                            min-width: 4rem;
+                        }
+                        );
+                        .tablet ( {
+                            flex: none;
+                        }
+                        );
+                        .netbook ( {}
+                        );
+                        .desktop ( {}
+                        );
+                    }
+                }
+            }
+            .price_card {
+                .mobile ( {}
+                );
+                .mobile_landscape ( {
+                    display: flex;
+                }
+                );
+                .tablet ( {
+                    display: flex;
+                }
+                );
+                .netbook ( {}
+                );
+                .desktop ( {}
+                );
+            }
+        }
+    }
+}
+
+
+/*MENU TABS*/
+
+.menu_tabs > section {
+    .mobile ( {
+        flex-direction: column;
+        align-items: stretch!important;
+    }
+    );
+    .mobile_landscape ( {
+        flex-direction: column;
+        align-items: stretch!important;
+    }
+    );
+    .tablet ( {}
+    );
+    .netbook ( {}
+    );
+    .desktop ( {
+        flex-direction: row;
+    }
+    );
+}
+
+
+/*SEARCH*/
+
+.search_box {
+    .mobile ( {
+        padding: 0;
+        margin-bottom: 0.5rem;
+    }
+    );
+    .mobile_landscape ( {
+        padding: 0;
+        margin-bottom: 0.5rem;
+    }
+    );
+    .tablet ( {
+        position: absolute;
+        top: 4rem;
+        left: 0.5rem;
+        z-index: 10;
+        width: 20rem;
+    }
+    );
+    .netbook ( {}
+    );
+    .desktop ( {}
+    );
+    .search_title {
+        /*ICON SEARCH TOOGLE*/
+        i {
+            .mobile ( {
+                display: block;
+            }
+            );
+            .mobile_landscape ( {
+                display: block;
+            }
+            );
+            .tablet ( {
+                display: block;
+            }
+            );
+            .netbook ( {
+                display: none;
+            }
+            );
+            .desktop ( {
+                display: none;
+            }
+            );
+        }
+        h3 {
+            .mobile ( {
+                margin-left: 0.5rem;
+            }
+            );
+            .mobile_landscape ( {
+                margin-left: 0.5rem;
+            }
+            );
+            .tablet ( {
+                margin-left: 0.5rem;
+            }
+            );
+            .netbook ( {}
+            );
+            .desktop ( {}
+            );
+        }
+    }
+    .filter_search {
+        .mobile ( {
+            display: flex;
+            flex-wrap: wrap;
+        }
+        );
+        .mobile_landscape ( {
+            display: flex;
+            flex-wrap: wrap;
+        }
+        );
+        .tablet ( {
+            display: flex;
+            flex-wrap: wrap;
+        }
+        );
+        .netbook ( {}
+        );
+        .desktop ( {}
+        );
+        .textfield_main {
+            .mobile ( {
+                margin: 0.2rem 0.5rem!important;
+                width: 100%;
+            }
+            );
+            .mobile_landscape ( {
+                margin: 0.2rem 0.5rem!important;
+                width: 47%;
+            }
+            );
+            .tablet ( {
+                margin: 0.2rem 0.5rem!important;
+                width: 100%;
+            }
+            );
+            .netbook ( {}
+            );
+            .desktop ( {}
+            );
+            input {
+                .mobile ( {
+                    width: 100%!important;
+                }
+                );
+                .mobile_landscape ( {
+                    width: 100%!important;
+                }
+                );
+                .tablet ( {
+                    width: 100%!important;
+                }
+                );
+                .netbook ( {}
+                );
+                .desktop ( {}
+                );
+            }
+        }
+    }
+    .btn_controller {
+        .mobile ( {
+            justify-content: flex-end;
+        }
+        );
+        .mobile_landscape ( {
+            justify-content: flex-end;
+        }
+        );
+        .tablet ( {
+            justify-content: flex-end;
+        }
+        );
+        .desktop ( {}
+        );
+        .netbook ( {}
+        );
+        .btn_center {
+            .mobile ( {
+                margin: 0.5rem 1rem;
+            }
+            );
+            .mobile_landscape ( {
+                margin: 0.5rem 1rem;
+            }
+            );
+            .tablet ( {
+                margin: 0.5rem 1rem;
+            }
+            );
+            .netbook ( {}
+            );
+            .desktop ( {}
+            );
+        }
+    }
+}
+
+
+/*MENU*/
+
+.main_menu_fon .main_menu {
+    .mobile ( {
+        justify-content: flex-start;
+    }
+    );
+    .mobile_landscape ( {}
+    );
+    .tablet ( {}
+    );
+    .netbook ( {}
+    );
+    .desktop ( {}
+    );
+    i {
+        .mobile ( {
+            padding: 0.1rem;
+        }
+        );
+        .mobile_landscape ( {}
+        );
+        .tablet ( {}
+        );
+        .netbook ( {}
+        );
+        .desktop ( {}
+        );
+    }
+    & > * {
+        .mobile ( {}
+        );
+        .mobile_landscape ( {}
+        );
+        .tablet ( {}
+        );
+        .netbook ( {}
+        );
+        .desktop ( {}
+        );
+    }
+    .title_top_menu {
+        .mobile ( {
+            display: none;
+        }
+        );
+        .mobile_landscape ( {
+            display: none;
+        }
+        );
+        .tablet ( {}
+        );
+        .netbook ( {}
+        );
+        .desktop ( {}
+        );
+    }
+    .region_tab {
+        .mobile ( {
+            flex: 1;
+        }
+        );
+        .mobile_landscape ( {
+            flex: 1;
+        }
+        );
+        .tablet ( {}
+        );
+        .netbook ( {}
+        );
+        .desktop ( {}
+        );
+        .island {
+            .mobile ( {
+                display: none;
+            }
+            );
+            .mobile_landscape ( {}
+            );
+            .tablet ( {}
+            );
+            .netbook ( {}
+            );
+            .desktop ( {}
+            );
+        }
+    }
+    .money_tab {
+        .mobile ( {}
+        );
+        .mobile_landscape ( {}
+        );
+        .tablet ( {}
+        );
+        .netbook ( {}
+        );
+        .desktop ( {}
+        );
+    }
+    .exit_tab p,
+    .profile_tab p {
+        .mobile ( {
+            display: none;
+        }
+        );
+        .mobile_landscape ( {
+            display: none;
+        }
+        );
+        .tablet ( {
+            display: none;
+        }
+        );
+        .netbook ( {}
+        );
+        .desktop ( {}
+        );
+    }
+}
+
+
+/*TABS*/
+
+.menu_tabs {
+    .mobile ( {
+        margin: 0!important;
+    }
+    );
+    .mobile_landscape ( {}
+    );
+    .tablet ( {}
+    );
+    .netbook ( {}
+    );
+    .desktop ( {}
+    );
+    /* Стили переключателей вкладок (табов) */
+    label {
+        .mobile ( {
+            width: 32.45%!important;
+        }
+        );
+        .mobile_landscape ( {
+            width: 32.45%!important;
+        }
+        );
+        .tablet ( {
+            width: 32.45%!important;
+        }
+        );
+        .netbook ( {}
+        );
+        .desktop ( {}
+        );
+    }
+    .bar {
+        .mobile ( {
+            width: 33.325%!important;
+        }
+        );
+        .mobile_landscape ( {
+            width: 33.325%!important;
+        }
+        );
+        .tablet ( {
+            width: 33.325%!important;
+        }
+        );
+        .netbook ( {}
+        );
+        .desktop ( {}
+        );
+    }
+    #shop_menu_taxi:checked~.bar {
+        .mobile ( {
+            left: 33.325%!important;
+        }
+        );
+        .mobile_landscape ( {
+            left: 33.325%!important;
+        }
+        );
+        .tablet ( {
+            left: 33.325%!important;
+        }
+        );
+        .netbook ( {}
+        );
+        .desktop ( {}
+        );
+    }
+    #shop_menu_tour:checked~.bar {
+        .mobile ( {
+            left: 66.650%!important;
+        }
+        );
+        .mobile_landscape ( {
+            left: 66.650%!important;
+        }
+        );
+        .tablet ( {
+            left: 66.650%!important;
+        }
+        );
+        .netbook ( {}
+        );
+        .desktop ( {}
+        );
+    }
+}
+
+
+/*Детальное окно ордера*/
+
+.detail_card_window {
+    .detail_card_title {
+        span {
+            .mobile ( {
+                color: transparent;
+            }
+            );
+            .mobile_landscape ( {
+                color: transparent;
+            }
+            );
+            .tablet ( {}
+            );
+            .netbook ( {}
+            );
+            .desktop ( {}
+            );
+        }
+    }
+    .detail_card {
+        & > * {
+            .mobile ( {
+                margin-left: 0.5rem;
+                margin-right: 0.5rem;
+            }
+            );
+            .mobile_landscape ( {
+                margin-left: 0.5rem;
+                margin-right: 0.5rem;
+            }
+            );
+            .tablet ( {}
+            );
+            .netbook ( {}
+            );
+            .desktop ( {}
+            );
+        }
+        .detail_top_box {
+            img {
+                .mobile ( {
+                    min-width: 100%;
+                    width: 100%;
+                    margin-right: 0rem;
+                }
+                );
+                .mobile_landscape ( {
+                    min-width: 50%;
+                    width: 50%;
+                    margin-right: 0.5rem;
+                }
+                );
+                .tablet ( {}
+                );
+                .netbook ( {}
+                );
+                .desktop ( {}
+                );
+            }
+        }
+    }
+}
+
+
+/*Всплывающее окно при заказе*/
+
+.order_modal {
+    .order_flex .order_layout {
+        .mobile ( {
+            border-radius: 0;
+        }
+        );
+        .mobile_landscape ( {
+            border-radius: 0;
+        }
+        );
+        .tablet ( {}
+        );
+        .netbook ( {}
+        );
+        .desktop ( {}
+        );
+    }
+    .order_container_box {
+        .mobile ( {
+            max-height: 93vh;
+        }
+        );
+        .mobile_landscape ( {
+            max-height: 90vh;
+        }
+        );
+        .tablet ( {
+            max-height: 90vh;
+        }
+        );
+        .netbook ( {
+            max-height: 90vh;
+        }
+        );
+        .desktop ( {
+            max-height: 90vh;
+        }
+        );
+        .order_box {
+            .mobile ( {
+                margin: 1rem;
+            }
+            );
+            .mobile_landscape ( {}
+            );
+            .tablet ( {}
+            );
+            .netbook ( {}
+            );
+            .desktop ( {}
+            );
+        }
+    }
+}
+
+
+/*Окно Личного кабинета в профиле*/
+
+.lk_window {
+    .lk_title {
+        span {
+            .mobile ( {
+                color: transparent;
+            }
+            );
+            .mobile_landscape ( {
+                color: transparent;
+            }
+            );
+            .tablet ( {}
+            );
+            .netbook ( {}
+            );
+            .desktop ( {}
+            );
+        }
+    }
+    .lk_layout {
+        .mobile ( {
+            padding: 0;
+        }
+        );
+        .mobile_landscape ( {
+            padding: 0;
+        }
+        );
+        .tablet ( {}
+        );
+        .netbook ( {}
+        );
+        .desktop ( {}
+        );
+        .lk_container {
+            .lk_box {
+                .voucher_attach {
+                    .voucher_attach_box {
+                        .mobile ( {
+                            justify-content: center;
+                        }
+                        );
+                        .mobile_landscape ( {
+                            justify-content: center;
+                        }
+                        );
+                        .tablet ( {}
+                        );
+                        .netbook ( {}
+                        );
+                        .desktop ( {}
+                        );
+                    }
+                }
+            }
+            .bank_statement {
+                .table_bank_statement {
+                    .mobile ( {
+                    }
+                    );
+                    .mobile_landscape ( {
+                    }
+                    );
+                    .tablet ( {}
+                    );
+                    .netbook ( {}
+                    );
+                    .desktop ( {}
+                    );
+                }
+            }
+        }
+    }
+}

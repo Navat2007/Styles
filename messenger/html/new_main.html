@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+
+    <!-- favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/icon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/icon-16x16.png">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#ffffff">
+    <meta name="theme-color" content="#ffffff">
+
+    <link href="https://fonts.googleapis.com/css?family=Fjalla+One|Open+Sans:300,300i,400,400i,500,500i,600,600i,700,700i,800,800i&amp;subset=cyrillic,cyrillic-ext,greek,greek-ext,latin-ext,vietnamese" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+    <div id="container">
+        <script src="/controllers/Main/main.js"></script>
+        <script src="/controllers/Main/chat.js"></script>
+        <script src="/controllers/Main/resize.js"></script>
+        <div class="main">
+            <div class="fon" style="display: block;">
+                <!--Затемнение экрана при выезжании окна display: block;-->
+            </div>
+            <div class="left" style="left: 0px;">
+                <!-- Боковое меню -->
+                <div class="left_menu">
+                    <input id="search" type="text" name="search" placeholder="Найти..." onkeyup="loadThemes(this.value);">
+                    <i id="add_theme_button" class="material-icons active_left_menu" title="Добавить">add</i>
+                </div>
+
+                <!-- Список тем -->
+                <ul id="theme_list">
+                    <li class="theme_li" data-creator="1" data-id="20" data-title="Домашняя тема" data-members="3" data-date="2018-06-22 10:26:58">
+                        <div class="main_theme">
+                            <div class="theme">
+                                <div class="theme_name">Домашняя тема</div>
+
+
+                                <input type="text" class="edit_name" value="">
+                                <div class="date">
+                                    10:26 </div>
+                            </div>
+                            <div class="status">
+
+                                <p>11</p><i class="material-icons" title="Нужно сделать">next_week</i>
+
+                                <p>4</p><i class="material-icons" title="В работе">cached</i>
+
+                                <p>2</p><i class="material-icons" title="Выполнено">done</i>
+
+
+                            </div>
+                            <!--ВЫЕЗЖАЮЩИЕ КНОПКИ РЕДАКТИРОВАНИЯ ТЕМЫ-->
+                            <div class="box-option" style="
+                                                    ">
+                                <i class="material-icons" id="theme_exit_button" title="Выйти">close</i>
+                            </div>
+                        </div>
+                        <!--АКТИВЕН ПРИ ВЫБРАННОЙ ТЕМЕ-->
+                        <div class="box"></div>
+                    </li>
+                    <li class="theme_li" data-creator="2" data-id="58" data-title="тест10" data-members="1" data-date="2018-06-22 10:26:33">
+                        <div class="main_theme">
+                            <div class="theme">
+                                <div class="theme_name">тест10</div>
+
+                                <i id="theme_title_edit" class="material-icons" title="Изменить название">edit</i>
+
+                                <input type="text" class="edit_name" value="">
+                                <div class="date">
+                                    10:26 </div>
+                            </div>
+                            <div class="status">
+
+
+                            </div>
+                            <!--ВЫЕЗЖАЮЩИЕ КНОПКИ РЕДАКТИРОВАНИЯ ТЕМЫ-->
+                            <div class="box-option" style="
+                            left: 0.8em;                        ">
+                                <i class="material-icons" id="theme_archive_button" title="В архив">delete</i>
+                                <i class="material-icons" id="theme_members_button" title="Участники">person_add</i>
+                            </div>
+                        </div>
+                        <!--АКТИВЕН ПРИ ВЫБРАННОЙ ТЕМЕ-->
+                        <div class="box-on"></div>
+                    </li>
+                    <li class="theme_li" data-creator="2" data-id="57" data-title="тест9" data-members="1" data-date="2018-06-22 10:26:21">
+                        <div class="main_theme">
+                            <div class="theme">
+                                <div class="theme_name">тест9</div>
+
+                                <i id="theme_title_edit" class="material-icons" title="Изменить название">edit</i>
+
+                                <input type="text" class="edit_name" value="">
+                                <div class="date">
+                                    10:26 </div>
+                            </div>
+                            <div class="status">
+
+
+                            </div>
+                            <!--ВЫЕЗЖАЮЩИЕ КНОПКИ РЕДАКТИРОВАНИЯ ТЕМЫ-->
+                            <div class="box-option" style="
+                                                    ">
+                                <i class="material-icons" id="theme_archive_button" title="В архив">delete</i>
+                                <i class="material-icons" id="theme_members_button" title="Участники">person_add</i>
+                            </div>
+                        </div>
+                        <!--АКТИВЕН ПРИ ВЫБРАННОЙ ТЕМЕ-->
+                        <div class="box"></div>
+                    </li>
+                    <li class="theme_li" data-creator="2" data-id="56" data-title="тест8" data-members="1" data-date="2018-06-22 10:26:16">
+                        <div class="main_theme">
+                            <div class="theme">
+                                <div class="theme_name">тест8</div>
+
+                                <i id="theme_title_edit" class="material-icons" title="Изменить название">edit</i>
+
+                                <input type="text" class="edit_name" value="">
+                                <div class="date">
+                                    10:26 </div>
+                            </div>
+                            <div class="status">
+
+
+                            </div>
+                            <!--ВЫЕЗЖАЮЩИЕ КНОПКИ РЕДАКТИРОВАНИЯ ТЕМЫ-->
+                            <div class="box-option" style="
+                                                    ">
+                                <i class="material-icons" id="theme_archive_button" title="В архив">delete</i>
+                                <i class="material-icons" id="theme_members_button" title="Участники">person_add</i>
+                            </div>
+                        </div>
+                        <!--АКТИВЕН ПРИ ВЫБРАННОЙ ТЕМЕ-->
+                        <div class="box"></div>
+                    </li>
+                    <li class="theme_li" data-creator="2" data-id="55" data-title="тест7" data-members="1" data-date="2018-06-22 10:26:12">
+                        <div class="main_theme">
+                            <div class="theme">
+                                <div class="theme_name">тест7</div>
+
+                                <i id="theme_title_edit" class="material-icons" title="Изменить название">edit</i>
+
+                                <input type="text" class="edit_name" value="">
+                                <div class="date">
+                                    10:26 </div>
+                            </div>
+                            <div class="status">
+
+
+                            </div>
+                            <!--ВЫЕЗЖАЮЩИЕ КНОПКИ РЕДАКТИРОВАНИЯ ТЕМЫ-->
+                            <div class="box-option" style="
+                                                    ">
+                                <i class="material-icons" id="theme_archive_button" title="В архив">delete</i>
+                                <i class="material-icons" id="theme_members_button" title="Участники">person_add</i>
+                            </div>
+                        </div>
+                        <!--АКТИВЕН ПРИ ВЫБРАННОЙ ТЕМЕ-->
+                        <div class="box"></div>
+                    </li>
+                    <li class="theme_li" data-creator="2" data-id="54" data-title="тест6" data-members="1" data-date="2018-06-22 10:26:03">
+                        <div class="main_theme">
+                            <div class="theme">
+                                <div class="theme_name">тест6</div>
+
+                                <i id="theme_title_edit" class="material-icons" title="Изменить название">edit</i>
+
+                                <input type="text" class="edit_name" value="">
+                                <div class="date">
+                                    10:26 </div>
+                            </div>
+                            <div class="status">
+
+
+                            </div>
+                            <!--ВЫЕЗЖАЮЩИЕ КНОПКИ РЕДАКТИРОВАНИЯ ТЕМЫ-->
+                            <div class="box-option" style="
+                                                    ">
+                                <i class="material-icons" id="theme_archive_button" title="В архив">delete</i>
+                                <i class="material-icons" id="theme_members_button" title="Участники">person_add</i>
+                            </div>
+                        </div>
+                        <!--АКТИВЕН ПРИ ВЫБРАННОЙ ТЕМЕ-->
+                        <div class="box"></div>
+                    </li>
+                    <li class="theme_li" data-creator="2" data-id="53" data-title="тест5" data-members="1" data-date="2018-06-22 10:25:57">
+                        <div class="main_theme">
+                            <div class="theme">
+                                <div class="theme_name">тест5</div>
+
+                                <i id="theme_title_edit" class="material-icons" title="Изменить название">edit</i>
+
+                                <input type="text" class="edit_name" value="">
+                                <div class="date">
+                                    10:25 </div>
+                            </div>
+                            <div class="status">
+
+
+                            </div>
+                            <!--ВЫЕЗЖАЮЩИЕ КНОПКИ РЕДАКТИРОВАНИЯ ТЕМЫ-->
+                            <div class="box-option" style="
+                                                    ">
+                                <i class="material-icons" id="theme_archive_button" title="В архив">delete</i>
+                                <i class="material-icons" id="theme_members_button" title="Участники">person_add</i>
+                            </div>
+                        </div>
+                        <!--АКТИВЕН ПРИ ВЫБРАННОЙ ТЕМЕ-->
+                        <div class="box"></div>
+                    </li>
+                    <li class="theme_li" data-creator="2" data-id="52" data-title="тест4" data-members="1" data-date="2018-06-22 10:25:48">
+                        <div class="main_theme">
+                            <div class="theme">
+                                <div class="theme_name">тест4</div>
+
+                                <i id="theme_title_edit" class="material-icons" title="Изменить название">edit</i>
+
+                                <input type="text" class="edit_name" value="">
+                                <div class="date">
+                                    10:25 </div>
+                            </div>
+                            <div class="status">
+
+
+                            </div>
+                            <!--ВЫЕЗЖАЮЩИЕ КНОПКИ РЕДАКТИРОВАНИЯ ТЕМЫ-->
+                            <div class="box-option" style="
+                                                    ">
+                                <i class="material-icons" id="theme_archive_button" title="В архив">delete</i>
+                                <i class="material-icons" id="theme_members_button" title="Участники">person_add</i>
+                            </div>
+                        </div>
+                        <!--АКТИВЕН ПРИ ВЫБРАННОЙ ТЕМЕ-->
+                        <div class="box"></div>
+                    </li>
+                    <li class="theme_li" data-creator="2" data-id="51" data-title="тест3" data-members="1" data-date="2018-06-22 10:25:43">
+                        <div class="main_theme">
+                            <div class="theme">
+                                <div class="theme_name">тест3</div>
+
+                                <i id="theme_title_edit" class="material-icons" title="Изменить название">edit</i>
+
+                                <input type="text" class="edit_name" value="">
+                                <div class="date">
+                                    10:25 </div>
+                            </div>
+                            <div class="status">
+
+
+                            </div>
+                            <!--ВЫЕЗЖАЮЩИЕ КНОПКИ РЕДАКТИРОВАНИЯ ТЕМЫ-->
+                            <div class="box-option" style="
+                                                    ">
+                                <i class="material-icons" id="theme_archive_button" title="В архив">delete</i>
+                                <i class="material-icons" id="theme_members_button" title="Участники">person_add</i>
+                            </div>
+                        </div>
+                        <!--АКТИВЕН ПРИ ВЫБРАННОЙ ТЕМЕ-->
+                        <div class="box"></div>
+                    </li>
+                    <li class="theme_li" data-creator="2" data-id="50" data-title="тест2" data-members="1" data-date="2018-06-22 10:25:37">
+                        <div class="main_theme">
+                            <div class="theme">
+                                <div class="theme_name">тест2</div>
+
+                                <i id="theme_title_edit" class="material-icons" title="Изменить название">edit</i>
+
+                                <input type="text" class="edit_name" value="">
+                                <div class="date">
+                                    10:25 </div>
+                            </div>
+                            <div class="status">
+
+
+                            </div>
+                            <!--ВЫЕЗЖАЮЩИЕ КНОПКИ РЕДАКТИРОВАНИЯ ТЕМЫ-->
+                            <div class="box-option" style="
+                                                    ">
+                                <i class="material-icons" id="theme_archive_button" title="В архив">delete</i>
+                                <i class="material-icons" id="theme_members_button" title="Участники">person_add</i>
+                            </div>
+                        </div>
+                        <!--АКТИВЕН ПРИ ВЫБРАННОЙ ТЕМЕ-->
+                        <div class="box"></div>
+                    </li>
+                    <li class="theme_li" data-creator="2" data-id="49" data-title="тест1" data-members="1" data-date="2018-06-22 10:25:25">
+                        <div class="main_theme">
+                            <div class="theme">
+                                <div class="theme_name">тест1</div>
+
+                                <i id="theme_title_edit" class="material-icons" title="Изменить название">edit</i>
+
+                                <input type="text" class="edit_name" value="">
+                                <div class="date">
+                                    10:25 </div>
+                            </div>
+                            <div class="status">
+
+
+                            </div>
+                            <!--ВЫЕЗЖАЮЩИЕ КНОПКИ РЕДАКТИРОВАНИЯ ТЕМЫ-->
+                            <div class="box-option" style="
+                                                    ">
+                                <i class="material-icons" id="theme_archive_button" title="В архив">delete</i>
+                                <i class="material-icons" id="theme_members_button" title="Участники">person_add</i>
+                            </div>
+                        </div>
+                        <!--АКТИВЕН ПРИ ВЫБРАННОЙ ТЕМЕ-->
+                        <div class="box"></div>
+                    </li>
+                    <li class="theme_li" data-creator="2" data-id="48" data-title="тест" data-members="1" data-date="2018-06-22 10:25:15">
+                        <div class="main_theme">
+                            <div class="theme">
+                                <div class="theme_name">тест</div>
+
+                                <i id="theme_title_edit" class="material-icons" title="Изменить название">edit</i>
+
+                                <input type="text" class="edit_name" value="">
+                                <div class="date">
+                                    10:25 </div>
+                            </div>
+                            <div class="status">
+
+
+                            </div>
+                            <!--ВЫЕЗЖАЮЩИЕ КНОПКИ РЕДАКТИРОВАНИЯ ТЕМЫ-->
+                            <div class="box-option" style="
+                                                    ">
+                                <i class="material-icons" id="theme_archive_button" title="В архив">delete</i>
+                                <i class="material-icons" id="theme_members_button" title="Участники">person_add</i>
+                            </div>
+                        </div>
+                        <!--АКТИВЕН ПРИ ВЫБРАННОЙ ТЕМЕ-->
+                        <div class="box"></div>
+                    </li>
+                    <li class="theme_li" data-creator="2" data-id="45" data-title="Туры онлайн" data-members="2" data-date="2018-06-11 09:47:00">
+                        <div class="main_theme">
+                            <div class="theme">
+                                <div class="theme_name">Туры онлайн</div>
+
+                                <i id="theme_title_edit" class="material-icons" title="Изменить название">edit</i>
+
+                                <input type="text" class="edit_name" value="">
+                                <div class="date">
+                                    09:47 11 июн </div>
+                            </div>
+                            <div class="status">
+
+                                <p>1</p><i class="material-icons" title="В работе">cached</i>
+
+                                <p>4</p><i class="material-icons" title="Выполнено">done</i>
+
+
+                            </div>
+                            <!--ВЫЕЗЖАЮЩИЕ КНОПКИ РЕДАКТИРОВАНИЯ ТЕМЫ-->
+                            <div class="box-option" style="
+                                                    ">
+                                <i class="material-icons" id="theme_archive_button" title="В архив">delete</i>
+                                <i class="material-icons" id="theme_members_button" title="Участники">person_add</i>
+                            </div>
+                        </div>
+                        <!--АКТИВЕН ПРИ ВЫБРАННОЙ ТЕМЕ-->
+                        <div class="box"></div>
+                    </li>
+                </ul>
+            </div>
+            <div class="top_menu">
+                <i id="leftMenu" class="material-icons" title="Темы">menu</i>
+                <div class="user">
+                    <div class="status_name">тест10</div>
+                    <input type="text" class="edit_status_name" value="">
+                    <div class="status_members">Участников: 1</div>
+                </div>
+                <i id="notification_check" class="material-icons" title="Уведомления">notifications</i>
+                <i id="toggleSound" class="material-icons">volume_up</i>
+                <!--Кнопка отключения/включения звука-->
+                <i id="settings_button" class="material-icons" title="Настройки">settings</i>
+                <i id="exit" class="material-icons" title="Выйти">input</i>
+                <!--Кнопка выхода из аккаунта-->
+                <div class="notification_window">
+                    <!--Окно уведомлений-->
+                    <div class="notification_node">
+                        <div class="not_node">
+                            <p class="date"><i class="material-icons">event</i>21 авг 16:54</p>
+                            <span>Вас добавили в тему:</span>
+                            <a href="">Домашняя тема</a>
+                        </div>
+                        <i class="material-icons" title="Закрыть">close</i>
+                    </div>
+                    <div class="notification_node">
+                        <div class="not_node">
+                            <p class="date"><i class="material-icons">event</i>21 авг 16:54</p>
+                            <span>В теме <a href="">Домашняя тема</a> добавлена задача:</span>
+                            <a href="">Настроить окно уведомлений</a>
+                        </div>
+                        <i class="material-icons" title="Закрыть">close</i>
+                    </div>
+                    <div class="notification_node">
+                        <div class="not_node">
+                            <p class="date"><i class="material-icons">event</i>21 авг 16:54</p>
+                            <span>Задача <a href="">Настроить окно уведомлений</a> принята в работу</span>
+                        </div>
+                        <i class="material-icons" title="Закрыть">close</i>
+                    </div>
+                    <div class="notification_node">
+                        <div class="not_node">
+                            <p class="date"><i class="material-icons">event</i>21 авг 16:54</p>
+                            <span>Задача <a href="" title="Закрыть">Настроить окно уведомлений</a> выполнена</span>
+                        </div>
+                        <i class="material-icons">close</i>
+                    </div>
+                </div>
+            </div>
+            <div class="center_right">
+                <div class="task_window">
+                    <!--Задачи-->
+                    <div class="col_need_to_do" style="display: block;">
+                        <h3>Нужно сделать</h3>
+                        <i id="addTask" class="material-icons">add</i>
+                        <div class="new_task_container" style="display: none;"></div>
+                        <div class="dropZone" id="container_need_to_do" dropzone="true" ondragenter="drag_enter(event)" ondragleave="drag_leave(event)" ondrop="drag_drop(event)" ondragover="return false"></div>
+                    </div>
+                    <div class="col_in_work" style="display: block;">
+                        <h3>В работе</h3>
+                        <div class="dropZone" id="container_in_work" dropzone="true" ondragenter="drag_enter(event)" ondragleave="drag_leave(event)" ondrop="drag_drop(event)" ondragover="return false"></div>
+                    </div>
+                    <div class="col_done" style="display: block;">
+                        <h3>Выполнено</h3>
+                        <div class="dropZone" id="container_done" dropzone="true" ondragenter="drag_enter(event)" ondragleave="drag_leave(event)" ondrop="drag_drop(event)" ondragover="return false"></div>
+                    </div>
+                    <div class="col_archive" style="display: block;">
+                        <h3>Архив</h3>
+                        <div class="dropZone" id="container_archive" dropzone="true" ondragenter="drag_enter(event)" ondragleave="drag_leave(event)" ondrop="drag_drop(event)" ondragover="return false"></div>
+                    </div>
+                    <div class="card" style="display: none;">
+
+                    </div>
+                    <button id="task_archive_btn" class="btn task_done_btn" style="transform: scale(1);"><i class="material-icons" title="Архив">archive</i></button>
+                </div>
+                <div id="resize" class="resize">
+                    <!--изменение размера окна-->
+                </div>
+                <div class="chat_container">
+                    <div class="chat" id="chat"></div>
+                    <div class="status_write" style="display: none;"></div>
+                </div>
+            </div>
+            <div class="bottom_menu">
+                <i id="attach_file" class="material-icons" title="Вложить">attach_file</i>
+                <input style="display: none" id="input_file" type="file">
+                <textarea name="textarea" id="textarea" cols="1" placeholder="Напишите сообщение..."></textarea>
+                <i id="emojiButton" class="material-icons">mood</i>
+                <!--Модзи-->
+                <i id="textarea_send" class="material-icons" title="Отправить">send</i> </div>
+            <div class="modal_users" id="modal-2_window">
+                <!--Пользователи-->
+            </div>
+            <div class="settings_window">
+                <div class="settings_node">
+                    <div class="settings_modal">
+                        <i id="setting_close" class="material-icons" title="Закрыть">close</i>
+                        <h1>Настройки</h1>
+                        <div class="tabs_setings">
+                            <input id="set_main" type="radio" name="tabs_tour" checked="">
+                            <label for="set_main">Отправка e-mail</label>
+                            <input id="set_not" type="radio" name="tabs_tour">
+                            <label for="set_not">Оформление</label>
+                            <input id="set_param" type="radio" name="tabs_tour">
+                            <label for="set_param">Параметры</label>
+                            <div class="content_tabs" id="set_main_tab">
+                                <h3>Уведомления</h3>
+                                <div class="rkmd-checkbox">
+                                    <label class="input-checkbox">
+                                        <input type="checkbox" id="checkbox-2">
+                                        <span class="checkbox"></span>
+                                    </label>
+                                    <label for="checkbox-2" class="label">Получать уведомления о новых сообщениях в чате</label>
+                                </div>
+                                <div class="rkmd-checkbox">
+                                    <label class="input-checkbox">
+                                        <input type="checkbox" id="checkbox-1">
+                                        <span class="checkbox"></span>
+                                    </label>
+                                    <label for="checkbox-1" class="label">Получать уведомления о своих сообщениях в чате</label>
+                                </div>
+                                <div class="rkmd-checkbox">
+                                    <label class="input-checkbox">
+                                        <input type="checkbox" id="checkbox-3">
+                                        <span class="checkbox"></span>
+                                    </label>
+                                    <label for="checkbox-3" class="label">Получать уведомления о изменениях в теме</label>
+                                </div>
+                            </div>
+                            <div class="content_tabs" id="set_not_tab">
+                                <h3>Расположение</h3>
+                                <div class="rkmd-checkbox">
+                                    <label class="input-checkbox">
+                                        <input type="checkbox" id="checkbox-4">
+                                        <span class="checkbox"></span>
+                                    </label>
+                                    <label for="checkbox-4" class="label">Основной экран в форме "Вкладок"</label>
+                                </div>
+                                <div class="rkmd-checkbox">
+                                    <label class="input-checkbox">
+                                        <input type="checkbox" id="checkbox-5">
+                                        <span class="checkbox"></span>
+                                    </label>
+                                    <label for="checkbox-5" class="label">Основной экран в форме "Колонок"</label>
+                                </div>
+                            </div>
+                            <div class="content_tabs" id="set_param_tab">
+                                <div class="change_password_form">
+                                    <h3>Смена пароля</h3>
+                                    <div class="change_password_textfield">
+                                        <input id="old_password" type="password" name="current_password" required="">
+                                        <label for="current_password">Текущий пароль</label>
+                                    </div>
+                                    <div class="change_password_textfield">
+                                        <input id="new_password" type="password" name="new_password">
+                                        <label for="new_password">Новый пароль</label>
+                                    </div>
+                                    <div class="change_password_textfield">
+                                        <input id="new_password_confirm" type="password" name="confirm_password">
+                                        <label for="confirm_password">Подтверждение</label>
+                                    </div>
+                                    <span id="password_change_error" class="error"></span>
+                                    <button id="password_change_confirm" type="button" class="btn">Сохранить</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>

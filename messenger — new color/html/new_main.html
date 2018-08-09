@@ -1,0 +1,1858 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link href="https://fonts.googleapis.com/css?family=Fjalla+One|Open+Sans:300,300i,400,400i,500,500i,600,600i,700,700i,800,800i&amp;subset=cyrillic,cyrillic-ext,greek,greek-ext,latin-ext,vietnamese" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+    <div id="container">
+        <script src="/controllers/Main/main.js"></script>
+        <script src="/controllers/Main/chat.js"></script>
+        <script src="/controllers/Main/resize.js"></script>
+        <div class="main">
+            <div class="fon" style="display: none;">
+                <!--Затемнение экрана при выезжании окна display: block;-->
+            </div>
+            <div class="left" style="left: -20rem;">
+                <!-- Боковое меню -->
+                <div class="left_menu">
+                    <input id="search" type="text" name="search" placeholder="Найти..." onkeyup="loadThemes(this.value);">
+                    <i id="add_theme_button" class="material-icons active_left_menu" title="Добавить">add</i>
+                </div>
+
+                <!-- Список тем -->
+                <ul id="theme_list">
+                    <li class="theme_li" data-creator="1" data-id="20" data-title="Домашняя тема" data-members="3" data-date="2018-06-05 08:50:32">
+                        <div class="main_theme">
+                            <div class="theme">
+                                <div class="theme_name">Домашняя тема</div>
+
+
+                                <input type="text" class="edit_name" value="">
+                                <div class="date">Array</div>
+                            </div>
+                            <div class="status">
+
+                                <p>9</p><i class="material-icons" title="Нужно сделать">next_week</i>
+
+                                <p>2</p><i class="material-icons" title="В работе">cached</i>
+
+                                <p>2</p><i class="material-icons" title="Выполнено">done</i>
+
+
+                            </div>
+                            <!--ВЫЕЗЖАЮЩИЕ КНОПКИ РЕДАКТИРОВАНИЯ ТЕМЫ-->
+                            <div class="box-option" style="left: 0.8rem;">
+                                <i class="material-icons" id="theme_exit_button" title="Выйти">close</i>
+                            </div>
+                        </div>
+                        <!--АКТИВЕН ПРИ ВЫБРАННОЙ ТЕМЕ-->
+                        <div class="box-on"></div>
+                    </li>
+                    <li class="theme_li" data-creator="2" data-id="45" data-title="Туры онлайн" data-members="2" data-date="2018-05-18 11:35:36">
+                        <div class="main_theme">
+                            <div class="theme">
+                                <div class="theme_name">Туры онлайн</div>
+
+                                <i id="theme_title_edit" class="material-icons" title="Изменить название">edit</i>
+
+                                <input type="text" class="edit_name" value="">
+                                <div class="date">Array</div>
+                            </div>
+                            <div class="status">
+
+                                <p>2</p><i class="material-icons" title="В работе">cached</i>
+
+                                <p>2</p><i class="material-icons" title="Выполнено">done</i>
+
+
+                            </div>
+                            <!--ВЫЕЗЖАЮЩИЕ КНОПКИ РЕДАКТИРОВАНИЯ ТЕМЫ-->
+                            <div class="box-option" style="left: -10rem;">
+                                <i class="material-icons" id="theme_archive_button" title="В архив">delete</i>
+                                <i class="material-icons" id="theme_members_button" title="Участники">person_add</i>
+                            </div>
+                        </div>
+                        <!--АКТИВЕН ПРИ ВЫБРАННОЙ ТЕМЕ-->
+                        <div class="box"></div>
+                    </li>
+                </ul>
+            </div>
+            <div class="top_menu">
+                <i id="leftMenu" class="material-icons" title="Темы">menu</i>
+                <div class="user">
+                    <div class="status_name">Домашняя тема</div>
+                    <input type="text" class="edit_status_name" value="">
+                    <div class="status_members">Участников: 3</div>
+                </div>
+                <i id="notification_check" class="material-icons" title="Уведомления">notifications</i>
+                <i id="toggleSound" class="material-icons">volume_up</i>
+                <!--Кнопка отключения/включения звука-->
+                <i id="settings_button" class="material-icons" title="Настройки">settings</i>
+                <i id="exit" class="material-icons" title="Выйти">input</i>
+                <!--Кнопка выхода из аккаунта-->
+                <div class="notification_window">
+                    <!--Окно уведомлений-->
+                    <div class="notification_node">
+                        <div class="not_node">
+                            <p class="date"><i class="material-icons">event</i>21 авг 16:54</p>
+                            <span>Вас добавили в тему:</span>
+                            <a href="">Домашняя тема</a>
+                        </div>
+                        <i class="material-icons" title="Закрыть">close</i>
+                    </div>
+                    <div class="notification_node">
+                        <div class="not_node">
+                            <p class="date"><i class="material-icons">event</i>21 авг 16:54</p>
+                            <span>В теме <a href="">Домашняя тема</a> добавлена задача:</span>
+                            <a href="">Настроить окно уведомлений</a>
+                        </div>
+                        <i class="material-icons" title="Закрыть">close</i>
+                    </div>
+                    <div class="notification_node">
+                        <div class="not_node">
+                            <p class="date"><i class="material-icons">event</i>21 авг 16:54</p>
+                            <span>Задача <a href="">Настроить окно уведомлений</a> принята в работу</span>
+                        </div>
+                        <i class="material-icons" title="Закрыть">close</i>
+                    </div>
+                    <div class="notification_node">
+                        <div class="not_node">
+                            <p class="date"><i class="material-icons">event</i>21 авг 16:54</p>
+                            <span>Задача <a href="" title="Закрыть">Настроить окно уведомлений</a> выполнена</span>
+                        </div>
+                        <i class="material-icons">close</i>
+                    </div>
+                </div>
+            </div>
+            <div class="center_right">
+                <div class="tabs" id="tabs" style="display: block;">
+                    <input id="need_to_do" type="radio" name="task" checked="">
+                    <label for="need_to_do">Нужно сделать</label>
+                    <input id="in_work" type="radio" name="task">
+                    <label for="in_work">В работе</label>
+                    <input id="done" type="radio" name="task">
+                    <label for="done">Выполнено</label>
+                    <input id="archive" type="radio" name="task">
+                    <label for="archive">Архив</label>
+                    <div id="tab_need_to_do" class="content_tabs col_need_to_do">
+                        <button id="addTask" class="btn add_task_btn"><i class="material-icons">add</i>
+                            <p>Создать</p>
+                        </button>
+                        <div id="container_need_to_do">
+                            <li class="task_li" onclick="openTask(5, this);" data-id="5" data-task-name="Сделать систему уведомлений о сообщениях" data-status="task" draggable="true" ondragstart="drag_start(event)" ondragend="drag_end(event)">
+                                <div class="task_node">
+                                    <h3>Сделать систему уведомлений о сообщениях</h3>
+                                    <p><span class="day">28</span><span class="mounth">мая</span></p>
+                                    <div class="notification">
+                                        <i class="material-icons">mode_comment</i>
+                                        <p class="date">2</p>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="task_li" onclick="openTask(23, this);" data-id="23" data-task-name="Приглашение пользователя в тему" data-status="task" draggable="true" ondragstart="drag_start(event)" ondragend="drag_end(event)">
+                                <div class="task_node">
+                                    <h3>Приглашение пользователя в тему</h3>
+                                    <p><span class="day">28</span><span class="mounth">мая</span></p>
+                                    <div class="notification">
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="task_li" onclick="openTask(24, this);" data-id="24" data-task-name="Функционал по нажатию правой кнопки на сообщение в чате" data-status="task" draggable="true" ondragstart="drag_start(event)" ondragend="drag_end(event)">
+                                <div class="task_node">
+                                    <h3>Функционал по нажатию правой кнопки на сообщение в чате</h3>
+                                    <p><span class="day">28</span><span class="mounth">мая</span></p>
+                                    <div class="notification">
+                                        <i class="material-icons">schedule</i>
+                                        <p class="date">19 мая</p> <i class="material-icons">mode_comment</i>
+                                        <p class="date">4</p>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="task_li" onclick="openTask(41, this);" data-id="41" data-task-name="На системные сообщения необходим другой нейтральный звук" data-status="task" draggable="true" ondragstart="drag_start(event)" ondragend="drag_end(event)">
+                                <div class="task_node">
+                                    <h3>На системные сообщения необходим другой нейтральный звук</h3>
+                                    <p><span class="day">28</span><span class="mounth">мая</span></p>
+                                    <div class="notification">
+                                        <i class="material-icons">mode_comment</i>
+                                        <p class="date">6</p>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="task_li" onclick="openTask(47, this);" data-id="47" data-task-name="Реализовать функционал цитирование сообщения" data-status="task" draggable="true" ondragstart="drag_start(event)" ondragend="drag_end(event)">
+                                <div class="task_node">
+                                    <h3>Реализовать функционал цитирование сообщения</h3>
+                                    <p><span class="day">28</span><span class="mounth">мая</span></p>
+                                    <div class="notification">
+                                        <i class="material-icons">mode_comment</i>
+                                        <p class="date">1</p>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="task_li" onclick="openTask(48, this);" data-id="48" data-task-name="удалить все сообщения к теме" data-status="task" draggable="true" ondragstart="drag_start(event)" ondragend="drag_end(event)">
+                                <div class="task_node">
+                                    <h3>удалить все сообщения к теме</h3>
+                                    <p><span class="day">28</span><span class="mounth">мая</span></p>
+                                    <div class="notification">
+                                        <i class="material-icons">mode_comment</i>
+                                        <p class="date">1</p>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="task_li" onclick="openTask(50, this);" data-id="50" data-task-name="Если в карточке добавилось сообщение или срок, то нотификацию менять на цветную, чтобы визуально можно было оценить все изменения в теме" data-status="task" draggable="true" ondragstart="drag_start(event)" ondragend="drag_end(event)">
+                                <div class="task_node">
+                                    <h3>Если в карточке добавилось сообщение или срок, то нотификацию менять на цветную, чтобы визуально можно было оценить все изменения в теме</h3>
+                                    <p><span class="day">28</span><span class="mounth">мая</span></p>
+                                    <div class="notification">
+                                        <i class="material-icons">mode_comment</i>
+                                        <p class="date">1</p>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="task_li" onclick="openTask(51, this);" data-id="51" data-task-name="При нажатии правой кнопкой мыши на карточке реализовать возможность ее быстрого удаления" data-status="task" draggable="true" ondragstart="drag_start(event)" ondragend="drag_end(event)">
+                                <div class="task_node">
+                                    <h3>При нажатии правой кнопкой мыши на карточке реализовать возможность ее быстрого удаления</h3>
+                                    <p><span class="day">28</span><span class="mounth">мая</span></p>
+                                    <div class="notification">
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="task_li" onclick="openTask(52, this);" data-id="52" data-task-name="сделать фавикон и установить на сайте" data-status="task" draggable="true" ondragstart="drag_start(event)" ondragend="drag_end(event)">
+                                <div class="task_node">
+                                    <h3>сделать фавикон и установить на сайте</h3>
+                                    <p><span class="day">28</span><span class="mounth">мая</span></p>
+                                    <div class="notification">
+                                    </div>
+                                </div>
+                            </li>
+                        </div>
+                    </div>
+                    <div id="tab_in_work" class="content_tabs col_in_work">
+                        <div id="container_in_work">
+                            <li class="task_li" onclick="openTask(1, this);" data-id="1" data-task-name="Редактирование задачи" data-status="work" draggable="true" ondragstart="drag_start(event)" ondragend="drag_end(event)">
+                                <div class="task_node">
+                                    <h3>Редактирование задачи</h3>
+                                    <p><span class="day">28</span><span class="mounth">мая</span></p>
+                                    <div class="notification">
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="task_li" onclick="openTask(30, this);" data-id="30" data-task-name="Дизайн окна удаления сообщений" data-status="work" draggable="true" ondragstart="drag_start(event)" ondragend="drag_end(event)">
+                                <div class="task_node">
+                                    <h3>Дизайн окна удаления сообщений</h3>
+                                    <p><span class="day">28</span><span class="mounth">мая</span></p>
+                                    <div class="notification">
+                                        <i class="material-icons">mode_comment</i>
+                                        <p class="date">1</p>
+                                    </div>
+                                </div>
+                            </li>
+                        </div>
+                    </div>
+                    <div id="tab_done" class="content_tabs col_done">
+                        <div id="container_done">
+                            <li class="task_li" onclick="openTask(54, this);" data-id="54" data-task-name="Дизайн окна меню правой кнопки мыши" data-status="done" draggable="true" ondragstart="drag_start(event)" ondragend="drag_end(event)">
+                                <div class="task_node">
+                                    <h3>Дизайн окна меню правой кнопки мыши</h3>
+                                    <p><span class="day">28</span><span class="mounth">мая</span></p>
+                                    <div class="notification">
+                                        <i class="material-icons">schedule</i>
+                                        <p class="date">3 мая</p>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="task_li" onclick="openTask(64, this);" data-id="64" data-task-name="Переделка дизайна сайта" data-status="done" draggable="true" ondragstart="drag_start(event)" ondragend="drag_end(event)">
+                                <div class="task_node">
+                                    <h3>Переделка дизайна сайта</h3>
+                                    <p><span class="day">31</span><span class="mounth">мая</span></p>
+                                    <div class="notification">
+                                    </div>
+                                </div>
+                            </li>
+                        </div>
+                    </div>
+                    <div id="tab_archive" class="content_tabs col_archive">
+                        <div id="container_archive">
+                            <li class="task_li" onclick="openTask(2, this);" data-id="2" data-task-name="Ответить - цитата - дизайн" data-status="done" draggable="true" ondragstart="drag_start(event)" ondragend="drag_end(event)">
+                                <div class="task_node">
+                                    <h3>Ответить - цитата - дизайн</h3>
+                                    <p><span class="day">28</span><span class="mounth">мая</span></p>
+                                    <div class="notification">
+                                        <i class="material-icons">mode_comment</i>
+                                        <p class="date">9</p>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="task_li" onclick="openTask(4, this);" data-id="4" data-task-name="Сделать кнопку удаления карточки
+" data-status="done" draggable="true" ondragstart="drag_start(event)" ondragend="drag_end(event)">
+                                <div class="task_node">
+                                    <h3>Сделать кнопку удаления карточки
+</h3>
+                                    <p><span class="day">28</span><span class="mounth">мая</span></p>
+                                    <div class="notification">
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="task_li" onclick="openTask(6, this);" data-id="6" data-task-name="Сделать иконку " колокольчик "=" " для=" " новых=" " уведомлений"="" data-status="done" draggable="true" ondragstart="drag_start(event)" ondragend="drag_end(event)">
+                                <div class="task_node">
+                                    <h3>Сделать иконку "колокольчик" для новых уведомлений</h3>
+                                    <p><span class="day">28</span><span class="mounth">мая</span></p>
+                                    <div class="notification">
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="task_li" onclick="openTask(7, this);" data-id="7" data-task-name="Сделать, чтобы при создании новой карточки скролл проматывал вниз на нее" data-status="done" draggable="true" ondragstart="drag_start(event)" ondragend="drag_end(event)">
+                                <div class="task_node">
+                                    <h3>Сделать, чтобы при создании новой карточки скролл проматывал вниз на нее</h3>
+                                    <p><span class="day">28</span><span class="mounth">мая</span></p>
+                                    <div class="notification">
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="task_li" onclick="openTask(8, this);" data-id="8" data-task-name="ПЕРЕТЯГИВАТЬ КАРТОЧКИ В РАЗНЫЕ КОЛОНКИ" data-status="done" draggable="true" ondragstart="drag_start(event)" ondragend="drag_end(event)">
+                                <div class="task_node">
+                                    <h3>ПЕРЕТЯГИВАТЬ КАРТОЧКИ В РАЗНЫЕ КОЛОНКИ</h3>
+                                    <p><span class="day">28</span><span class="mounth">мая</span></p>
+                                    <div class="notification">
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="task_li" onclick="openTask(12, this);" data-id="12" data-task-name="Добавление темы в конце списка" data-status="done" draggable="true" ondragstart="drag_start(event)" ondragend="drag_end(event)">
+                                <div class="task_node">
+                                    <h3>Добавление темы в конце списка</h3>
+                                    <p><span class="day">28</span><span class="mounth">мая</span></p>
+                                    <div class="notification">
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="task_li" onclick="openTask(13, this);" data-id="13" data-task-name="Редактирование названия темы по клику на кнопку edit" data-status="done" draggable="true" ondragstart="drag_start(event)" ondragend="drag_end(event)">
+                                <div class="task_node">
+                                    <h3>Редактирование названия темы по клику на кнопку edit</h3>
+                                    <p><span class="day">28</span><span class="mounth">мая</span></p>
+                                    <div class="notification">
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="task_li" onclick="openTask(16, this);" data-id="16" data-task-name="Cистемные оповещения в чат" data-status="done" draggable="true" ondragstart="drag_start(event)" ondragend="drag_end(event)">
+                                <div class="task_node">
+                                    <h3>Cистемные оповещения в чат</h3>
+                                    <p><span class="day">28</span><span class="mounth">мая</span></p>
+                                    <div class="notification">
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="task_li" onclick="openTask(17, this);" data-id="17" data-task-name="Добавить чат к задачам" data-status="done" draggable="true" ondragstart="drag_start(event)" ondragend="drag_end(event)">
+                                <div class="task_node">
+                                    <h3>Добавить чат к задачам</h3>
+                                    <p><span class="day">28</span><span class="mounth">мая</span></p>
+                                    <div class="notification">
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="task_li" onclick="openTask(18, this);" data-id="18" data-task-name="Автоматически обрезать высоту описания" data-status="done" draggable="true" ondragstart="drag_start(event)" ondragend="drag_end(event)">
+                                <div class="task_node">
+                                    <h3>Автоматически обрезать высоту описания</h3>
+                                    <p><span class="day">28</span><span class="mounth">мая</span></p>
+                                    <div class="notification">
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="task_li" onclick="openTask(19, this);" data-id="19" data-task-name="Удвоение сообщений
+" data-status="done" draggable="true" ondragstart="drag_start(event)" ondragend="drag_end(event)">
+                                <div class="task_node">
+                                    <h3>Удвоение сообщений
+</h3>
+                                    <p><span class="day">28</span><span class="mounth">мая</span></p>
+                                    <div class="notification">
+                                        <i class="material-icons">mode_comment</i>
+                                        <p class="date">2</p>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="task_li" onclick="openTask(20, this);" data-id="20" data-task-name="Архивация темы (кнопка корзина)" data-status="done" draggable="true" ondragstart="drag_start(event)" ondragend="drag_end(event)">
+                                <div class="task_node">
+                                    <h3>Архивация темы (кнопка корзина)</h3>
+                                    <p><span class="day">28</span><span class="mounth">мая</span></p>
+                                    <div class="notification">
+                                        <i class="material-icons">mode_comment</i>
+                                        <p class="date">1</p>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="task_li" onclick="openTask(25, this);" data-id="25" data-task-name="Запоминать последние сообщения и выводить их в область ввода по стрелке вверх если там пусто" data-status="work" draggable="true" ondragstart="drag_start(event)" ondragend="drag_end(event)">
+                                <div class="task_node">
+                                    <h3>Запоминать последние сообщения и выводить их в область ввода по стрелке вверх если там пусто</h3>
+                                    <p><span class="day">28</span><span class="mounth">мая</span></p>
+                                    <div class="notification">
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="task_li" onclick="openTask(26, this);" data-id="26" data-task-name="Тестовая" data-status="task" draggable="true" ondragstart="drag_start(event)" ondragend="drag_end(event)">
+                                <div class="task_node">
+                                    <h3>Тестовая</h3>
+                                    <p><span class="day">28</span><span class="mounth">мая</span></p>
+                                    <div class="notification">
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="task_li" onclick="openTask(27, this);" data-id="27" data-task-name="Делать ссылки в чате кликабельными" data-status="done" draggable="true" ondragstart="drag_start(event)" ondragend="drag_end(event)">
+                                <div class="task_node">
+                                    <h3>Делать ссылки в чате кликабельными</h3>
+                                    <p><span class="day">28</span><span class="mounth">мая</span></p>
+                                    <div class="notification">
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="task_li" onclick="openTask(28, this);" data-id="28" data-task-name="Вставлять файлы в чат" data-status="done" draggable="true" ondragstart="drag_start(event)" ondragend="drag_end(event)">
+                                <div class="task_node">
+                                    <h3>Вставлять файлы в чат</h3>
+                                    <p><span class="day">28</span><span class="mounth">мая</span></p>
+                                    <div class="notification">
+                                        <i class="material-icons">mode_comment</i>
+                                        <p class="date">1</p>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="task_li" onclick="openTask(31, this);" data-id="31" data-task-name="Сделать отображение в чат, когда пишется сообщение" data-status="done" draggable="true" ondragstart="drag_start(event)" ondragend="drag_end(event)">
+                                <div class="task_node">
+                                    <h3>Сделать отображение в чат, когда пишется сообщение</h3>
+                                    <p><span class="day">28</span><span class="mounth">мая</span></p>
+                                    <div class="notification">
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="task_li" onclick="openTask(33, this);" data-id="33" data-task-name="Не отправлять сообщения если только пробелы в нем" data-status="done" draggable="true" ondragstart="drag_start(event)" ondragend="drag_end(event)">
+                                <div class="task_node">
+                                    <h3>Не отправлять сообщения если только пробелы в нем</h3>
+                                    <p><span class="day">28</span><span class="mounth">мая</span></p>
+                                    <div class="notification">
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="task_li" onclick="openTask(34, this);" data-id="34" data-task-name="Запретить редактировать название темы если ты не автор" data-status="done" draggable="true" ondragstart="drag_start(event)" ondragend="drag_end(event)">
+                                <div class="task_node">
+                                    <h3>Запретить редактировать название темы если ты не автор</h3>
+                                    <p><span class="day">28</span><span class="mounth">мая</span></p>
+                                    <div class="notification">
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="task_li" onclick="openTask(35, this);" data-id="35" data-task-name="Нужно сделать отображение сверху последнего проекта" data-status="done" draggable="true" ondragstart="drag_start(event)" ondragend="drag_end(event)">
+                                <div class="task_node">
+                                    <h3>Нужно сделать отображение сверху последнего проекта</h3>
+                                    <p><span class="day">28</span><span class="mounth">мая</span></p>
+                                    <div class="notification">
+                                        <i class="material-icons">mode_comment</i>
+                                        <p class="date">1</p>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="task_li" onclick="openTask(36, this);" data-id="36" data-task-name="В firefox не работает drag&amp;drop" data-status="done" draggable="true" ondragstart="drag_start(event)" ondragend="drag_end(event)">
+                                <div class="task_node">
+                                    <h3>В firefox не работает drag&amp;drop</h3>
+                                    <p><span class="day">28</span><span class="mounth">мая</span></p>
+                                    <div class="notification">
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="task_li" onclick="openTask(37, this);" data-id="37" data-task-name="Не выходит чат  в задаче - возвращает чат Темы" data-status="done" draggable="true" ondragstart="drag_start(event)" ondragend="drag_end(event)">
+                                <div class="task_node">
+                                    <h3>Не выходит чат  в задаче - возвращает чат Темы</h3>
+                                    <p><span class="day">28</span><span class="mounth">мая</span></p>
+                                    <div class="notification">
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="task_li" onclick="openTask(42, this);" data-id="42" data-task-name="в карточке когда добавляешь описание или срок, тут же выходит админ.сообщение, а должно когда ты нажимаешь на кнопку СОХРАНИТЬ, а то слишком много сообщений админа" data-status="done" draggable="true" ondragstart="drag_start(event)" ondragend="drag_end(event)">
+                                <div class="task_node">
+                                    <h3>в карточке когда добавляешь описание или срок, тут же выходит админ.сообщение, а должно когда ты нажимаешь на кнопку СОХРАНИТЬ, а то слишком много сообщений админа</h3>
+                                    <p><span class="day">28</span><span class="mounth">мая</span></p>
+                                    <div class="notification">
+                                        <i class="material-icons">mode_comment</i>
+                                        <p class="date">8</p>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="task_li" onclick="openTask(49, this);" data-id="49" data-task-name="Исправить автоматическое обрезание описания, чтобы в конце не выходил неизвестный символ кириллицы, а было просто троеточие" data-status="done" draggable="true" ondragstart="drag_start(event)" ondragend="drag_end(event)">
+                                <div class="task_node">
+                                    <h3>Исправить автоматическое обрезание описания, чтобы в конце не выходил неизвестный символ кириллицы, а было просто троеточие</h3>
+                                    <p><span class="day">28</span><span class="mounth">мая</span></p>
+                                    <div class="notification">
+                                    </div>
+                                </div>
+                            </li>
+                        </div>
+                    </div>
+                </div>
+                <div class="card" style="display: none;">
+
+                </div>
+                <div id="resize" class="resize">
+                    <!--изменение размера окна-->
+                </div>
+                <div class="chat_container">
+                    <div class="chat" id="chat">
+                        <div class="other_msg">
+                            <div id="1084" class="box_msg">
+                                <div class="text">
+                                    <span class="author"><i class="material-icons" title="Ответить">reply</i>Navat</span>
+                                    <span>готово</span>
+                                </div>
+                                <div class="date">
+                                    <span class="chat_time">13:31</span>
+                                    <span class="chat_date">29 мая</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="self_msg">
+                            <div id="1085" class="box_msg">
+                                <div class="text">
+                                    <span>ок, спасибо</span>
+                                </div>
+                                <div class="date">
+                                    <span class="chat_time">13:33</span>
+                                    <span class="chat_date">29 мая</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="self_msg">
+                            <div id="1086" class="box_msg">
+                                <div class="text">
+                                    <span><a target="_blank" href="upload/phenix_29-5-2018_01.06.2018.jpg"><img class="img_preview" src="upload/phenix_29-5-2018_01.06.2018.jpg" title="01.06.2018.jpg"></a></span>
+                                </div>
+                                <div class="date">
+                                    <span class="chat_time">13:33</span>
+                                    <span class="chat_date">29 мая</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="other_msg">
+                            <div id="1087" class="box_msg">
+                                <div class="text">
+                                    <span class="author"><i class="material-icons" title="Ответить">reply</i>Navat</span>
+                                    <span>теперь ровняй ))</span>
+                                </div>
+                                <div class="date">
+                                    <span class="chat_time">13:33</span>
+                                    <span class="chat_date">29 мая</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="self_msg">
+                            <div id="1088" class="box_msg">
+                                <div class="text">
+                                    <span><a target="_blank" href="upload/phenix_29-5-2018_2018-05-29_13-35-19.png"><img class="img_preview" src="upload/phenix_29-5-2018_2018-05-29_13-35-19.png" title="2018-05-29_13-35-19.png"></a></span>
+                                </div>
+                                <div class="date">
+                                    <span class="chat_time">13:33</span>
+                                    <span class="chat_date">29 мая</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="self_msg">
+                            <div id="1089" class="box_msg">
+                                <div class="text">
+                                    <span><a target="_blank" href="upload/phenix_29-5-2018_2018-05-29_13-35-50.png"><img class="img_preview" src="upload/phenix_29-5-2018_2018-05-29_13-35-50.png" title="2018-05-29_13-35-50.png"></a></span>
+                                </div>
+                                <div class="date">
+                                    <span class="chat_time">13:34</span>
+                                    <span class="chat_date">29 мая</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="self_msg">
+                            <div id="1090" class="box_msg">
+                                <div class="text">
+                                    <span>а в брэкетсе не отображает изображения (((</span>
+                                </div>
+                                <div class="date">
+                                    <span class="chat_time">13:35</span>
+                                    <span class="chat_date">29 мая</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="other_msg">
+                            <div id="1091" class="box_msg">
+                                <div class="text">
+                                    <span class="author"><i class="material-icons" title="Ответить">reply</i>Navat</span>
+                                    <span>плёхо (</span>
+                                </div>
+                                <div class="date">
+                                    <span class="chat_time">13:36</span>
+                                    <span class="chat_date">29 мая</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="self_msg">
+                            <div id="1092" class="box_msg">
+                                <div class="text">
+                                    <span>о проверяй</span>
+                                </div>
+                                <div class="date">
+                                    <span class="chat_time">13:46</span>
+                                    <span class="chat_date">29 мая</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="self_msg">
+                            <div id="1093" class="box_msg">
+                                <div class="text">
+                                    <span>вроде нормалек</span>
+                                </div>
+                                <div class="date">
+                                    <span class="chat_time">13:47</span>
+                                    <span class="chat_date">29 мая</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="other_msg">
+                            <div id="1094" class="box_msg">
+                                <div class="text">
+                                    <span class="author"><i class="material-icons" title="Ответить">reply</i>Navat</span>
+                                    <span>ща сек</span>
+                                </div>
+                                <div class="date">
+                                    <span class="chat_time">13:47</span>
+                                    <span class="chat_date">29 мая</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="other_msg">
+                            <div id="1095" class="box_msg">
+                                <div class="text">
+                                    <span class="author"><i class="material-icons" title="Ответить">reply</i>Navat</span>
+                                    <span>настрою чтобы и в задачах было</span>
+                                </div>
+                                <div class="date">
+                                    <span class="chat_time">13:47</span>
+                                    <span class="chat_date">29 мая</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="other_msg">
+                            <div id="1096" class="box_msg">
+                                <div class="text">
+                                    <span class="author"><i class="material-icons" title="Ответить">reply</i>Navat</span>
+                                    <span><a target="_blank" href="upload/Navat_29-5-2018_внутри замка.jpg"><img class="img_preview" src="upload/Navat_29-5-2018_внутри замка.jpg" title="внутри замка.jpg"></a></span>
+                                </div>
+                                <div class="date">
+                                    <span class="chat_time">13:49</span>
+                                    <span class="chat_date">29 мая</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="other_msg">
+                            <div id="1097" class="box_msg">
+                                <div class="text">
+                                    <span class="author"><i class="material-icons" title="Ответить">reply</i>Navat</span>
+                                    <span>ток чет скролл теперь плохо пашет</span>
+                                </div>
+                                <div class="date">
+                                    <span class="chat_time">13:49</span>
+                                    <span class="chat_date">29 мая</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="self_msg">
+                            <div id="1098" class="box_msg">
+                                <div class="text">
+                                    <span>да вроде нормально</span>
+                                </div>
+                                <div class="date">
+                                    <span class="chat_time">13:50</span>
+                                    <span class="chat_date">29 мая</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="self_msg">
+                            <div id="1099" class="box_msg">
+                                <div class="text">
+                                    <span>скролл кстате всегда не сразу врубается</span>
+                                </div>
+                                <div class="date">
+                                    <span class="chat_time">13:51</span>
+                                    <span class="chat_date">29 мая</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="self_msg">
+                            <div id="1100" class="box_msg">
+                                <div class="text">
+                                    <span>так что это может ты только сейчас заметил</span>
+                                </div>
+                                <div class="date">
+                                    <span class="chat_time">13:51</span>
+                                    <span class="chat_date">29 мая</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="other_msg">
+                            <div id="1101" class="box_msg">
+                                <div class="text">
+                                    <span class="author"><i class="material-icons" title="Ответить">reply</i>Navat</span>
+                                    <span>на сообщения норм</span>
+                                </div>
+                                <div class="date">
+                                    <span class="chat_time">13:52</span>
+                                    <span class="chat_date">29 мая</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="other_msg">
+                            <div id="1102" class="box_msg">
+                                <div class="text">
+                                    <span class="author"><i class="material-icons" title="Ответить">reply</i>Navat</span>
+                                    <span>а вот с картинками чуток не так</span>
+                                </div>
+                                <div class="date">
+                                    <span class="chat_time">13:52</span>
+                                    <span class="chat_date">29 мая</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="other_msg">
+                            <div id="1103" class="box_msg">
+                                <div class="text">
+                                    <span class="author"><i class="material-icons" title="Ответить">reply</i>Navat</span>
+                                    <span><a target="_blank" href="upload/Navat_14:5:39_29-5-2018_Screenshot_1526725536.png"><img class="img_preview" src="upload/Navat_14:5:39_29-5-2018_Screenshot_1526725536.png" title="Screenshot_1526725536.png"></a></span>
+                                </div>
+                                <div class="date">
+                                    <span class="chat_time">14:21</span>
+                                    <span class="chat_date">29 мая</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="other_msg">
+                            <div id="1104" class="box_msg">
+                                <div class="text">
+                                    <span class="author"><i class="material-icons" title="Ответить">reply</i>Navat</span>
+                                    <span><a target="_blank" href="upload/Navat_14:5:41_29-5-2018_2018-04-26_09-38-17.png"><img class="img_preview" src="upload/Navat_14:5:41_29-5-2018_2018-04-26_09-38-17.png" title="2018-04-26_09-38-17.png"></a></span>
+                                </div>
+                                <div class="date">
+                                    <span class="chat_time">14:23</span>
+                                    <span class="chat_date">29 мая</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="other_msg">
+                            <div id="1105" class="box_msg">
+                                <div class="text">
+                                    <span class="author"><i class="material-icons" title="Ответить">reply</i>Navat</span>
+                                    <span><a target="_blank" href="upload/Navat_14:5:46_29-5-2018_Screenshot_1526725536.png"><img class="img_preview" src="upload/Navat_14:5:46_29-5-2018_Screenshot_1526725536.png" title="Screenshot_1526725536.png"></a></span>
+                                </div>
+                                <div class="date">
+                                    <span class="chat_time">14:23</span>
+                                    <span class="chat_date">29 мая</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="other_msg">
+                            <div id="1106" class="box_msg">
+                                <div class="text">
+                                    <span class="author"><i class="material-icons" title="Ответить">reply</i>Navat</span>
+                                    <span><a target="_blank" href="upload/Navat_14:5:28_29-5-2018_Screenshot_1526725536.png"><img class="img_preview" src="upload/Navat_14:5:28_29-5-2018_Screenshot_1526725536.png" title="Screenshot_1526725536.png"></a></span>
+                                </div>
+                                <div class="date">
+                                    <span class="chat_time">14:24</span>
+                                    <span class="chat_date">29 мая</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="other_msg">
+                            <div id="1107" class="box_msg">
+                                <div class="text">
+                                    <span class="author"><i class="material-icons" title="Ответить">reply</i>Navat</span>
+                                    <span><a target="_blank" href="upload/Navat_14:5:54_29-5-2018_2018-04-26_09-39-17.png"><img class="img_preview" src="upload/Navat_14:5:54_29-5-2018_2018-04-26_09-39-17.png" title="2018-04-26_09-39-17.png"></a></span>
+                                </div>
+                                <div class="date">
+                                    <span class="chat_time">14:26</span>
+                                    <span class="chat_date">29 мая</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="other_msg">
+                            <div id="1108" class="box_msg">
+                                <div class="text">
+                                    <span class="author"><i class="material-icons" title="Ответить">reply</i>Navat</span>
+                                    <span><a target="_blank" href="upload/Navat_14:5:16_29-5-2018_2018-04-26_09-39-17.png"><img class="img_preview" src="upload/Navat_14:5:16_29-5-2018_2018-04-26_09-39-17.png" title="2018-04-26_09-39-17.png"></a></span>
+                                </div>
+                                <div class="date">
+                                    <span class="chat_time">14:30</span>
+                                    <span class="chat_date">29 мая</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="self_msg">
+                            <div id="1109" class="box_msg">
+                                <div class="text">
+                                    <span>как тебе обновленный пока еще не законченный дизайн?</span>
+                                </div>
+                                <div class="date">
+                                    <span class="chat_time">14:32</span>
+                                    <span class="chat_date">29 мая</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="other_msg">
+                            <div id="1110" class="box_msg">
+                                <div class="text">
+                                    <span class="author"><i class="material-icons" title="Ответить">reply</i>Navat</span>
+                                    <span>симпотно )</span>
+                                </div>
+                                <div class="date">
+                                    <span class="chat_time">14:32</span>
+                                    <span class="chat_date">29 мая</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="self_msg">
+                            <div id="1111" class="box_msg">
+                                <div class="text">
+                                    <span>ща комп отдам Росквартал просит</span>
+                                </div>
+                                <div class="date">
+                                    <span class="chat_time">14:32</span>
+                                    <span class="chat_date">29 мая</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="self_msg">
+                            <div id="1112" class="box_msg">
+                                <div class="text">
+                                    <span>потом вечером еще доделывать буду</span>
+                                </div>
+                                <div class="date">
+                                    <span class="chat_time">14:32</span>
+                                    <span class="chat_date">29 мая</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="self_msg">
+                            <div id="1113" class="box_msg">
+                                <div class="text">
+                                    <span>надо еще чат цвет менять</span>
+                                </div>
+                                <div class="date">
+                                    <span class="chat_time">14:33</span>
+                                    <span class="chat_date">29 мая</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="other_msg">
+                            <div id="1117" class="box_msg">
+                                <div class="text">
+                                    <span class="author"><i class="material-icons" title="Ответить">reply</i>Navat</span>
+                                    <span><a target="_blank" href="upload/Navat_18:5:33_29-5-2018_2018-04-26_09-39-17.png"><img class="img_preview" src="upload/Navat_18:5:33_29-5-2018_2018-04-26_09-39-17.png" title="2018-04-26_09-39-17.png"></a></span>
+                                </div>
+                                <div class="date">
+                                    <span class="chat_time">18:47</span>
+                                    <span class="chat_date">29 мая</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="other_msg">
+                            <div id="1118" class="box_msg">
+                                <div class="text">
+                                    <span class="author"><i class="material-icons" title="Ответить">reply</i>Navat</span>
+                                    <span><a target="_blank" href="upload/Navat_18:5:38_29-5-2018_2018-04-26_09-39-17.png"><img class="img_preview" src="upload/Navat_18:5:38_29-5-2018_2018-04-26_09-39-17.png" title="2018-04-26_09-39-17.png"></a></span>
+                                </div>
+                                <div class="date">
+                                    <span class="chat_time">18:47</span>
+                                    <span class="chat_date">29 мая</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="other_msg">
+                            <div id="1119" class="box_msg">
+                                <div class="text">
+                                    <span class="author"><i class="material-icons" title="Ответить">reply</i>Navat</span>
+                                    <span><a target="_blank" href="upload/Navat_18:5:50_29-5-2018_2018-04-26_09-39-17.png"><img class="img_preview" src="upload/Navat_18:5:50_29-5-2018_2018-04-26_09-39-17.png" title="2018-04-26_09-39-17.png"></a></span>
+                                </div>
+                                <div class="date">
+                                    <span class="chat_time">18:47</span>
+                                    <span class="chat_date">29 мая</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="admin_msg">
+                            <div id="1120" class="box_msg">
+                                <div class="admin_icons">
+                                    <i class="material-icons">computer</i>
+                                </div>
+                                <div class="admin_text">
+                                    <span><b>Navat</b> переместил задачу «Вставлять файлы в чат» <b>⇒ Выполнено</b></span>
+                                </div>
+                                <div class="date">
+                                    <span class="chat_time">18:50</span>
+                                    <span class="chat_date">29 мая</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="admin_msg">
+                            <div id="1121" class="box_msg">
+                                <div class="admin_icons">
+                                    <i class="material-icons">computer</i>
+                                </div>
+                                <div class="admin_text">
+                                    <span><span><b>phenix</b> удалил задачу «Создание левого меню в свернутом виде и развернутом.</span></span>
+                                </div>
+                                <div class="date">
+                                    <span class="chat_time">17:40</span>
+                                    <span class="chat_date">30 мая</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="admin_msg">
+                            <div id="1122" class="box_msg">
+                                <div class="admin_icons">
+                                    <i class="material-icons">computer</i>
+                                </div>
+                                <div class="admin_text">
+                                    <span><span><b>phenix</b> переместил задачу «Сделать систему уведомлений о сообщениях» <b>⇒ Нужно сделать</b></span></span>
+                                </div>
+                                <div class="date">
+                                    <span class="chat_time">15:03</span>
+                                    <span class="chat_date">31 мая</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="admin_msg">
+                            <div id="1123" class="box_msg">
+                                <div class="admin_icons">
+                                    <i class="material-icons">computer</i>
+                                </div>
+                                <div class="admin_text">
+                                    <span><span><b>phenix</b> добавил задачу «Переделка дизайна сайта» </span></span>
+                                </div>
+                                <div class="date">
+                                    <span class="chat_time">16:05</span>
+                                    <span class="chat_date">31 мая</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="self_msg">
+                            <div id="1124" class="box_msg">
+                                <div class="text">
+                                    <span>тестовое сообщение</span>
+                                </div>
+                                <div class="date">
+                                    <span class="chat_time">16:06</span>
+                                    <span class="chat_date">31 мая</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="self_msg">
+                            <div id="1125" class="box_msg">
+                                <div class="text">
+                                    <span>проверка</span>
+                                </div>
+                                <div class="date">
+                                    <span class="chat_time">16:06</span>
+                                    <span class="chat_date">31 мая</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="other_msg">
+                            <div id="1126" class="box_msg">
+                                <div class="text">
+                                    <span class="author"><i class="material-icons" title="Ответить">reply</i>Test</span>
+                                    <span>какая такая проверка</span>
+                                </div>
+                                <div class="date">
+                                    <span class="chat_time">16:06</span>
+                                    <span class="chat_date">31 мая</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="other_msg">
+                            <div id="1127" class="box_msg">
+                                <div class="text">
+                                    <span class="author"><i class="material-icons" title="Ответить">reply</i>Test</span>
+                                    <span>отступы мне кажется побольше надо сделать у сообщений</span>
+                                </div>
+                                <div class="date">
+                                    <span class="chat_time">16:07</span>
+                                    <span class="chat_date">31 мая</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="self_msg">
+                            <div id="1128" class="box_msg">
+                                <div class="text">
+                                    <span>добавила</span>
+                                </div>
+                                <div class="date">
+                                    <span class="chat_time">16:13</span>
+                                    <span class="chat_date">31 мая</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="other_msg">
+                            <div id="1129" class="box_msg">
+                                <div class="text">
+                                    <span class="author"><i class="material-icons" title="Ответить">reply</i>Test</span>
+                                    <span>ага, норм</span>
+                                </div>
+                                <div class="date">
+                                    <span class="chat_time">16:14</span>
+                                    <span class="chat_date">31 мая</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="self_msg">
+                            <div id="1130" class="box_msg">
+                                <div class="text">
+                                    <span>тебе надо сделать наверное чтобы задача добавлялась вначале списка</span>
+                                </div>
+                                <div class="date">
+                                    <span class="chat_time">16:14</span>
+                                    <span class="chat_date">31 мая</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="self_msg">
+                            <div id="1131" class="box_msg">
+                                <div class="text">
+                                    <span>и еще я там перебрала дату в сообщениях тебе надо будет это тоже подправить</span>
+                                </div>
+                                <div class="date">
+                                    <span class="chat_time">16:14</span>
+                                    <span class="chat_date">31 мая</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="self_msg">
+                            <div id="1132" class="box_msg">
+                                <div class="text">
+                                    <span>проверка</span>
+                                </div>
+                                <div class="date">
+                                    <span class="chat_time">16:16</span>
+                                    <span class="chat_date">31 мая</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="self_msg">
+                            <div id="1133" class="box_msg">
+                                <div class="text">
+                                    <span>проверка</span>
+                                </div>
+                                <div class="date">
+                                    <span class="chat_time">16:21</span>
+                                    <span class="chat_date">31 мая</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="other_msg">
+                            <div id="1134" class="box_msg">
+                                <div class="text">
+                                    <span class="author"><i class="material-icons" title="Ответить">reply</i>Test</span>
+                                    <span>раз раз</span>
+                                </div>
+                                <div class="date">
+                                    <span class="chat_time">16:21</span>
+                                    <span class="chat_date">31 мая</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="self_msg">
+                            <div id="1135" class="box_msg">
+                                <div class="text">
+                                    <span>и еще раз</span>
+                                </div>
+                                <div class="date">
+                                    <span class="chat_time">16:21</span>
+                                    <span class="chat_date">31 мая</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="other_msg">
+                            <div id="1136" class="box_msg">
+                                <div class="text">
+                                    <span class="author"><i class="material-icons" title="Ответить">reply</i>Test</span>
+                                    <span>еще много много раз )</span>
+                                </div>
+                                <div class="date">
+                                    <span class="chat_time">16:22</span>
+                                    <span class="chat_date">31 мая</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="self_msg">
+                            <div id="1137" class="box_msg">
+                                <div class="text">
+                                    <span>проверка</span>
+                                </div>
+                                <div class="date">
+                                    <span class="chat_time">16:26</span>
+                                    <span class="chat_date">31 мая</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="admin_msg">
+                            <div id="1138" class="box_msg">
+                                <div class="admin_icons">
+                                    <i class="material-icons">computer</i>
+                                </div>
+                                <div class="admin_text">
+                                    <span><span><b>phenix</b> переместил задачу «Переделка дизайна сайта» <b>⇒ В работе</b></span></span>
+                                </div>
+                                <div class="date">
+                                    <span class="chat_time">16:26</span>
+                                    <span class="chat_date">31 мая</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="self_msg">
+                            <div id="1139" class="box_msg">
+                                <div class="text">
+                                    <span>так лучше?</span>
+                                </div>
+                                <div class="date">
+                                    <span class="chat_time">16:28</span>
+                                    <span class="chat_date">31 мая</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="self_msg">
+                            <div id="1140" class="box_msg">
+                                <div class="text">
+                                    <span><a target="_blank" href="upload/phenix_16:5:35_31-5-2018_zhkh.jpeg"><img class="img_preview" src="upload/phenix_16:5:35_31-5-2018_zhkh.jpeg" title="zhkh.jpeg"></a></span>
+                                </div>
+                                <div class="date">
+                                    <span class="chat_time">16:28</span>
+                                    <span class="chat_date">31 мая</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="admin_msg">
+                            <div id="1141" class="box_msg">
+                                <div class="admin_icons">
+                                    <i class="material-icons">computer</i>
+                                </div>
+                                <div class="admin_text">
+                                    <span><b>phenix</b> переместил задачу «Переделка дизайна сайта» <b>⇒ Выполнено</b></span>
+                                </div>
+                                <div class="date">
+                                    <span class="chat_time">16:30</span>
+                                    <span class="chat_date">31 мая</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="other_msg">
+                            <div id="1142" class="box_msg">
+                                <div class="text">
+                                    <span class="author"><i class="material-icons" title="Ответить">reply</i>Test</span>
+                                    <span>да, хорошо</span>
+                                </div>
+                                <div class="date">
+                                    <span class="chat_time">16:34</span>
+                                    <span class="chat_date">31 мая</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="other_msg">
+                            <div id="1145" class="box_msg">
+                                <div class="text">
+                                    <span class="author"><i class="material-icons" title="Ответить">reply</i>Navat</span>
+                                    <span>пишу</span>
+                                </div>
+                                <div class="date">
+                                    <span class="chat_time">18:17</span>
+                                    <span class="chat_date">31 мая</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="other_msg">
+                            <div id="1146" class="box_msg">
+                                <div class="text">
+                                    <span class="author"><i class="material-icons" title="Ответить">reply</i>Navat</span>
+                                    <span>test</span>
+                                </div>
+                                <div class="date">
+                                    <span class="chat_time">11:08</span>
+                                    <span class="chat_date">1 июн</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="admin_msg">
+                            <div id="1147" class="box_msg">
+                                <div class="admin_icons">
+                                    <i class="material-icons">computer</i>
+                                </div>
+                                <div class="admin_text">
+                                    <span><b>Navat</b> переместил задачу «Исправить автоматическое обрезание описания, чтобы в конце не выходил неизвестный символ кириллицы, а было просто троеточие» <b>⇒ Выполнено</b></span>
+                                </div>
+                                <div class="date">
+                                    <span class="chat_time">11:19</span>
+                                    <span class="chat_date">1 июн</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="admin_msg">
+                            <div id="1148" class="box_msg">
+                                <div class="admin_icons">
+                                    <i class="material-icons">computer</i>
+                                </div>
+                                <div class="admin_text">
+                                    <span><span><b>Navat</b> отправил задачу «Исправить автоматическое обрезание описания, чтобы в конце не выходил неизвестный символ кириллицы, а было просто троеточие в Архив</span></span>
+                                </div>
+                                <div class="date">
+                                    <span class="chat_time">11:28</span>
+                                    <span class="chat_date">1 июн</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="self_msg">
+                            <div id="1149" class="box_msg">
+                                <div class="text">
+                                    <span>о, дату сбил)</span>
+                                </div>
+                                <div class="date">
+                                    <span class="chat_time">11:43</span>
+                                    <span class="chat_date">1 июн</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="self_msg">
+                            <div id="1150" class="box_msg">
+                                <div class="text">
+                                    <span>а теперь поправил )</span>
+                                </div>
+                                <div class="date">
+                                    <span class="chat_time">12:00</span>
+                                    <span class="chat_date">1 июн</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="self_msg">
+                            <div id="1151" class="box_msg">
+                                <div class="text">
+                                    <span>еще такую же сделай в карточках - дату создания</span>
+                                </div>
+                                <div class="date">
+                                    <span class="chat_time">12:01</span>
+                                    <span class="chat_date">1 июн</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="self_msg">
+                            <div id="1152" class="box_msg">
+                                <div class="text">
+                                    <span>пойду булочку куплю...</span>
+                                </div>
+                                <div class="date">
+                                    <span class="chat_time">12:01</span>
+                                    <span class="chat_date">1 июн</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="other_msg">
+                            <div id="1153" class="box_msg">
+                                <div class="text">
+                                    <span class="author"><i class="material-icons" title="Ответить">reply</i>Navat</span>
+                                    <span>в карточках уже тоже готово, просто я добавил в базу это поле и дата 28 мая начальная</span>
+                                </div>
+                                <div class="date">
+                                    <span class="chat_time">12:12</span>
+                                    <span class="chat_date">1 июн</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="other_msg">
+                            <div id="1154" class="box_msg">
+                                <div class="text">
+                                    <span class="author"><i class="material-icons" title="Ответить">reply</i>Navat</span>
+                                    <span><a target="_blank" href="upload/Navat_15:6:56_4-6-2018_2018-06-04_15-44-40.png"><img class="img_preview" src="upload/Navat_15:6:56_4-6-2018_2018-06-04_15-44-40.png" title="2018-06-04_15-44-40.png"></a></span>
+                                </div>
+                                <div class="date">
+                                    <span class="chat_time">15:44</span>
+                                    <span class="chat_date">4 июн</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="other_msg">
+                            <div id="1155" class="box_msg">
+                                <div class="text">
+                                    <span class="author"><i class="material-icons" title="Ответить">reply</i>Navat</span>
+                                    <span>а где вот этот $(".col_archive")</span>
+                                </div>
+                                <div class="date">
+                                    <span class="chat_time">15:45</span>
+                                    <span class="chat_date">4 июн</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="self_msg">
+                            <div id="1156" class="box_msg">
+                                <div class="text">
+                                    <span>эээ?)</span>
+                                </div>
+                                <div class="date">
+                                    <span class="chat_time">15:47</span>
+                                    <span class="chat_date">4 июн</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="other_msg">
+                            <div id="1157" class="box_msg">
+                                <div class="text">
+                                    <span class="author"><i class="material-icons" title="Ответить">reply</i>Navat</span>
+                                    <span>ну кнопка в колоночном отображении, чтобы архив открылся</span>
+                                </div>
+                                <div class="date">
+                                    <span class="chat_time">15:47</span>
+                                    <span class="chat_date">4 июн</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="other_msg">
+                            <div id="1158" class="box_msg">
+                                <div class="text">
+                                    <span class="author"><i class="material-icons" title="Ответить">reply</i>Navat</span>
+                                    <span>должна открывать вот эту панель</span>
+                                </div>
+                                <div class="date">
+                                    <span class="chat_time">15:47</span>
+                                    <span class="chat_date">4 июн</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="other_msg">
+                            <div id="1159" class="box_msg">
+                                <div class="text">
+                                    <span class="author"><i class="material-icons" title="Ответить">reply</i>Navat</span>
+                                    <span>а де она?</span>
+                                </div>
+                                <div class="date">
+                                    <span class="chat_time">15:47</span>
+                                    <span class="chat_date">4 июн</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="self_msg">
+                            <div id="1160" class="box_msg">
+                                <div class="text">
+                                    <span><a target="_blank" href="upload/phenix_15:6:48_4-6-2018_2018-06-04_15-50-23.png"><img class="img_preview" src="upload/phenix_15:6:48_4-6-2018_2018-06-04_15-50-23.png" title="2018-06-04_15-50-23.png"></a></span>
+                                </div>
+                                <div class="date">
+                                    <span class="chat_time">15:48</span>
+                                    <span class="chat_date">4 июн</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="self_msg">
+                            <div id="1161" class="box_msg">
+                                <div class="text">
+                                    <span>в колонках я добавила еще одну</span>
+                                </div>
+                                <div class="date">
+                                    <span class="chat_time">15:48</span>
+                                    <span class="chat_date">4 июн</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="other_msg">
+                            <div id="1162" class="box_msg">
+                                <div class="text">
+                                    <span class="author"><i class="material-icons" title="Ответить">reply</i>Navat</span>
+                                    <span>а чего не нажимается? ))</span>
+                                </div>
+                                <div class="date">
+                                    <span class="chat_time">15:50</span>
+                                    <span class="chat_date">4 июн</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="self_msg">
+                            <div id="1163" class="box_msg">
+                                <div class="text">
+                                    <span>ну вот я и хотела спросить)</span>
+                                </div>
+                                <div class="date">
+                                    <span class="chat_time">15:50</span>
+                                    <span class="chat_date">4 июн</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="self_msg">
+                            <div id="1164" class="box_msg">
+                                <div class="text">
+                                    <span>я вроде все сделала чтобы он нажимался</span>
+                                </div>
+                                <div class="date">
+                                    <span class="chat_time">15:50</span>
+                                    <span class="chat_date">4 июн</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="self_msg">
+                            <div id="1165" class="box_msg">
+                                <div class="text">
+                                    <span>он по-моему даже в консоль не писал</span>
+                                </div>
+                                <div class="date">
+                                    <span class="chat_time">15:51</span>
+                                    <span class="chat_date">4 июн</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="self_msg">
+                            <div id="1166" class="box_msg">
+                                <div class="text">
+                                    <span>поэтому что-то тут не то</span>
+                                </div>
+                                <div class="date">
+                                    <span class="chat_time">15:51</span>
+                                    <span class="chat_date">4 июн</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="other_msg">
+                            <div id="1167" class="box_msg">
+                                <div class="text">
+                                    <span class="author"><i class="material-icons" title="Ответить">reply</i>Navat</span>
+                                    <span><a target="_blank" href="upload/Navat_15:6:26_4-6-2018_2018-06-04_15-51-20.png"><img class="img_preview" src="upload/Navat_15:6:26_4-6-2018_2018-06-04_15-51-20.png" title="2018-06-04_15-51-20.png"></a></span>
+                                </div>
+                                <div class="date">
+                                    <span class="chat_time">15:51</span>
+                                    <span class="chat_date">4 июн</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="self_msg">
+                            <div id="1168" class="box_msg">
+                                <div class="text">
+                                    <span>а тебе разве не надо сделать его еще</span>
+                                </div>
+                                <div class="date">
+                                    <span class="chat_time">15:51</span>
+                                    <span class="chat_date">4 июн</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="other_msg">
+                            <div id="1169" class="box_msg">
+                                <div class="text">
+                                    <span class="author"><i class="material-icons" title="Ответить">reply</i>Navat</span>
+                                    <span>чет архив сжатый во вкладочной</span>
+                                </div>
+                                <div class="date">
+                                    <span class="chat_time">15:51</span>
+                                    <span class="chat_date">4 июн</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="self_msg">
+                            <div id="1170" class="box_msg">
+                                <div class="text">
+                                    <span>надо смотреть ты прописал код?</span>
+                                </div>
+                                <div class="date">
+                                    <span class="chat_time">15:52</span>
+                                    <span class="chat_date">4 июн</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="other_msg">
+                            <div id="1171" class="box_msg">
+                                <div class="text">
+                                    <span class="author"><i class="material-icons" title="Ответить">reply</i>Navat</span>
+                                    <span>да, он уже загружается</span>
+                                </div>
+                                <div class="date">
+                                    <span class="chat_time">15:52</span>
+                                    <span class="chat_date">4 июн</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="self_msg">
+                            <div id="1172" class="box_msg">
+                                <div class="text">
+                                    <span>исправила</span>
+                                </div>
+                                <div class="date">
+                                    <span class="chat_time">15:56</span>
+                                    <span class="chat_date">4 июн</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="other_msg">
+                            <div id="1173" class="box_msg">
+                                <div class="text">
+                                    <span class="author"><i class="material-icons" title="Ответить">reply</i>Navat</span>
+                                    <span>ага, теперь только внутри поправить, чтобы кнопки в "Архив" небыло</span>
+                                </div>
+                                <div class="date">
+                                    <span class="chat_time">15:57</span>
+                                    <span class="chat_date">4 июн</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="admin_msg">
+                            <div id="1174" class="box_msg">
+                                <div class="admin_icons">
+                                    <i class="material-icons">computer</i>
+                                </div>
+                                <div class="admin_text">
+                                    <span><b>Navat</b> переместил задачу «Нужно сделать отображение сверху последнего проекта» <b>⇒ undefined</b></span>
+                                </div>
+                                <div class="date">
+                                    <span class="chat_time">16:06</span>
+                                    <span class="chat_date">4 июн</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="self_msg">
+                            <div id="1175" class="box_msg">
+                                <div class="text">
+                                    <span>нука попиши</span>
+                                </div>
+                                <div class="date">
+                                    <span class="chat_time">16:08</span>
+                                    <span class="chat_date">4 июн</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="other_msg">
+                            <div id="1176" class="box_msg">
+                                <div class="text">
+                                    <span class="author"><i class="material-icons" title="Ответить">reply</i>Navat</span>
+                                    <span>пупишувакук</span>
+                                </div>
+                                <div class="date">
+                                    <span class="chat_time">16:08</span>
+                                    <span class="chat_date">4 июн</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="self_msg">
+                            <div id="1177" class="box_msg">
+                                <div class="text">
+                                    <span>а если еще</span>
+                                </div>
+                                <div class="date">
+                                    <span class="chat_time">16:09</span>
+                                    <span class="chat_date">4 июн</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="other_msg">
+                            <div id="1178" class="box_msg">
+                                <div class="text">
+                                    <span class="author"><i class="material-icons" title="Ответить">reply</i>Navat</span>
+                                    <span>аеслиещепописатьтоможнонаножкунаписать</span>
+                                </div>
+                                <div class="date">
+                                    <span class="chat_time">16:09</span>
+                                    <span class="chat_date">4 июн</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="self_msg">
+                            <div id="1179" class="box_msg">
+                                <div class="text">
+                                    <span>а где еще троеточие ты ставил кроме chat.js?</span>
+                                </div>
+                                <div class="date">
+                                    <span class="chat_time">16:10</span>
+                                    <span class="chat_date">4 июн</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="other_msg">
+                            <div id="1180" class="box_msg">
+                                <div class="text">
+                                    <span class="author"><i class="material-icons" title="Ответить">reply</i>Navat</span>
+                                    <span>вроде нигде</span>
+                                </div>
+                                <div class="date">
+                                    <span class="chat_time">16:11</span>
+                                    <span class="chat_date">4 июн</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="self_msg">
+                            <div id="1181" class="box_msg">
+                                <div class="text">
+                                    <span>о Архив заработал</span>
+                                </div>
+                                <div class="date">
+                                    <span class="chat_time">16:12</span>
+                                    <span class="chat_date">4 июн</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="other_msg">
+                            <div id="1182" class="box_msg">
+                                <div class="text">
+                                    <span class="author"><i class="material-icons" title="Ответить">reply</i>Navat</span>
+                                    <span>ща погодь не тыкай</span>
+                                </div>
+                                <div class="date">
+                                    <span class="chat_time">16:12</span>
+                                    <span class="chat_date">4 июн</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="self_msg">
+                            <div id="1183" class="box_msg">
+                                <div class="text">
+                                    <span>когда я пишу много точек на конце, аж 6</span>
+                                </div>
+                                <div class="date">
+                                    <span class="chat_time">16:12</span>
+                                    <span class="chat_date">4 июн</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="other_msg">
+                            <div id="1184" class="box_msg">
+                                <div class="text">
+                                    <span class="author"><i class="material-icons" title="Ответить">reply</i>Navat</span>
+                                    <span>у меня вроде нормально отображается</span>
+                                </div>
+                                <div class="date">
+                                    <span class="chat_time">16:13</span>
+                                    <span class="chat_date">4 июн</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="self_msg">
+                            <div id="1185" class="box_msg">
+                                <div class="text">
+                                    <span>ну оно должно анимироваться</span>
+                                </div>
+                                <div class="date">
+                                    <span class="chat_time">16:13</span>
+                                    <span class="chat_date">4 июн</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="self_msg">
+                            <div id="1186" class="box_msg">
+                                <div class="text">
+                                    <span>посмотри когда я пишу</span>
+                                </div>
+                                <div class="date">
+                                    <span class="chat_time">16:14</span>
+                                    <span class="chat_date">4 июн</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="self_msg">
+                            <div id="1187" class="box_msg">
+                                <div class="text">
+                                    <span>у тебя кстате дата в теме перестала отображаться - Array пишет</span>
+                                </div>
+                                <div class="date">
+                                    <span class="chat_time">16:16</span>
+                                    <span class="chat_date">4 июн</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="other_msg">
+                            <div id="1188" class="box_msg">
+                                <div class="text">
+                                    <span class="author"><i class="material-icons" title="Ответить">reply</i>Navat</span>
+                                    <span>абалдеть )</span>
+                                </div>
+                                <div class="date">
+                                    <span class="chat_time">16:16</span>
+                                    <span class="chat_date">4 июн</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="admin_msg">
+                            <div id="1189" class="box_msg">
+                                <div class="admin_icons">
+                                    <i class="material-icons">computer</i>
+                                </div>
+                                <div class="admin_text">
+                                    <span><b>Navat</b> переместил задачу «ПЕРЕТЯГИВАТЬ КАРТОЧКИ В РАЗНЫЕ КОЛОНКИ» <b>⇒ Архив</b></span>
+                                </div>
+                                <div class="date">
+                                    <span class="chat_time">16:39</span>
+                                    <span class="chat_date">4 июн</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="admin_msg">
+                            <div id="1190" class="box_msg">
+                                <div class="admin_icons">
+                                    <i class="material-icons">computer</i>
+                                </div>
+                                <div class="admin_text">
+                                    <span><b>Navat</b> переместил задачу «Вставлять файлы в чат» <b>⇒ Архив</b></span>
+                                </div>
+                                <div class="date">
+                                    <span class="chat_time">16:42</span>
+                                    <span class="chat_date">4 июн</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="admin_msg">
+                            <div id="1191" class="box_msg">
+                                <div class="admin_icons">
+                                    <i class="material-icons">computer</i>
+                                </div>
+                                <div class="admin_text">
+                                    <span><b>Navat</b> переместил задачу «Реализовать функционал цитирование сообщения» <b>⇒ В работе</b></span>
+                                </div>
+                                <div class="date">
+                                    <span class="chat_time">16:42</span>
+                                    <span class="chat_date">4 июн</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="admin_msg">
+                            <div id="1192" class="box_msg">
+                                <div class="admin_icons">
+                                    <i class="material-icons">computer</i>
+                                </div>
+                                <div class="admin_text">
+                                    <span><span><b>Navat</b> переместил задачу «Ответить - цитата - дизайн» <b>⇒ Выполнено</b></span></span>
+                                </div>
+                                <div class="date">
+                                    <span class="chat_time">16:54</span>
+                                    <span class="chat_date">4 июн</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="admin_msg">
+                            <div id="1193" class="box_msg">
+                                <div class="admin_icons">
+                                    <i class="material-icons">computer</i>
+                                </div>
+                                <div class="admin_text">
+                                    <span><b>Navat</b> переместил задачу «Ответить - цитата - дизайн» <b>⇒ Архив</b></span>
+                                </div>
+                                <div class="date">
+                                    <span class="chat_time">16:54</span>
+                                    <span class="chat_date">4 июн</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="self_msg">
+                            <div id="1194" class="box_msg">
+                                <div class="text">
+                                    <span>ты дату так и не исправил</span>
+                                </div>
+                                <div class="date">
+                                    <span class="chat_time">08:28</span>
+                                    <span class="chat_date"> </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="admin_msg">
+                            <div id="1195" class="box_msg">
+                                <div class="admin_icons">
+                                    <i class="material-icons">computer</i>
+                                </div>
+                                <div class="admin_text">
+                                    <span><b>phenix</b> переместил задачу «Реализовать функционал цитирование сообщения» <b>⇒ Нужно сделать</b></span>
+                                </div>
+                                <div class="date">
+                                    <span class="chat_time">08:50</span>
+                                    <span class="chat_date"> </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="status_write" style="display: none;"></div>
+                </div>
+            </div>
+            <div class="bottom_menu">
+                <i id="attach_file" class="material-icons" title="Вложить">attach_file</i>
+                <input style="display: none" id="input_file" type="file">
+                <textarea name="textarea" id="textarea" placeholder="Напишите сообщение..."></textarea>
+                <i id="emojiButton" class="material-icons">mood</i>
+                <!--Модзи-->
+                <i id="textarea_send" class="material-icons" title="Отправить">send</i> </div>
+            <div class="modal_users" id="modal-2_window">
+                <!--Пользователи-->
+            </div>
+            <div class="settings_window">
+                <div class="settings_node">
+                    <div class="settings_modal">
+                        <i id="setting_close" class="material-icons" title="Закрыть">close</i>
+                        <h1>Настройки</h1>
+                        <div class="tabs_setings">
+                            <input id="set_main" type="radio" name="tabs_tour" checked="">
+                            <label for="set_main">Отправка e-mail</label>
+                            <input id="set_not" type="radio" name="tabs_tour">
+                            <label for="set_not">Оформление</label>
+                            <input id="set_param" type="radio" name="tabs_tour">
+                            <label for="set_param">Параметры</label>
+                            <div class="content_tabs" id="set_main_tab">
+                                <h3>Уведомления</h3>
+                                <div class="rkmd-checkbox">
+                                    <label class="input-checkbox">
+                                        <input type="checkbox" id="checkbox-2">
+                                        <span class="checkbox"></span>
+                                    </label>
+                                    <label for="checkbox-2" class="label">Получать уведомления о новых сообщениях в чате</label>
+                                </div>
+                                <div class="rkmd-checkbox">
+                                    <label class="input-checkbox">
+                                        <input type="checkbox" id="checkbox-1">
+                                        <span class="checkbox"></span>
+                                    </label>
+                                    <label for="checkbox-1" class="label">Получать уведомления о своих сообщениях в чате</label>
+                                </div>
+                                <div class="rkmd-checkbox">
+                                    <label class="input-checkbox">
+                                        <input type="checkbox" id="checkbox-3">
+                                        <span class="checkbox"></span>
+                                    </label>
+                                    <label for="checkbox-3" class="label">Получать уведомления о изменениях в теме</label>
+                                </div>
+                            </div>
+                            <div class="content_tabs" id="set_not_tab">
+                                <h3>Расположение</h3>
+                                <div class="rkmd-checkbox">
+                                    <label class="input-checkbox">
+                                        <input type="checkbox" id="checkbox-4">
+                                        <span class="checkbox"></span>
+                                    </label>
+                                    <label for="checkbox-4" class="label">Основной экран в форме "Вкладок"</label>
+                                </div>
+                                <div class="rkmd-checkbox">
+                                    <label class="input-checkbox">
+                                        <input type="checkbox" id="checkbox-5">
+                                        <span class="checkbox"></span>
+                                    </label>
+                                    <label for="checkbox-5" class="label">Основной экран в форме "Колонок"</label>
+                                </div>
+                            </div>
+                            <div class="content_tabs" id="set_param_tab">
+                                <div class="change_password_form">
+                                    <h3>Смена пароля</h3>
+                                    <div class="change_password_textfield">
+                                        <input id="old_password" type="password" name="current_password" required="">
+                                        <label for="current_password">Текущий пароль</label>
+                                    </div>
+                                    <div class="change_password_textfield">
+                                        <input id="new_password" type="password" name="new_password">
+                                        <label for="new_password">Новый пароль</label>
+                                    </div>
+                                    <div class="change_password_textfield">
+                                        <input id="new_password_confirm" type="password" name="confirm_password">
+                                        <label for="confirm_password">Подтверждение</label>
+                                    </div>
+                                    <span id="password_change_error" class="error"></span>
+                                    <button id="password_change_confirm" type="button" class="btn">Сохранить</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>

@@ -1,0 +1,236 @@
+// out: false, compress: false, strictMath: true
+
+/*ЧАТ*/
+
+.chat_container {
+    width: 49.7%;
+    min-width: 20rem;
+    overflow-y: auto;
+    overflow-x: hidden;
+    background-color: lighten(@main-color, 3%);
+}
+
+.chat {
+    min-height: 100%;
+    padding-bottom: 3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    .self_msg, .other_msg, .admin_msg, .reply_msg, .reply_msg_other {
+        display: flex;
+        justify-content: flex-end;
+        margin: 0.8rem;
+        .box_msg {
+            display: flex;
+            background-color: rgb(238, 238, 255); //
+            border-radius: 12px;
+            white-space: pre-line;
+            word-break: break-word;
+            text-shadow: 1px 0 1px rgba(255, 255, 255, 0.54);
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+            font-weight: 400;
+            position: relative;
+            color: fade(@font-color-dark, 87%);
+            .admin_icons, .admin_text, .date, .text {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                padding: 0.5rem;
+            }
+            .text {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .author {
+                padding-left: 0;
+                color: @main-color;
+                font-weight: 500;
+                i {
+                    font-size: @font-size;
+                    padding: 0;
+                }
+            }
+            .date {
+                padding: 0.5rem;
+                color: fade(@font-color-dark, 54%);
+                background-color: rgb(236, 236, 255); //
+                border-radius: 0 12px 12px 0;
+                border-left: 1px solid rgba(0, 0, 0, 0.1);
+                display: flex;
+				flex-direction: column;
+				align-items: center;
+				min-width: 3.75rem;
+				max-width: 3.75rem;
+				.chat_time {
+					font-size: (@font-size*1);
+				}
+				.chat_date {
+					font-size: (@font-size*0.8);
+				}
+            }
+        }
+    }
+    .reply_msg,
+    .reply_msg_other {
+        .box_msg {
+            flex-direction: column;
+            white-space: normal;
+            word-break: normal;
+            .up_box {
+                background-color: lighten(@main-color, 35%);
+                border-radius: 12px 12px 0 0;
+                border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+                padding: 0.5rem;
+                font-size: (@font-size*0.9);
+                font-style: italic;
+                span {
+                    padding: 0.2rem 0;
+                    i {
+                        color: fade(@font-color-dark, 26%);
+                        cursor: default;
+                    }
+                }
+            }
+            .down_box {
+                padding: 0.5rem;
+                span {
+                    display: block;
+                }
+            }
+            i {
+                padding: 0;
+                font-size: @font-size;
+            }
+            .date {
+                padding: 0.2rem;
+                color: fade(@font-color-dark, 54%);
+                border-radius: 0 0 12px 12px;
+                text-align: center;
+            }
+        }
+    }
+    .self_msg,
+    .reply_msg {
+        .box_msg {
+            /*ТРЕУГОЛЬНИК ЧАТА*/
+            &:before {
+                content: '';
+                position: absolute;
+                top: 0;
+                right: -0.8rem;
+                width: 0;
+                height: 0;
+                border: 0.7rem solid transparent;
+                border-left-color: rgb(236, 236, 255); //
+                border-top-color: rgb(236, 236, 255); //
+            }
+        }
+    }
+    .other_msg,
+    .reply_msg_other {
+        justify-content: flex-start;
+        .box_msg {
+            background-color: rgb(255, 255, 255);
+            .text {}
+            .date {
+                background-color: darken(rgb(255, 255, 255), 2%);
+                color: fade(@font-color-dark, 54%);
+            }
+            /*ТРЕУГОЛЬНИК ЧАТА*/
+            &:before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: -0.8rem;
+                width: 0;
+                height: 0;
+                border: 0.7rem solid transparent;
+                border-right-color: rgb(255, 255, 255); //
+                border-top-color: rgb(255, 255, 255); //
+            }
+        }
+    }
+    /*СИСТЕМНЫЕ СООБЩЕНИЯ*/
+    .admin_msg {
+        margin: 0.8rem 0;
+        justify-content: center;
+        font-size: (@font-size*0.9);
+        .box_msg {
+            display: flex;
+            width: 100%;
+            justify-content: space-between;
+			padding: 0 1rem;
+            background-color: transparent;
+            color: fade(@font-color-dark, 54%);
+            text-shadow: none;
+            box-shadow: none;
+            border-radius: 0;
+            border-top: 3px double rgba(0, 0, 0, 0.42);
+            border-bottom: 3px double rgba(0, 0, 0, 0.42);
+            i {
+                padding: 0;
+                &:hover {
+                    color: fade(@font-color-dark, 26%);
+                    cursor: default;
+                }
+            }
+            .text {
+                b {
+                    color: fade(@font-color-dark, 87%);
+                    font-weight: 400;
+					&:first-letter {
+						text-transform: uppercase;
+					}
+                }
+            }
+            .date {
+                box-shadow: none;
+                border-radius: 0;
+                background-color: inherit;
+                color: fade(@font-color-dark, 54%);
+            }
+        }
+    }
+}
+
+.status_write {
+    position: absolute;
+    bottom: 3.5rem;
+    display: none;
+    margin: 0.5rem 0.8rem;
+    padding: 0.5rem;
+    font-style: italic;
+    color: fade(@font-color-light, 87%);
+    background-color: darken(@bg-color, 60%);
+    font-weight: 300;
+    border-radius: 12px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    &:first-letter {
+        text-transform: uppercase;
+    }
+    &:before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -0.8rem;
+        width: 0;
+        height: 0;
+        border: 0.65rem solid transparent;
+        border-right-color: darken(@bg-color, 60%); //
+        border-top-color: darken(@bg-color, 60%); //
+    }
+	&::after {
+		content: "...";
+        display: inline-block;
+        width: 1rem;
+		animation: ellipsis 1s infinite;
+	}
+}
+
+.img_preview {
+	width: auto;
+	height: auto;
+	max-height: 30rem;
+	max-width: 100%;
+	border-radius: 12px;
+}

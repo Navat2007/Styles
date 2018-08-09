@@ -1,0 +1,150 @@
+// out: false, compress: false, strictMath: true
+.btn {
+    position: relative;
+    width: 8rem;
+    padding: 0.4em 1em;
+    border-radius: 2px;
+    text-transform: uppercase;
+    font-weight: 400;
+    font-size: @font-size;
+    background-color: @main-color;
+    color: @font-color-light;
+    overflow: hidden;
+    cursor: pointer;
+    &:after {
+        content: '';
+        display: block;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        width: 8rem;
+        height: 8rem;
+        margin-left: -4rem;
+        margin-top: -4rem;
+        background: darken(@main-color, 15%);
+        border-radius: 100%;
+        opacity: .6;
+        transform: scale(0);
+        visibility: hidden;
+    }
+    &:hover {
+        background-color: saturate(@main-color, 15%);
+    }
+    &:focus:after {
+        visibility: visible;
+    }
+    &:not(:active):after {
+        animation: ripple 1.5s ease-out;
+    }
+}
+
+
+/*КНОПКА НАЗАД*/
+
+.back {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    &:hover {
+        background-color: @bg-color;
+    }
+}
+
+
+/*КНОПКА ОПЦИЙ*/
+
+.task_button_option {
+    display: flex;
+    align-items: center;
+    margin: 0.5rem 0;
+    width: 100%;
+	padding: 0;
+    padding-right: 0.5rem;
+    text-transform: none;
+    font-weight: normal;
+	border-radius: 5px;
+    color: fade(@font-color-dark, 54%);
+    background-color: @bg-color;
+    box-shadow: @box-shadow;
+	white-space: pre;
+	text-overflow: ellipsis;
+    &:after {
+        background: darken(@bg-color, 1%);
+    }
+    &:hover {
+        background-color: darken(@bg-color, 3%);
+        color: fade(@font-color-dark, 87%);
+    }
+	i {
+		font-size: (@font-size*1.3);
+		color: inherit;
+		&:hover {
+			color: inherit;
+		}
+	}
+}
+
+
+/*Кнопка создания темы во вкладках*/
+
+.add_task_btn {
+    padding: 0 0.5rem;
+    width: 8.5rem;
+	border-radius: 5px;
+    i {
+        float: left;
+        color: inherit;
+        padding-left: 0;
+    }
+    p {
+        display: block;
+        line-height: 2.5rem;
+    }
+}
+
+.btn_small {
+	width: auto;
+	padding: 0;
+	margin: 0;
+	i {
+		padding: 0.5rem;
+		&:hover {
+			color: inherit;
+		}
+	}
+}
+.task_done_btn {
+	position: absolute;
+	bottom: 1.5rem;
+	right: -1.5rem;
+	background-color: lighten(@bg-color, 10%);
+	border-radius: 50%;
+	z-index: 10;
+	box-shadow: @box-shadow;
+	padding: 0.3rem;
+	width: auto;
+    transition: transform 0.3s;
+    &:after {
+        background: darken(@bg-color, 1%);
+    }
+    &:hover {
+        background-color: lighten(@bg-color, 10%);
+        transform: scale(1.1);
+	}
+	i {
+		background-color: transparent;
+		font-size: (@font-size*1.7);
+		color: fade(@main-color, 87%);
+		&:hover {
+        color: fade(@main-color, 100%);
+		}
+	}
+}
+button:disabled,
+button[disabled] {
+	color: fade(@font-color-dark, 26%);
+	&:hover {
+		color: fade(@font-color-dark, 26%);
+		background-color: @bg-color;
+	}
+}

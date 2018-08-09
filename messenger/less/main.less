@@ -1,0 +1,309 @@
+// out: false, compress: false, strictMath: true
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+@bg-color: #EAEAEA; //самый светлый цвет фона
+@main-color: #437F68; // Самый темный цвет фона
+@font-color-dark: #000;
+@font-color-light: #fff;
+@font-color-error: #D32F2F;
+@font-size: 1em;
+@box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+
+* {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    border: none;
+    outline: none;
+    background: none;
+    font-family: 'Roboto', sans-serif;
+    font-size: @font-size;
+}
+
+i {
+    color: fade(@font-color-dark, 26%);
+    padding: 0.5rem;
+    cursor: pointer;
+    font-size: @font-size;
+    &:hover {
+        color: fade(@font-color-dark, 54%);
+    }
+}
+
+#container {
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+}
+
+.main {
+    flex: 1;
+    height: 100vh;
+    max-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.center_right {
+    flex: 1;
+    display: flex;
+    overflow-y: hidden;
+    overflow-x: auto;
+}
+
+/*изменение размера окна*/
+
+.resize {
+    width: 0.3%;
+    cursor: col-resize;
+    background-color: lighten(@main-color, 3%);
+}
+
+/*POPUP WINDOW*/
+
+.settings_window {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.2);
+    z-index: 10;
+}
+
+/*SETTINGS WINDOW*/
+
+.settings_node {
+    min-height: 100%;
+    display: flex;
+    padding-top: 15%;
+    align-items: flex-start;
+    justify-content: center;
+    .settings_modal {
+        background-color: darken(@bg-color, 5%);
+        padding: 1rem 0.5rem;
+        box-shadow: @box-shadow;
+        border-radius: 2px;
+        position: relative;
+        i {
+            position: absolute;
+            right: 0.5rem;
+            top: 1rem;
+            color: fade(@font-color-error, 54%);
+            margin: -1rem -0.5rem;
+            &:hover {
+                color: fade(@font-color-error, 87%);
+            }
+        }
+        h1,
+        h3 {
+            text-align: center;
+            margin: 0 0 1rem;
+            cursor: default;
+        }
+        h3 {
+            margin: 1rem 0 1rem;
+        }
+        .rkmd-checkbox {
+            color: fade(@font-color-dark, 87%);
+            display: flex;
+            align-items: center;
+            margin: 0.5rem;
+            .label {
+                order: -1;
+                flex: 1;
+                padding-right: 1.5rem;
+                text-align: left;
+            }
+            .input-checkbox {
+                position: relative;
+                width: 1.5rem;
+                height: 1.5rem;
+                input[type="checkbox"] {
+                    visibility: hidden;
+                    cursor: pointer;
+                    opacity: 0;
+                    & + .checkbox:before {
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        font-family: 'Material Icons';
+                        font-size: (@font-size*1.5);
+                        direction: ltr;
+                        vertical-align: -0.45rem;
+                        /* Support for all WebKit browsers. */
+                        -webkit-font-smoothing: antialiased;
+                        /* Support for Safari and Chrome. */
+                        text-rendering: optimizeLegibility;
+                        /* Support for Firefox. */
+                        -moz-osx-font-smoothing: grayscale;
+                        /* Support for IE. */
+                        font-feature-settings: 'liga';
+                        transition: all .2s ease;
+                        z-index: 1;
+                    }
+                    & + .checkbox:before {
+                        content: "\e835";
+                        color: fade(@main-color, 87%);
+                    }
+                    &:checked + .checkbox:before {
+                        content: "\e834";
+                    }
+                    &:active:not(:disabled) + .checkbox:before {
+                        transform: scale3d(0.88, 0.88, 1);
+                    }
+                    & + .checkbox:after {
+                        content: '';
+                        position: absolute;
+                        left: 50%;
+                        top: 50%;
+                        width: 1.3rem;
+                        height: 1.3rem;
+                        margin-left: -0.65rem;
+                        margin-top: -0.65rem;
+                        background: darken(@main-color, 15%);
+                        border-radius: 100%;
+                        opacity: .6;
+                        transform: scale(0);
+                        visibility: hidden;
+                    }
+                    &:checked + .checkbox:after {
+                        visibility: visible;
+                    }
+                    &:not(:active) + .checkbox:after {
+                        animation: ripple 1s ease-out;
+                    }
+                }
+            }
+        }
+    }
+}
+
+/*USERS LIST*/
+
+.modal_users {
+    position: absolute;
+    display: none;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.20);
+    z-index: 100;
+}
+
+.users_list {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    /*ВСПЛЫВАЮЩЕЕ ОКНО*/
+    .theme_form {
+        box-shadow: @box-shadow;
+        background-color: @bg-color;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        position: relative;
+        border-radius: 2px;
+        padding: 1rem 1.5rem;
+        input {
+            padding: 0.5rem 0 0.2rem;
+            width: 12rem;
+        }
+        h1 {
+            text-transform: uppercase;
+            font-size: (@font-size*1.2);
+            color: fade(@font-color-dark, 87%);
+        }
+        /*ЗАКРЫТИЕ ОКНА*/
+        .error {
+            position: absolute;
+            right: 0;
+            top: 0;
+            padding: 0.2rem;
+            color: fade(@font-color-error, 26%);
+            &:hover {
+                color: fade(@font-color-error, 54%);
+            }
+        }
+        /*SELECTION*/
+        .list-users {
+            display: flex;
+            align-items: stretch;
+            .list {
+                overflow: hidden;
+                select {
+                    background-color: lighten(@bg-color, 3%);
+                    box-shadow: inset 0 0 1px rgba(0, 0, 0, 0.42);
+                    font-size: @font-size;
+                    overflow: auto;
+                    width: 100%;
+                    height: 15rem;
+                    option {
+                        color: fade(@font-color-dark, 54%);
+                        cursor: pointer;
+                        padding: 0.5rem;
+                        overflow: hidden;
+                        white-space: nowrap;
+                        text-overflow: ellipsis;
+                        &:hover {
+                            color: fade(@font-color-dark, 87%);
+                        }
+                    }
+                }
+            }
+            .user_tabs {
+                display: flex;
+                align-self: stretch;
+                flex-direction: column;
+                justify-content: center;
+            }
+        }
+        /*ОШИБКИ*/
+        #error {
+            color: fade(@font-color-error, 87%);
+            font-size: (@font-size*0.8);
+            height: 1em;
+            display: block;
+        }
+    }
+}
+
+
+/*RIGHT_CLICK MENU*/
+
+.right_click_menu {
+    display: block;
+    background-color: lighten(@bg-color, 5%);
+    box-shadow: @box-shadow;
+    margin: 0.5rem;
+    width: 12rem;
+    color: fade(@font-color-dark, 87%);
+    font-size: (@font-size*0.9);
+    position: relative;
+    ::after {
+        content: '';
+        position: absolute;
+        top: -1.3rem;
+        left: 5.3rem;
+        border: 0.7rem solid transparent;
+        border-bottom-color: lighten(@bg-color, 5%);
+    }
+    li {
+        display: block;
+        padding: 0.5rem 1rem;
+        cursor: pointer;
+        &:last-child {
+            border-bottom: none;
+        }
+        &:hover {
+            background-color: lighten(@bg-color, 7%);
+        }
+    }
+}

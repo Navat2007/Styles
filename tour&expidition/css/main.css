@@ -1,0 +1,15 @@
+@media (min-width: 577px) and (max-width: 767px) {
+  .container {
+    max-width: none;
+  }
+}
+.caption {
+    caption-side: top;
+}
+.refresh {
+    font-size: 1rem;
+}
+.img_guide {
+    width: 1rem;
+    margin-right: 0.2rem;
+}

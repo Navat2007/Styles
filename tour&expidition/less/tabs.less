@@ -1,0 +1,116 @@
+// out: false, compress: false, strictMath: true
+.admin_tabs {
+    background-color: darken(@bg-color, 25%);
+    & > section {
+        /* Стили секций с содержанием */
+        display: none;
+        flex-direction: column;
+        position: relative;
+        background-color: @bg-color;
+    }
+    & > input {
+        /* Прячем чекбоксы */
+        display: none;
+        position: absolute;
+    }
+    & > label {
+        /* Стили переключателей вкладок (табов) */
+        display: inline-block;
+        margin: 0.5rem 0;
+        padding: 0 1.5rem;
+        line-height: 2.5;
+        height: 2rem;
+        font-weight: 500;
+        text-align: center;
+        cursor: pointer;
+        font-size: (@font-size*0.8);
+        text-transform: uppercase;
+        border-radius: @b-radius;
+        &:first-of-type {
+            margin-left: 2rem;
+        }
+        &:hover {
+            /* Изменения стиля переключателей вкладок при наведении */
+            color: fade(@font-color-dark, 87%);
+            background-color: darken(@bg-color, 15%);
+        }
+    }
+    & > input:checked+label {
+        /* Стили для активной вкладки */
+        color: fade(@font-color-dark, 87%);
+        background: lighten(@bg-color, 4%);
+    }
+    #store:checked~#store_container,
+    #admin:checked~#admin_container {
+        /* Активация секций с помощью псевдокласса :checked */
+        z-index: 1;
+        display: flex;
+    }
+}
+
+.tabs {
+    & > section {
+        /* Стили секций с содержанием */
+        display: none;
+        position: relative;
+        background: darken(@bg-color, 0.5%);
+        border: @border;
+        padding: 0.5rem;
+        text-align: center;
+    }
+    & > input {
+        /* Прячем чекбоксы */
+        display: none;
+        position: absolute;
+    }
+    & > label {
+        /* Стили переключателей вкладок (табов) */
+        border: @border;
+        display: inline-block;
+        position: relative;
+        padding: 0.5rem;
+        margin-right: -0.2rem;
+        font-weight: 400;
+        text-align: center;
+        border-radius: 5px 5px 0 0;
+        color: fade(@font-color-dark, 54%);
+        cursor: pointer;
+        font-size: (@font-size*0.875);
+        text-transform: uppercase;
+        &::after {
+            content: '';
+            position: absolute;
+            bottom: -0.5rem;
+            left: 0;
+            width: 100%;
+            height: 0.5rem;
+            background: darken(@bg-color, 0.5%);
+        }
+        &:hover {
+            /* Изменения стиля переключателей вкладок при наведении */
+            color: fade(@font-color-dark, 87%);
+        }
+    }
+    & > input:checked+label {
+        /* Стили для активной вкладки */
+        color: fade(@font-color-dark, 87%);
+        background: darken(@bg-color, 0.5%);
+        z-index: 2;
+    }
+    #add_tour_main:checked~#add_tour_main_container,
+    #add_tour_checkbox:checked~#add_tour_checkbox_container,
+    #add_tour_description:checked~#add_tour_description_container,
+    #add_tour_files:checked~#add_tour_files_container,
+    #add_tour_extracharges:checked~#add_tour_extracharges_container,
+    #add_tour_high:checked~#add_tour_high_container,
+    #add_tour_low:checked~#add_tour_low_container,
+    
+    #settings_tour_guide:checked~#settings_tour_guide_container,
+    #settings_tour_checkbox:checked~#settings_tour_checkbox_container,
+    #settings_tour_type:checked~#settings_tour_type_container,
+    #settings_tour_extracharges:checked~#settings_tour_extracharges_container {
+        /* Активация секций с помощью псевдокласса :checked */
+        z-index: 1;
+        display: block;
+    }
+}

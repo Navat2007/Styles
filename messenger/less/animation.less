@@ -1,0 +1,349 @@
+// out: false, compress: false, strictMath: true
+.btn,
+.bar,
+.back,
+li.add_theme_li,
+label,
+input,
+i,
+textarea,
+.box-option {
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+}
+
+.box,
+.box-on {
+    &:before, &:after {
+		-webkit-transition: all 0.5s ease;
+		-moz-transition: all 0.5s ease;
+		transition: all 0.5s ease;
+    }
+}
+.left, .col_archive {
+    -webkit-transition: all 0.5s linear;
+    -moz-transition: all 0.5s linear;
+    transition: all 0.5s linear;
+}
+
+.chat_container *,
+.main > *,
+.new_task,
+.card_layout *,
+#tab_need_to_do > *,
+#tab_in_work > *,
+#tab_done > *,
+#tab_archive > *,
+#set_main_tab *,
+#set_not_tab *,
+#set_param_tab * {
+    /* прикрутим анимацию */
+    -webkit-animation-duration: 0.5s;
+    animation-duration: 0.5s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+    -webkit-animation-name: fadeIn;
+    animation-name: fadeIn;
+}
+
+//
+//.right_click_menu {
+//    li {
+//        -webkit-transition: all 0.7s ease;
+//        -moz-transition: all 0.7s ease;
+//        transition: all 0.7s ease;
+//    }
+//}
+//
+//.checkbox {
+//    &::before {
+//        -webkit-transition: all 0.3s ease;
+//        -moz-transition: all 0.3s ease;
+//        transition: all 0.3s ease;
+//    }
+//    &::after {
+//        -webkit-transition: all 0.3s ease;
+//        -moz-transition: all 0.3s ease;
+//        transition: all 0.3s ease;
+//    }
+//}
+//
+//.col_done {
+//    -webkit-transition: all 0.7s ease;
+//    -moz-transition: all 0.7s ease;
+//    transition: all 0.7s ease;
+//}
+
+@keyframes ellipsis {
+	10% {
+		content: ".";
+	}
+	40% {
+		content: "..";
+	}
+	70% {
+		content: "...";
+	}
+}
+
+@-webkit-keyframes newMessage {
+    0% {
+        background-color: darken(@main-color,15%);
+    }
+    35% {
+        background-color: lighten(@main-color,25%);;
+    }
+    70% {
+        background-color: lighten(@main-color,15%);;
+    }
+}
+
+@keyframes newMessage {
+    0% {
+        background-color: darken(@main-color,15%);
+    }
+    35% {
+        background-color: lighten(@main-color,25%);;
+    }
+    70% {
+        background-color: lighten(@main-color,15%);;
+    }
+}
+
+/*Animation button*/
+
+@-webkit-keyframes ripple {
+    0% {
+        -webkit-transform: scale(0);
+        transform: scale(0);
+    }
+    20% {
+        -webkit-transform: scale(1.5);
+        transform: scale(1.5);
+    }
+    100% {
+        opacity: 0;
+        -webkit-transform: scale(1.5);
+        transform: scale(1.5);
+    }
+}
+
+@keyframes ripple {
+    0% {
+        -webkit-transform: scale(0);
+        transform: scale(0);
+    }
+    20% {
+        -webkit-transform: scale(1.5);
+        transform: scale(1.5);
+    }
+    100% {
+        opacity: 0;
+        -webkit-transform: scale(1.5);
+        transform: scale(1.5);
+    }
+}
+
+
+/* Описываем анимацию свойства opacity */
+
+@-webkit-keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+
+/*ПРОКРУТКА*/
+
+::-webkit-scrollbar-button {
+    /*стилизация полосы прокрутки*/
+    background-image: url('');
+    background-repeat: no-repeat;
+    width: 0;
+    height: 0;
+}
+
+::-webkit-scrollbar-track {
+    background-color: transparent;
+    /*Цвет бегунка полосы прокрутки*/
+}
+
+::-webkit-scrollbar-thumb {
+    /*Меняем значение border-radius для закругления*/
+    -webkit-border-radius: 0;
+    border-radius: 0;
+    background-color: white;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    /*Цвет бегунка при наведении на него курсора*/
+    background-color: white;
+}
+
+::-webkit-resizer {
+    background-image: url('');
+    background-repeat: no-repeat;
+    width: 0.2rem;
+    height: 0.2rem;
+}
+
+::-webkit-scrollbar {
+    /*Основная ширина полосы прокрутки*/
+    width: 0.2rem;
+    height: 0.2rem;
+}
+
+
+/*PLACEHOLDER*/
+
+input::-webkit-input-placeholder {
+    color: fade(@font-color-dark, 54%);
+    opacity: 1;
+    transition: opacity 0.5s ease;
+}
+
+input::-moz-placeholder {
+    color: fade(@font-color-dark, 54%);
+    opacity: 1;
+    transition: opacity 0.5s ease;
+}
+
+input:-moz-placeholder {
+    color: fade(@font-color-dark, 54%);
+    opacity: 1;
+    transition: opacity 0.5s ease;
+}
+
+input:-ms-input-placeholder {
+    color: fade(@font-color-dark, 54%);
+    opacity: 1;
+    transition: opacity 0.5s ease;
+}
+
+textarea::-webkit-input-placeholder {
+    color: fade(@font-color-dark, 54%);
+    opacity: 1;
+    transition: opacity 0.5s ease;
+}
+
+textarea::-moz-placeholder {
+    color: fade(@font-color-dark, 54%);
+    opacity: 1;
+    transition: opacity 0.5s ease;
+}
+
+textarea:-moz-placeholder {
+    color: fade(@font-color-dark, 54%);
+    opacity: 1;
+    transition: opacity 0.5s ease;
+}
+
+textarea:-ms-input-placeholder {
+    color: fade(@font-color-dark, 54%);
+    opacity: 1;
+    transition: opacity 0.5s ease;
+}
+
+
+/*HOVER*/
+
+input:hover::-webkit-input-placeholder {
+    color: fade(@font-color-dark, 87%);
+}
+
+input::-moz-placeholder {
+    color: fade(@font-color-dark, 87%);
+}
+
+input:-moz-placeholder {
+    color: fade(@font-color-dark, 87%);
+}
+
+input:-ms-input-placeholder {
+    color: fade(@font-color-dark, 87%);
+}
+
+textarea:hover::-webkit-input-placeholder {
+    color: fade(@font-color-dark, 87%);
+}
+
+textarea::-moz-placeholder {
+    color: fade(@font-color-dark, 87%);
+}
+
+textarea:-moz-placeholder {
+    color: fade(@font-color-dark, 87%);
+}
+
+textarea:-ms-input-placeholder {
+    color: fade(@font-color-dark, 87%);
+}
+
+
+/*FOCUS*/
+
+input:focus::-webkit-input-placeholder {
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+input:focus::-moz-placeholder {
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+input:focus:-moz-placeholder {
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+input:focus:-ms-input-placeholder {
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+textarea:focus::-webkit-input-placeholder {
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+textarea:focus::-moz-placeholder {
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+textarea:focus:-moz-placeholder {
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+textarea:focus:-ms-input-placeholder {
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+
+/*Particles*/
+
+#particles-js {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    top: 0;
+    left: 0;
+}

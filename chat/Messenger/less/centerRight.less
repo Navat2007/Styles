@@ -1,0 +1,349 @@
+// out: ../css/main.css, compress: false, strictMath: true
+@bg-color: #EAEAEA; //самый светлый цвет фона
+@main-color: #437F68; // Самый темный цвет фона
+@font-color-dark: #000;
+@font-color-light: #fff;
+@font-color-error: #D32F2F;
+@font-size: 1em;
+@box-shadow: 0 2px 5px 0 rgba(0,0,0,0.26);
+/*ПРАВО*/
+/*ЦЕНТР*/
+.center_right {
+    flex: 1;
+    display: flex;
+    overflow-y: hidden;
+    overflow-x: auto;
+}
+
+/*ОКНО С КОЛОНКАМИ*/
+.task_window {
+    width: 75%;
+    min-width: 36em;
+    display: flex;
+    align-items: stretch;
+}
+
+/*КОЛОНКИ*/
+.col_need_to_do, 
+.col_in_work, 
+.col_done {
+    flex: 1 1;
+    overflow-x: hidden;
+    overflow-y: auto;
+    padding: 0.4em;
+    background-color: fade(rgb(198,36,36), 25%);/*КРАСНЫЙ*/
+    text-align: center;
+    position: relative;
+    & > h3 {
+        color: fade(rgb(198,36,36), 54%);
+        padding-bottom: 0.5em;
+    }
+    & > i {
+        padding-top: 0;
+        color: fade(rgb(198,36,36), 54%);
+    }
+    .dropZone {
+        height: ~"calc(100% - 4.5em)"; //расчитываем высоту блока
+    }
+}
+
+.col_in_work {
+    background-color: fade(rgb(37,68,153), 25%);/*СИНИЙ*/
+    & > h3 {
+        color: fade(rgb(37,68,153), 54%);
+    }
+    .dropZone {
+        height: ~"calc(100% - 2.3em)"; //расчитываем высоту блока
+    }
+}
+
+.col_done {
+    background-color: fade(@main-color, 25%);/*ЗЕЛЕНЫЙ*/
+    & > h3 {
+        color: fade(@main-color, 54%);
+    }
+    .dropZone {
+        height: ~"calc(100% - 2.3em)"; //расчитываем высоту блока
+    }
+}
+
+/*КАРТОЧКА БОЛЬШАЯ*/
+.card {
+    display: none;
+    flex: 1;
+    background-color: @bg-color;
+}
+
+/*КАРТОЧКИ С ЗАДАЧАМИ*/
+.new_task, .task_node, .task_main {
+    text-align: left;
+    background-color: @bg-color;
+    border-radius: 2px;
+    margin: 0.5em 0;
+    padding: 0.5em;
+    box-shadow: @box-shadow;
+    cursor: pointer;
+    h3 {
+        color: fade(@font-color-dark, 87%);
+        font-weight: 500;
+        padding-bottom: 0.2em;
+        font-size: 1.1em;
+        &:hover ~ i {
+            opacity: 1;
+        }
+    }
+    & > p {
+        display: block;
+        font-weight: 300;
+        white-space: pre-wrap;
+    }
+    .notification {
+        padding: 0.5em 0 0 0;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        color: fade(@font-color-dark, 54%);
+        i {
+            font-size: 1.3em;
+            padding: 0;
+            padding-left: 0.5em;
+            &:hover {
+                color: fade(@font-color-dark, 26%);
+            }
+            &:first-child {
+                padding-left: 0;
+            }
+        }
+        .date {
+            min-width: 3.1em;
+        }
+    }
+    /*ДОБАВЛЕНИЕ ЗАДАЧИ*/
+    textarea {
+        color: fade(@font-color-dark, 87%);
+        font-weight: 500;
+        font-size: 1.1em;
+        width: 100%;
+        border-radius: 2px;
+        resize: none;
+        border: 1px solid rgba(0, 0, 0, 0);
+        padding: 0.2em;
+        background-color: lighten(@bg-color, 5%);
+        transition: border 0.3s;
+        &:hover {
+            border: 1px solid rgba(0, 0, 0, 0.2);
+        }
+    }
+    .description {
+        color: fade(@font-color-dark, 87%);
+        font-weight: 400;
+        font-size: 1em;
+        border-radius: 2px;
+        resize: vertical;
+        overflow: hidden;
+    }
+}
+
+/*КНОПКА НАЗАД*/
+.back {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    &:hover {
+        background-color: darken(@bg-color, 5%);
+    }
+}
+
+.card_layout {
+    display: flex;
+    flex: 1;
+    overflow-y: auto;
+}
+
+/*КАРТОЧКА ОСНОВНАЯ БОЛЬШАЯ*/
+.task_main {
+    flex: 3;
+    box-shadow: none;
+    margin: 0.5em 0.5em 0.5em 2em;
+    color: fade(@font-color-dark, 54%);
+    cursor: default;
+    .labelfield {
+        display: flex;
+        align-items: center;
+        justify-content: spase-between;
+        i {
+            font-size: 1.2em;
+            &:first-child {
+                margin-left: -2em;
+                cursor: default;
+                &:hover {
+                    background-color: @bg-color;
+                    color: fade(@font-color-dark, 26%);
+                }
+            }
+        }
+        p {
+            flex: 1;
+            padding: 0.5em;
+        }
+    }
+}
+
+/*КАРТОЧКА - ОПЦИИ*/ 
+.task_option {
+    flex: 1;
+    margin: 0.5em;
+    padding: 0.5em;
+    color: fade(@font-color-dark, 54%);
+    .task_box {
+        margin-bottom: 2em;
+    }
+    h3 {
+        color: fade(@font-color-dark, 87%);
+        font-weight: 600;
+        padding-bottom: 0.5em;
+        font-size: 1.2em;
+        text-align: center;
+    }
+    /*КНОПКА ОПЦИЙ*/
+    .task_button_option {
+        display: flex;
+        align-items: center;
+        position: relative;
+        width: 100%;
+        margin: 0.5em 0;
+        padding: 0.2em 0.5em 0.2em 0;
+        text-transform: none;
+        font-weight: normal;
+        color: fade(@font-color-dark, 54%);
+        background-color: darken(@bg-color, 5%);
+        box-shadow: 0 1px 3px 0 rgba(0,0,0,0.26);
+        transition: background-color 0.3s;
+        &:after {
+            background: darken(@bg-color, 15%);
+        }
+        &:hover {
+            background-color: darken(@bg-color, 10%);
+            color: fade(@font-color-dark, 87%);
+        }
+    }
+}
+/*изменение размера окна*/
+.resize {
+    width: 0.3%;
+    border-right: 1px solid rgba(0,0,0,0.20);
+    cursor: col-resize;
+}
+
+/*ЧАТ*/
+.chat {
+    width: 34.7%;
+    min-width: 12em;
+    overflow-x: hidden;
+    overflow-y: auto;
+    background-color: @main-color;
+    .other_msg,
+    .self_msg,
+    .admin_msg {
+        display: flex;
+        justify-content: flex-end;
+        margin: 0.5em 0.8em;
+        .box_msg {
+            display: flex;
+            background-color: @bg-color;
+            border-radius: 12px;
+            white-space: normal;
+            word-break: normal;
+            box-shadow: @box-shadow;
+            font-weight: 400;
+            position: relative;
+            /*ТРЕУГОЛЬНИК ЧАТА
+            &:before {
+                content: '';
+                position: absolute;
+                bottom: 0;
+                right: -0.7em;
+                width: 0;
+                height: 0;
+                border: 0.6em solid transparent;
+                border-left-color: @bg-color;
+                border-bottom-color: @bg-color;
+            }
+            ТРЕУГОЛЬНИК ЧАТА
+            &:before {
+                left: -0.7em;
+                border: 0.6em solid transparent;
+                border-right-color: rgb(200,200,255);
+                border-bottom-color: rgb(200,200,255);
+            }*/
+            .admin-icons, 
+            .admin_text,
+            .date,
+            .text{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                padding: 0.5rem;
+            }
+            .text {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .author {
+                color: @main-color;
+                font-weight: 500;
+                i {
+                    font-size: 1em;
+                    padding: 0;
+                }
+            }
+            .date {
+                padding: 0.5rem;
+                color: fade(@font-color-dark, 54%);
+                background-color: darken(@bg-color, 2%);
+                border-radius: 0 12px 12px 0;
+                span {
+                    width: 3.1em;
+                    text-align: center;   
+                }
+            }
+        }
+    }
+    .other_msg {
+        justify-content: flex-start;
+    }
+
+    /*СИСТЕМНЫЕ СООБЩЕНИЯ*/
+    .admin_msg {
+        justify-content: center;
+        .box_msg {
+            background-color: darken(@main-color, 2%);
+            color: fade(@font-color-dark, 54%);
+            i {
+                padding: 0;
+                &:hover {
+                    color: fade(@font-color-dark, 26%);
+                    cursor: default;
+                }
+            }
+            .text {
+                b {
+                    color: fade(@font-color-dark, 87%);
+                    font-weight: 400;
+                }
+            }
+            .date {
+                background-color: darken(@main-color, 4%);
+                color: fade(@font-color-dark, 54%);
+            }
+        }
+    }
+
+    ЦИТАТА
+    .reply_msg_self,
+    .reply_msg_other {
+
+    }
+}
+

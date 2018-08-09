@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="../css/test.css">
+    <script type="text/javascript" src="jquery-3.3.1.min.js"></script>
+    <script>
+	$(document).ready(function(){
+		$(".btn-slide").click(function(){
+			$("#panel").slideToggle("slow");
+			$(this).toggleClass("active");
+		});
+	});
+	</script>
+</head>
+
+<body>
+
+<div id="panel">
+	<!-- you can put content here -->
+</div>
+
+<p class="slide"><a href="#" class="btn-slide">Slide Panel</a></p>
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,191 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+/*ДОБАВИТЬ ТЕМУ*/
+/*ФОНОВОЕ ЗАТЕМНЕНИЕ*/
+.modal,
+.modal-2 {
+  position: absolute;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.2);
+  z-index: 100;
+  /*ВСПЛЫВАЮЩЕЕ ОКНО*/
+}
+.modal .theme_form,
+.modal-2 .theme_form {
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+  background-color: #EAEAEA;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  position: relative;
+  border-radius: 2px;
+  padding: 1em 1.5em;
+  /*ЗАКРЫТИЕ ОКНА*/
+  /*SELECTION*/
+  /*CHECKBOX*/
+  /*ОШИБКИ*/
+}
+.modal .theme_form h1,
+.modal-2 .theme_form h1 {
+  text-transform: uppercase;
+  font-size: 1.2em;
+  color: rgba(0, 0, 0, 0.87);
+}
+.modal .theme_form .error,
+.modal-2 .theme_form .error {
+  position: absolute;
+  right: 0;
+  top: 0;
+  padding: 0.2em;
+  color: rgba(211, 47, 47, 0.26);
+}
+.modal .theme_form .error:hover,
+.modal-2 .theme_form .error:hover {
+  color: rgba(211, 47, 47, 0.54);
+}
+.modal .theme_form .list-users,
+.modal-2 .theme_form .list-users {
+  display: flex;
+  align-items: stretch;
+}
+.modal .theme_form .list-users .list,
+.modal-2 .theme_form .list-users .list {
+  overflow: hidden;
+}
+.modal .theme_form .list-users .list select,
+.modal-2 .theme_form .list-users .list select {
+  background-color: #f2f2f2;
+  font-size: 1em;
+  overflow: auto;
+  width: 100%;
+  height: 15em;
+}
+.modal .theme_form .list-users .list select option,
+.modal-2 .theme_form .list-users .list select option {
+  color: rgba(0, 0, 0, 0.54);
+  cursor: pointer;
+  padding: 0.5em;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.modal .theme_form .list-users .list select option:hover,
+.modal-2 .theme_form .list-users .list select option:hover {
+  color: rgba(0, 0, 0, 0.87);
+}
+.modal .theme_form .list-users .tabs,
+.modal-2 .theme_form .list-users .tabs {
+  display: flex;
+  align-self: stretch;
+  flex-direction: column;
+  justify-content: center;
+}
+.modal .theme_form .checkbox,
+.modal-2 .theme_form .checkbox {
+  align-self: center;
+  margin: 1.5em 0 0.5em 0;
+  color: rgba(0, 0, 0, 0.54);
+}
+.modal .theme_form .checkbox label,
+.modal-2 .theme_form .checkbox label {
+  position: relative;
+  font-size: 1em;
+  left: 1em;
+  transition: .3s;
+  cursor: pointer;
+}
+.modal .theme_form .checkbox input,
+.modal-2 .theme_form .checkbox input {
+  transition: .3s;
+  cursor: pointer;
+  transform: scale(1.3);
+}
+.modal .theme_form .checkbox input:checked + label,
+.modal-2 .theme_form .checkbox input:checked + label {
+  color: rgba(0, 0, 0, 0.87);
+}
+.modal .theme_form #error,
+.modal-2 .theme_form #error {
+  color: rgba(211, 47, 47, 0.87);
+  font-size: 0.8em;
+  height: 1em;
+  display: block;
+}
+.textfield {
+  position: relative;
+  margin: 1.5em 0 0.3em 0;
+  color: rgba(0, 0, 0, 0.54);
+  /*ПОЛОСА ПОД INPUT*/
+}
+.textfield label {
+  position: absolute;
+  font-size: 1.1em;
+  bottom: 0.6em;
+  left: 0;
+  transition: .3s;
+  pointer-events: none;
+  background-color: #EAEAEA;
+}
+.textfield input:-webkit-autofill {
+  -webkit-box-shadow: inset 0 0 0 2em #EAEAEA !important;
+  /* Цвет фона */
+}
+.textfield input {
+  font-size: 1.1em;
+  color: rgba(0, 0, 0, 0.87);
+  cursor: pointer;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.42);
+  padding: 0.5em 0 0.2em;
+  height: 1.8em;
+  width: 12em;
+  transition: border-bottom 0.3s;
+}
+.textfield input:hover {
+  border-bottom: 2px solid rgba(0, 0, 0, 0.87);
+}
+.textfield input:focus {
+  border-bottom: 2px solid rgba(0, 0, 0, 0);
+}
+.textfield input:focus ~ label,
+.textfield input:valid ~ label {
+  transform: translateY(-1.3em);
+  font-size: 0.8em;
+  color: rgba(67, 127, 104, 0.87);
+}
+.textfield input:not(:focus) ~ label {
+  color: rgba(0, 0, 0, 0.54);
+}
+.textfield input:focus ~ .bar:before,
+.textfield input:focus ~ .bar:after {
+  width: 50%;
+}
+.textfield .bar {
+  position: relative;
+  display: block;
+  width: 100%;
+}
+.textfield .bar:before,
+.textfield .bar:after {
+  content: '';
+  height: 2px;
+  width: 0;
+  bottom: 0;
+  position: absolute;
+  background: #437F68;
+  transition: 0.2s ease all;
+  -moz-transition: 0.2s ease all;
+  -webkit-transition: 0.2s ease all;
+}
+.textfield .bar:before {
+  left: 50%;
+}
+.textfield .bar:after {
+  right: 50%;
+}
+/*# sourceMappingURL=addTheme.css.map */

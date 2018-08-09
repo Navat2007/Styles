@@ -1,0 +1,204 @@
+// out: false, compress: false, strictMath: true
+.fon {
+    display: none;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 19;
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+/*LEFT MENU SEARCH*/
+.left {
+    background-color: #fff;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: -20rem;
+    width: 20rem;
+    z-index: 20;
+    box-shadow: @box-shadow;
+}
+
+.left_menu {
+    display: flex;
+    align-items: center;
+    position: relative;
+    color: fade(@font-color-dark, 54%);
+    /*НАЙТИ*/
+    input {
+        flex: 1;
+        margin-left: 0.5rem;
+        padding: 0.5rem;
+        color: fade(@font-color-dark, 87%);
+        border-bottom: 1px solid rgba(0, 0, 0, 0.42);
+        &:hover, &:focus {
+            border-bottom: 2px solid rgba(0, 0, 0, 0.87);
+        }
+    }
+}
+
+.top_menu {
+    flex: 0 1 3rem;
+	min-height: 3rem;
+	max-height: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: @pr-dark;
+    position: relative;
+    z-index: 10;
+    .user {
+        padding: 0.5rem 1rem;
+        flex: 1;
+        .status_name {
+            color: fade(@font-color-light, 100%);
+            font-weight: normal;
+        }
+        .edit_status_name {
+            display: none;
+            color: fade(@font-color-light, 100%);
+            font-weight: normal;
+        }
+        .status_members {
+    		color: fade(@font-color-light, 87%);
+            cursor: pointer;
+            font-size: (@font-size*0.85);
+            font-weight: 200;
+			padding-top: 0.2em;
+        }
+    }
+    i {
+        flex: 0;
+		margin: 0 0.5rem;
+		font-size: (@font-size*1.3);
+		color: fade(@font-color-light, 54%);
+		&:hover {
+			color: fade(@font-color-light, 87%);
+		}
+    }
+    /*ОКНО УВЕДОМЛЕНИЙ*/
+    .notification_window {
+        display: none;
+        position: absolute;
+        right: 4rem;
+        top: 3.5rem;
+        width: 15rem;
+        border-radius: 2px;
+        background-color: #fff;
+        white-space: normal;
+        word-break: normal;
+        box-shadow: @box-shadow;
+        z-index: 9;
+		&::before {
+			content: '';
+			width: 0;
+			height: 1rem;
+			position: absolute;
+			top: -3rem;
+			left: 6rem;
+			border: 1.5rem solid transparent;
+			border-bottom-color: #fff;
+			pointer-events: none;
+		}
+        .notification_node {
+            position: relative;
+            & > i {
+                position: absolute;
+                font-size: @font-size;
+                right: 1rem;
+                top: 0.5rem;
+                color: transparent;
+                font-weight: 500;
+                padding: 0;
+                &:hover {
+                    color: fade(@main-color, 87%);
+                }
+            }
+        }
+        .not_node {
+            padding: 0.5rem 1rem;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+            .date {
+                color: fade(@main-color, 54%);
+                display: flex;
+                align-items: center;
+                font-size: (@font-size*0.9);
+                font-weight: 500;
+                i {
+                    font-size: inherit;
+                    padding: 0;
+                    padding-right: 0.2rem;
+                    cursor: default;
+                    color: fade(@main-color, 54%);
+                    &:hover {
+                        color: fade(@main-color, 54%);
+                    }
+                }
+            }
+            span {
+                font-weight: 300;
+                a {
+                    font-weight: 400;
+                    color: fade(@font-color-dark, 54%);
+                    text-decoration: none;
+                    &:hover {
+                        color: fade(@font-color-dark, 87%);
+                    }
+                }
+            }
+            & > a {
+                padding: 0.5rem 0;
+                text-decoration: none;
+                display: block;
+                color: fade(@font-color-dark, 54%);
+                font-weight: 500;
+                font-size: (@font-size*1.1);
+                &:hover {
+                    color: fade(@font-color-dark, 87%);
+                }
+            }
+            &:hover ~ i {
+                color: fade(@main-color, 54%);
+            }
+        }
+    }
+}
+
+/*НИЗ*/
+
+.bottom_menu {
+	flex: 0 1 3rem;
+    min-height: 3rem;
+    max-height: 3rem;
+    display: flex;
+    align-items: center;
+    background-color: @pr-light;
+    box-shadow: 0 -1px 3px rgba(0,0,0,0.12),0 -1px 2px rgba(0,0,0,0.24);
+    position: relative;
+    z-index: 10;
+    textarea {
+        font-size: (@font-size*1);
+        color: fade(@font-color-dark, 87%);
+        cursor: default;
+        padding: 0.7em 0 0.5em 0;
+        height: 2.7em;
+        width: ~"calc(100% - 5.3em)"; //расчитываем ширину блока
+        resize: none;
+        white-space: normal;
+        word-break: normal;
+        overflow-y: auto;
+        overflow-x: hidden;
+    }
+    i {
+        flex: 0;
+		margin: 0 0.5rem;
+		font-size: (@font-size*1.3);
+		color: fade(@font-color-dark, 54%);
+		&:hover {
+			color: fade(@font-color-dark, 87%);
+		}
+    }
+}

@@ -1,0 +1,18 @@
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Roboto'), local('Roboto-Regular'), url(https://fonts.gstatic.com/s/roboto/v18/KFOmCnqEu92Fr1Mu4mxP.ttf) format('truetype');
+}
+.modzy_window {
+  display: none;
+  position: absolute;
+  bottom: 2.5em;
+  right: 2.5em;
+  width: 25vw;
+  height: 30vh;
+  z-index: 100;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+  background-color: #EAEAEA;
+}
+/*# sourceMappingURL=addModzy.css.map */

@@ -1,0 +1,29 @@
+// out: css/test.css, compress: false, strictMath: true
+#panel {
+	background-color: brown;
+	height: 200px;
+	display: none;
+}
+.slide {
+	margin: 0;
+	padding: 0;
+	border-top: 4px solid black;
+	.btn-slide {
+		background-color: blue;
+		text-align: center;
+		width: 144px;
+		height: 31px;
+		padding: 10px 10px 0 0;
+		margin: 0 auto;
+		display: block;
+		font: bold 120%/100% Arial, sans-serif;
+		color: #fff;
+		text-decoration: none;
+		&:focus{
+			outline: none;
+		}
+	}
+	.active {
+		background: green;
+	}
+}

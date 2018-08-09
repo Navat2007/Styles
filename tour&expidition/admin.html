@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--FONTS GOOGLE-->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i|Oswald:200,300,400,500,600,700|Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i&amp;subset=cyrillic,cyrillic-ext,greek,greek-ext,latin-ext,vietnamese" rel="stylesheet">
+    <!--ICONS GOOGLE-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="/css/grid.min.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <script>
+        $(document).ready(function() {
+            //сворачивание строки поиска
+            $('#search_toggle').click(function() {
+                if ($(this).html() == 'keyboard_arrow_down') {
+                    $(this).html('keyboard_arrow_up');
+                } else {
+                    $(this).html('keyboard_arrow_down');
+                }
+                $('#box_toggle').slideToggle();
+                $('#btn_toggle').slideToggle();
+                $('#store_search').toggleClass("transparent");
+            });
+
+            // Заказ ордера
+            $('#order_btn').click(function() {
+                $('#order_box').fadeIn();
+            });
+            $('#order_close').click(function() {
+                $('#order_box').fadeOut();
+            });
+
+            // setting up tabs
+            $('#order_checkbox_btn').click(function() {
+                $('#order_checkbox').fadeToggle();
+            });
+
+            // Кнопка ORDERS
+            $('#order_profile').click(function() {
+                $('#menu_tabs').css('display', 'none');
+                $('#order_window').css('display', 'block');
+            });
+            $('#order_back_btn').click(function() {
+                $('#order_window').css('display', 'none');
+                $('#menu_tabs').css('display', 'block');
+            });
+            // Кнопка DETAILS
+            $('#detail_card_btn').click(function() {
+                $('#menu_tabs').css('display', 'none');
+                $('#detail_card_window').css('display', 'block');
+            });
+            $('#detail_card_back_btn').click(function() {
+                $('#detail_card_window').css('display', 'none');
+                $('#menu_tabs').css('display', 'block');
+            });
+            //разворачивание способов оплаты
+            $('#transfer_card').click(function() {
+                if ($(this).is(':checked')) {
+                    $('#transfer_card_box').slideDown();
+                    $('#transfer_bank_box').slideUp();
+                }
+            });
+            $('#transfer_bank').click(function() {
+                if ($(this).is(':checked')) {
+                    $('#transfer_bank_box').slideDown();
+                    $('#transfer_card_box').slideUp();
+                }
+            });
+
+            $('#togleButton').click(function() {
+                $('#togleWindow').fadeToggle();
+            });
+        });
+
+    </script>
+</head>
+
+<body>
+    <div class="container-fluid" id="container">
+        <div class="admin_tabs">
+            <input id="store" type="radio" name="panel" checked="">
+            <label for="store">online store</label>
+            <input id="admin" type="radio" name="panel">
+            <label for="admin">Admin panel</label>
+            <!--ONLINE STORE-->
+            <section class="container-fluid section_store" id="store_container">
+                <script src="/tours/controllers/Shop/shop.js"></script>
+                <div class="container-fluid tour_header" id="menu_container">
+                    <!--HEADER-->
+                    <div class="container-fluid tour_header" id="menu_container">
+                        <div class="container">
+                            <div class="row align-items-center justify-content-center">
+                                <div class="col-8 col-sm-3">
+                                    <img src="img/logo.svg" class="img-fluid" alt="EXMAS - travel technology store">
+                                </div>
+                                <nav class="col-12 col-sm-9 nav">
+                                  <div class="nav__flex">
+                                      <p class="grey-text">на твоем счету</p>
+                                      <p class="nav__cash">1500</p>
+                                      <p class="grey-text">бат</p>
+                                      <p class="link-text">детали</p>
+                                  </div>
+                                   <div class="nav__flex" id="profile">
+                                        <div class="nav__avatar"><img src="img/avatar.jpg" alt=""></div>
+                                        <div>
+                                            <p class="dark-text">Привет, Alina!</p>
+                                            <p class="nav__user-status grey-text">твой профиль (2)</p>
+                                        </div>
+                                    </div>
+                                    <div class="nav__popup" id="popup_menu">
+                                        <ul>
+                                            <li class="nav__popup-exit dark-text">Выход</li>
+                                            <li class="grey-text"><span class="nav__not-count">(2)</span>Мои заказы</li>
+                                            <li  class="grey-text">Мое избранное</li>
+                                            <li  class="grey-text">Мой кошелек</li>
+                                        </ul>
+                                    </div>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--MENU-->
+                <div class="container-fluid tour_menu" id="menu_tabs">
+                    <div class="container">
+                        <div class="row">
+                            <ul class="d-flex">
+                                <li>
+                                    <a href="#">Туры</a>
+                                </li>
+                                <li>
+                                    <a href="#">Такси</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <!--MODAL WINDOW-->
+                <div class="container-fluid md" id="modal_window">
+                </div>
+                <!--POPUP WINDOW-->
+                <div class="popup-window" id="popup_window">
+                </div>
+                <!--MAIN-->
+                <div class="container-fluid tour_main">
+                    <div class="container" id="tour_main_container">
+                        <div class="row">
+                            <!--SEARCH-->
+                            <div class="col-12 col-md-4 aside" id="store_search">
+                                <div class="row search-form br-5">
+                                    <div class="col-12 search-form__title">Поиск</div>
+                                    <div class="col-12 search-form__textfield">
+                                        <input class="search-form__input br-5" type="text" id="search_text" placeholder="Введите название...">
+                                    </div>
+                                    <div class="search-form__group">
+                                        <label class="search-form__label" for="searchDate">Дата</label>
+                                        <div class="search-form__textfield">
+                                            <input class="search-form__input br-5" type="date" id="searchDateStart" min="2018-08-08" value="2018-08-08">
+                                        </div>
+                                        <div class="search-form__textfield">
+                                            <input class="search-form__input br-5" type="date" id="searchDateEnd">
+                                        </div>
+                                    </div>
+                                    <div class="search-form__group">
+                                        <label class="search-form__label" for="">Цена</label>
+                                        <div class="search-form__textfield">
+                                            <input class="search-form__input br-5" type="number" id="searchMinPrice" placeholder="0">
+                                            <input class="search-form__input br-5" type="number" id="searchMaxPrice" placeholder="10000">
+                                        </div>
+                                    </div>
+                                    <div class="col-12 d-flex justify-content-end">
+                                        <button type="submit" class="btn btn_focus" id="search_btn">Найти</button>
+                                    </div>
+                                    <dl class="col-12 search-form__list">
+                                        <dt class="search-form__header">
+            <div class="search-form__sub-title">Тип тура</div>
+            <i class="material-icons">add</i>
+        </dt>
+                                        <dd class="search-form__item">
+                                            <input id="" class="checkbox" type="checkbox">
+                                            <label class="search-form__item-label" for="">Морские</label>
+                                            <span class="search-form__item-count">4</span>
+                                        </dd>
+                                        <dd class="search-form__item">
+                                            <input id="" class="checkbox" type="checkbox">
+                                            <label class="search-form__item-label" for="">Сухопутные</label>
+                                            <span class="search-form__item-count">13</span>
+                                        </dd>
+                                    </dl>
+                                </div>
+                            </div>
+                            <!--CARD-DECK-->
+                            <div class="col-12 col-md-8 card_deck" id="store_tours_card">
+                                <div class="row tour_card" id="8">
+                                    <div class="col-12 col-sm-6 order-2 card_text">
+                                        <div class="row">
+                                            <div class="col-12 card_title">Test</div>
+                                            <div class="col-sm-4 card_sub_title">Тип тура:</div>
+                                            <div class="col-sm-8">
+                                                <span>Морские</span><span>Сухопутные</span><span>Sow</span><span>Экстремальные</span>
+                                            </div>
+                                            <div class="col-sm-4 card_sub_title">Продолжи<wbr>тельность:</div>
+                                            <div class="col-sm-8">
+                                                <span>3 ч. 20 мин. </span>
+                                            </div>
+                                            <div class="col-sm-4 card_sub_title">Гид:</div>
+                                            <div class="col-sm-8">
+                                                <span><img class="img_guide" src="http://www.mobile-msg.ru/tours/img/flags/Russian-Federation.png">Russian</span><span><img class="img_guide" src="http://www.mobile-msg.ru/tours/img/flags/England.png">English</span><span><img class="img_guide" src="http://www.mobile-msg.ru/tours/img/flags/China.png">Chinese</span><span><img class="img_guide" src="http://www.mobile-msg.ru/tours/img/flags/France.png">French</span><span><img class="img_guide" src="http://www.mobile-msg.ru/tours/img/flags/Italy.png">Italian</span><span><img class="img_guide" src="http://www.mobile-msg.ru/tours/img/flags/Germany.png">German</span><span><img class="img_guide" src="http://www.mobile-msg.ru/tours/img/flags/Thailand.png">Thai</span>
+                                            </div>
+                                            <div class="col-sm-4 card_sub_title">Цена:</div>
+                                            <div class="col-sm-8" id="card_price">
+                                                <p><small>Взрослый - </small><strong>1500 THB</strong></p>
+                                                <p><small>Ребенок - </small><strong>500 THB</strong></p>
+                                            </div>
+                                            <div class="col d-flex justify-content-end card_btn">
+                                                <button type="button" class="btn btn_transparent" id="detail_card_btn" data-tourid="8" data-tourtitle="Test">Описание</button>
+                                                <button type="button" class="btn btn_focus" id="order_btn" data-tourid="8" data-tourtitle="Test">Заказать</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-sm-6 card_img">
+                                        <div class="img" style="background-image: url(http://mobile-msg.ru/tours/files/tours/supplier3/8/Penguins.jpg)">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row tour_card" id="10">
+                                    <div class="col-12 col-sm-6 order-2 card_text">
+                                        <div class="row">
+                                            <div class="col-12 card_title">Maithon Coral Raya</div>
+                                            <div class="col-sm-4 card_sub_title">Тип тура:</div>
+                                            <div class="col-sm-8">
+                                                <span>Морские</span>
+                                            </div>
+                                            <div class="col-sm-4 card_sub_title">Продолжи<wbr>тельность:</div>
+                                            <div class="col-sm-8">
+                                                <span>1 день(дней) </span>
+                                            </div>
+                                            <div class="col-sm-4 card_sub_title">Гид:</div>
+                                            <div class="col-sm-8">
+                                                <span><img class="img_guide" src="http://www.mobile-msg.ru/tours/img/flags/Russian-Federation.png">Russian</span><span><img class="img_guide" src="http://www.mobile-msg.ru/tours/img/flags/England.png">English</span>
+                                            </div>
+                                            <div class="col-sm-4 card_sub_title">Цена:</div>
+                                            <div class="col-sm-8" id="card_price">
+                                                <p><strong>2000 THB</strong></p>
+                                            </div>
+                                            <div class="col d-flex justify-content-end card_btn">
+                                                <button type="button" class="btn btn_transparent" id="detail_card_btn" data-tourid="10" data-tourtitle="Maithon Coral Raya">Описание</button>
+                                                <button type="button" class="btn btn_focus" id="order_btn" data-tourid="10" data-tourtitle="Maithon Coral Raya">Заказать</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-sm-6 card_img">
+                                        <div class="img" style="background-image: url(http://mobile-msg.ru/tours/files/tours/supplier3/10/tatil2.jpg)">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row tour_card" id="11">
+                                    <div class="col-12 col-sm-6 order-2 card_text">
+                                        <div class="row">
+                                            <div class="col-12 card_title">Phi Phi</div>
+                                            <div class="col-sm-4 card_sub_title">Тип тура:</div>
+                                            <div class="col-sm-8">
+                                                <span>Морские</span>
+                                            </div>
+                                            <div class="col-sm-4 card_sub_title">Продолжи<wbr>тельность:</div>
+                                            <div class="col-sm-8">
+                                                <span>1 день(дней) </span>
+                                            </div>
+                                            <div class="col-sm-4 card_sub_title">Гид:</div>
+                                            <div class="col-sm-8">
+                                                <span><img class="img_guide" src="http://www.mobile-msg.ru/tours/img/flags/Russian-Federation.png">Russian</span>
+                                            </div>
+                                            <div class="col-sm-4 card_sub_title">Цена:</div>
+                                            <div class="col-sm-8" id="card_price">
+                                                <p><small>Взрослый - </small><strong>1200 THB</strong></p>
+                                                <p><small>Ребенок - </small><strong>900 THB</strong></p>
+                                            </div>
+                                            <div class="col d-flex justify-content-end card_btn">
+                                                <button type="button" class="btn btn_transparent" id="detail_card_btn" data-tourid="11" data-tourtitle="Phi Phi">Описание</button>
+                                                <button type="button" class="btn btn_focus" id="order_btn" data-tourid="11" data-tourtitle="Phi Phi">Заказать</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-sm-6 card_img">
+                                        <div class="img" style="background-image: url(http://mobile-msg.ru/tours/files/tours/supplier3/11/1456340981_18497b855-1.jpg)">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!--ADMIN PANEL-->
+            <section class="container-fluid admin" id="admin_container">
+                <script src="/tours/controllers/Admin/admin.js"></script>
+                <div class="row top-menu">
+                    <div class="col-12 col-md-4 top-menu__logo">
+                        <h2>Tours &amp; Expiditions</h2>
+                    </div>
+                    <div class="col-12 col-md-8 top-menu__nav align-self-center">
+                        <ul class="d-flex flex-wrap justify-content-center justify-content-md-end top-menu__nav-menu">
+                            <li class="top-menu__nav-item" id="settings_btn"><a class="d-flex align-items-center top-menu__nav-link"><i class="material-icons">settings</i>Settings</a></li>
+                            <li class="top-menu__nav-item" id="profile_btn"><a class="d-flex align-items-center top-menu__nav-link"><i class="material-icons">account_circle</i>Profile</a></li>
+                            <li class="top-menu__nav-item" id="exit_admin_btn"><a class="d-flex align-items-center top-menu__nav-link"><i class="material-icons">exit_to_app</i>Exit</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="row admin-container">
+                    <div class="left-menu">
+                        <ul class="left-menu__list">
+                            <li class="left-menu__item" id="left_menu_tour_btn"><a class="left-menu__link d-flex flex-column align-items-center"><i class="material-icons">satellite</i>Tours</a></li>
+                            <li class="left-menu__item" id="left_menu_exp_btn"><a class="left-menu__link d-flex flex-column align-items-center"><i class="material-icons">directions_car</i>Expedition</a></li>
+                            <li class="left-menu__item" id="left_menu_sales_btn"><a class="left-menu__link d-flex flex-column align-items-center"><i class="material-icons">cached</i>Sales</a></li>
+                            <li class="left-menu__item" id="left_menu_users_btn"><a class="left-menu__link d-flex flex-column align-items-center"><i class="material-icons">perm_identity</i>Users</a></li>
+                        </ul>
+                    </div>
+                    <div class="admin-container__center">
+                        <div class="admin-container__center-block" id="admin_center_container">
+
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+    <script src="../jquery-3.3.1.min.js"></script>
+    <!-- Bootstrap JS -->
+    <script src="js/bootstrap.min.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,243 @@
+// out: false, compress: false, strictMath: true
+
+
+/*КАРТОЧКИ С ЗАДАЧАМИ в Колонках*/
+
+.task_node {
+    background-color: lighten(@bg-color, 10%);
+    border-radius: 5px;
+    margin: 0.5rem;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    h3 {
+        align-self: flex-start;
+        text-align: left;
+        color: fade(@font-color-dark, 87%);
+        font-weight: 500;
+        padding: 0.7rem;
+        font-size: (@font-size*1);
+        hyphens: auto;
+        -moz-hyphens: auto;
+        -webkit-hyphens: auto;
+        -ms-hyphens: auto;
+		&:first-letter {
+			text-transform: uppercase;
+		}
+    }
+    & > p {
+        order: -1;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        padding: 0.2rem 0.7rem;
+        width: 100%;
+        text-align: left;
+        .day {
+            font-size: (@font-size*0.9);
+            font-weight: 500;
+            &::after {
+                content: ' ';
+            }
+        }
+        .mounth {
+            font-size: (@font-size*0.8);
+        }
+    }
+    .notification {
+        position: absolute;
+        top: 0;
+        right: 0;
+        padding: 0.3rem 0.7rem;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        color: fade(@font-color-dark, 54%);
+        i {
+            font-size: (@font-size*0.9);
+            padding: 0 0 0 0.3rem;
+            &:hover {
+                color: fade(@font-color-dark, 26%);
+            }
+            &:first-child {
+                padding-left: 0;
+            }
+        }
+        .date {
+            font-size: (@font-size*0.8);
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+        }
+    }
+}
+
+/*КАРТОЧКИ С ЗАДАЧАМИ во Вкладках*/
+.tabs {
+    .task_node {
+		flex-direction: row;
+		align-items: center;
+        h3 {
+            flex: 1;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: pre;
+        }
+        & > p {
+            border-bottom: none;
+            border-right: 1px solid rgba(0, 0, 0, 0.1);
+			width: auto;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+            .day {
+                font-size: (@font-size*1.2);
+                font-weight: 500;
+            }
+            .mounth {
+                font-size: (@font-size*0.8);
+            }
+        }
+		.notification {
+			position: relative;
+			padding: 0.3rem 0.7rem;
+			i {
+				font-size: (@font-size*1.1);
+				padding: 0 0 0 0.5rem;
+				&:first-child {
+					padding-left: 0;
+				}
+			}
+			.date {
+				font-size: (@font-size*1);
+			}
+		}
+    }
+}
+
+.new_task {
+    text-align: left;
+    margin: 1rem 0.5rem;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+    /*ДОБАВЛЕНИЕ ЗАДАЧИ*/
+    textarea {
+    	background-color: lighten(@bg-color, 7%);
+    	border-radius: 5px;
+        color: fade(@font-color-dark, 87%);
+        font-weight: 500;
+        font-size: (@font-size*1);
+		height: auto;
+        width: ~'calc(100% - 3rem)';
+        resize: none;
+        padding: 0.5rem;
+		box-shadow: @box-shadow;
+    }
+}
+
+
+/*задачи в колонках*/
+
+.task_node {
+    box-shadow: @box-shadow;
+    transition: 0.3s ease;
+    &:hover {
+        box-shadow: 0 1px 9px rgba(0, 0, 0, 0.12), 0 1px 6px rgba(0, 0, 0, 0.24);
+    }
+}
+
+
+/*КАРТОЧКА ЗАДАЧ БОЛЬШАЯ*/
+
+.card {
+    display: none;
+    flex: 1;
+    background-color: lighten(@bg-color, 4%);
+    position: relative;
+}
+
+.card_layout {
+    display: flex;
+    flex: 1;
+    overflow-y: auto;
+    .task_main {
+        flex: 3;
+        margin: 0.5rem 0.5rem 0.5rem 2rem;
+        cursor: default;
+        .labelfield {
+            display: flex;
+            align-items: center;
+            i {
+                font-size: (@font-size*1.2);
+                color: fade(@font-color-dark, 54%);
+                &:first-child {
+                    margin-left: -2rem;
+                    cursor: default;
+                    &:hover {
+                        color: fade(@font-color-dark, 54%);
+                    }
+                }
+                &:last-child {
+                    &:hover {
+                        color: fade(@font-color-dark, 87%);
+                    }
+                }
+            }
+            p {
+                color: fade(@font-color-dark, 87%);
+                flex: 1;
+                padding: 0.5rem;
+            }
+        }
+        textarea {
+            width: 100%;
+            color: fade(@font-color-dark, 87%);
+            font-size: (@font-size*1.1);
+            font-weight: 500;
+            border-radius: 5px;
+            resize: vertical;
+            padding: 0.5rem;
+            background-color: lighten(@bg-color, 7%);
+            border: 1px solid rgba(0, 0, 0, 0.26);
+            &:hover {
+                border: 1px solid rgba(0, 0, 0, 0.42);
+            }
+        }
+        .description {
+            font-weight: 400;
+            font-size: @font-size;
+        }
+		input {
+            color: fade(@font-color-dark, 87%);
+            font-size: (@font-size*1.1);
+            font-weight: 500;
+            border-radius: 5px;
+            padding: 0.5rem;
+            background-color: lighten(@bg-color, 7%);
+            border: 1px solid rgba(0, 0, 0, 0.26);
+			margin-bottom: 0.5rem;
+            &:hover {
+                border: 1px solid rgba(0, 0, 0, 0.42);
+            }
+		}
+    }
+    .task_option {
+        flex: 1;
+        margin: 0.5rem;
+        padding: 0.5rem;
+        color: fade(@font-color-dark, 54%);
+        .task_box {
+            margin-bottom: 2rem;
+        }
+        h3 {
+            color: fade(@font-color-dark, 87%);
+            font-weight: 500;
+            padding-bottom: 0.5rem;
+            font-size: (@font-size*1.1);
+            text-align: center;
+            text-transform: uppercase;
+        }
+    }
+}

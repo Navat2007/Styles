@@ -1,0 +1,115 @@
+// out: false, compress: false, strictMath: true
+.btn {
+    outline: none;
+    border: none;
+    position: relative;
+    margin: 0.5rem 0;
+    padding: 0.5em;
+    height: 2.5em;
+    text-transform: uppercase;
+    font-weight: 500;
+    border-radius: @b-radius;
+    font-size: (@font-size*0.875);
+    letter-spacing: 0.75;
+    background-color: @main-color;
+    color: @font-color-light;
+    overflow: hidden;
+    cursor: pointer;
+    .transition;
+    &:after {
+        content: '';
+        display: block;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        width: 16em;
+        height: 16em;
+        margin-left: -8em;
+        margin-top: -8em;
+        background: darken(@main-color, 15%);
+        border-radius: 100%;
+        opacity: .6;
+        -webkit-transform: scale(0);
+        transform: scale(0);
+        visibility: hidden;
+    }
+    &:hover {
+        background-color: saturate(@main-color, 15%);
+    }
+    &:focus:after {
+        visibility: visible;
+    }
+    &:not(:active):after {
+        -webkit-animation: ripple 2s ease-out;
+        animation: ripple 2s ease-out;
+    }
+    &[disabled=disabled], &:disabled {
+        background-color: darken(@bg-color, 15%);
+    }
+}
+
+.btn_icon {
+    display: flex;
+    align-items: center;
+    z-index: 3;
+    & > i {
+        padding: 0 0.5rem 0 0;
+    }
+}
+
+.form_btn {
+    width: 10rem;
+    align-self: center;
+}
+
+.btn_light {
+    background-color: darken(@bg-color, 7.5%);
+    &:hover {
+        background-color: darken(@bg-color, 10%);
+    }
+    &::after {
+        background-color: @bg-color;
+    }
+}
+
+.btn_transparent {
+    background-color: transparent;
+    color: fade(@font-color-dark, 54%);
+    width: 8rem;
+    &:after {
+        background: @bg-color;
+    }
+    &:hover {
+        color: fade(@font-color-dark, 87%);
+        background: transparent;
+    }
+}
+
+.btn_focus {
+    background-color: desaturate(@main-color, 5%);
+    width: 8rem;
+    &:after {
+        background: darken(@main-color, 15%);
+    }
+    &:hover {
+        background-color: saturate(@main-color, 5%);
+    }
+}
+
+.btn_center {
+    margin: 0.5rem auto;
+}
+
+.btn_controller {
+    display: flex;
+    justify-content: space-between;
+}
+
+.btn_small {
+    padding: 0.25rem 1.5rem;
+    color: rgb(81, 82, 90);
+    font-size: (@font-size*0.875);
+    font-family: Roboto;
+    font-weight: 500;
+    line-height: 1.21;
+}

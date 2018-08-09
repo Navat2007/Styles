@@ -1,0 +1,108 @@
+// out: false, compress: false, strictMath: true
+
+/*ВКЛАДКИ*/
+
+/* Базовый контейнер табов */
+
+.tabs {
+    width: 50%;
+    height: ~'calc(100vh - 5.8rem)';
+    overflow-y: hidden;
+	padding-top: 0.5rem;
+    background-color: @pr-dark;
+    position: relative;
+    z-index: 9;
+	box-shadow: @box-shadow;
+    /* Стили секций с содержанием */
+    .content_tabs {
+        display: none;
+        height: ~"calc(100% - 2.4rem)"; //расчитываем высоту блока
+        background: #fff;
+        position: relative;
+		overflow-y: auto;
+    }
+    /* Прячем чекбоксы */
+    & > input {
+        display: none;
+    }
+    /* Стили переключателей вкладок (табов) */
+    & > label {
+        display: inline-block;
+        padding: 0.5rem 1rem;
+		padding-bottom: 1rem;
+        font-weight: 400;
+        text-align: center;
+        color: fade(@font-color-light, 54%);
+        position: relative;
+        /* Изменения стиля переключателей вкладок при наведении */
+        &:hover {
+            color: fade(@font-color-light, 87%);
+            cursor: pointer;
+        }
+    }
+    /* Стили для активной вкладки */
+    input:checked + label::after {
+		content: '';
+		position: absolute;
+		bottom: 0px;
+		left: 0;
+		right: 0;
+		height: 4px;
+		background: @secondary;
+    }
+    /* Активация секций с помощью псевдокласса :checked */
+    #need_to_do:checked ~ #tab_need_to_do,
+    #in_work:checked ~ #tab_in_work,
+    #done:checked ~ #tab_done,
+	#archive:checked ~ #tab_archive {
+        display: block;
+    }
+	.col_archive {
+		position: relative;
+		width: auto;
+		box-shadow: none;
+		background: darken(@bg-color, 3%);
+	}
+}
+
+
+/*Вкладки настроек*/
+.tabs_setings {
+    .tabs;
+    box-shadow: none;
+    height: auto;
+    min-width: 30rem;
+    .content_tabs {
+        background: #fff;
+    }
+    & > label {
+        box-shadow: none;
+        &::after {
+            content: '';
+            position: absolute;
+            bottom: 0px;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: @secondary;
+        }
+    }
+    input:checked + label {
+        background: lighten(@bg-color, 3%);
+        &::after {
+            z-index: 10;
+            background: lighten(@bg-color, 3%);
+        }
+    }
+    /* Активация секций с помощью псевдокласса :checked */
+    #set_main:checked~#set_main_tab, 
+	#set_not:checked~#set_not_tab,
+	#set_param:checked~#set_param_tab,
+    {
+        display: block;
+    }
+    #set_main_tab,
+    #set_not_tab {
+        min-height: 10rem;
+    }
+}

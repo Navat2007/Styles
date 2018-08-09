@@ -1,0 +1,57 @@
+// out: false, compress: false, strictMath: true
+.top-menu {
+    background-color: @main-color;
+    box-shadow: @box-shadow;
+    margin: 0;
+    &__logo {
+        h2 {
+            color: fade(@font-color-light, 87%);
+        }
+    }
+    &__nav {}
+    &__nav-menu {
+        padding: 0;
+        margin: 0;
+    }
+    &__nav-item {
+        list-style: none;
+    }
+    &__nav-link {
+        padding: 0.5rem 1rem;
+        cursor: pointer;
+        color: fade(@font-color-light, 54%);
+        .transition;
+        &:hover {
+            color: fade(@font-color-light, 87%);
+        }
+    }
+}
+
+.left-menu {
+    flex: 0 0 5rem;
+    max-width: 6rem;
+    position: relative;
+    z-index: 10;
+    background-color: darken(@bg-color, 4%);
+    color: fade(@font-color-dark, 54%);
+    box-shadow: @box-shadow;
+    &__list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+    &__item {
+    }
+    &__link {
+        padding: 0 0.5rem;
+        cursor: pointer;
+        .transition;
+        &:hover {
+            background-color: lighten(@bg-color, 2%);
+        }
+        i {
+            font-size: (@font-size*3);
+        }
+        &:hover {}
+    }
+}
