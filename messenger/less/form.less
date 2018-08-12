@@ -1,0 +1,108 @@
+// out: false, compress: false, strictMath: true
+
+/*CHECKBOX*/
+.rkmd-checkbox {
+    color: fade(@font-color-dark, 87%);
+    display: flex;
+    align-items: center;
+    padding: 0 1rem;
+    margin-bottom: 1rem;
+    .label {
+        order: -1;
+        flex: 1;
+        padding-right: 1.5rem;
+        text-align: left;
+    }
+    .input-checkbox {
+        position: relative;
+        width: 1.5rem;
+        height: 1.5rem;
+        input[type="checkbox"] {
+            visibility: hidden;
+            cursor: pointer;
+            opacity: 0;
+            & + .checkbox:before {
+                position: absolute;
+                top: 0;
+                left: 0;
+                font-family: 'Material Icons';
+                font-size: (@font-size*1.5);
+                direction: ltr;
+                vertical-align: -0.45rem;
+                /* Support for all WebKit browsers. */
+                -webkit-font-smoothing: antialiased;
+                /* Support for Safari and Chrome. */
+                text-rendering: optimizeLegibility;
+                /* Support for Firefox. */
+                -moz-osx-font-smoothing: grayscale;
+                /* Support for IE. */
+                font-feature-settings: 'liga';
+                transition: all .2s ease;
+                z-index: 1;
+            }
+            & + .checkbox:before {
+                content: "\e835";
+                color: fade(@main-color, 87%);
+            }
+            &:checked + .checkbox:before {
+                content: "\e834";
+            }
+            &:active:not(:disabled) + .checkbox:before {
+                transform: scale3d(0.88, 0.88, 1);
+            }
+            & + .checkbox:after {
+                content: '';
+                position: absolute;
+                left: 50%;
+                top: 50%;
+                width: 1.3rem;
+                height: 1.3rem;
+                margin-left: -0.65rem;
+                margin-top: -0.65rem;
+                background: darken(@main-color, 15%);
+                border-radius: 100%;
+                opacity: .6;
+                transform: scale(0);
+                visibility: hidden;
+            }
+            &:checked + .checkbox:after {
+                visibility: visible;
+            }
+            &:not(:active) + .checkbox:after {
+                animation: ripple 1s ease-out;
+            }
+        }
+    }
+}
+
+.textfield {
+    &__search {
+        position: relative;
+        margin-bottom: 1rem;
+        padding: 0 0.5rem;
+    }
+    
+    &__searchInput {
+        width: 100%;
+        height: 2.5rem;
+        padding: 0.8rem 0.5rem 0.5rem;
+        border-radius: 5px 5px 0 0;
+        background-color: rgb(232, 243, 239);
+        font-family: Roboto;
+        font-size: @font-size;
+        color: fade(@font-color-dark, 87%);
+        border-bottom: solid 1px rgba(0, 0, 0, 0.15);
+        &:hover, &focus {
+            border-bottom: solid 1px rgba(0, 0, 0, 0.3);
+        }
+    }
+    &__searchIcon {
+        position: absolute;
+        top: 0;
+        right: 0.5rem;
+        color: fade(@font-color-dark, 54%);
+        &:hover {
+            color: fade(@font-color-dark, 87%);
+        }
+    }
+}

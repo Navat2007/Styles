@@ -1,32 +1,148 @@
 // out: false, compress: false, strictMath: true
 
+
+/*ОФОРМЛЕНИЕ ТЕКСТА*/
+
+.h6 {
+    font-family: Lobster;
+    font-size: (@font-size*1.25);
+    color: rgb(81, 82, 90);
+    margin: 0.75em 0;
+}
+.overline {
+  font-family: Montserrat;
+  font-size: (@font-size*0.875);
+  font-weight: 600;
+  color: rgb(81, 82, 90);
+}
+
+.body_1 {
+    font-family: Montserrat;
+    font-size: @font-size;
+    font-weight: 500;
+    color: rgb(81, 82, 90);
+}
+
+.body_2 {
+    font-family: Montserrat;
+    font-size: (@font-size*0.8125);
+    color: rgba(77, 91, 98, 0.6);
+}
+
+.link_text {
+    font-family: Montserrat;
+    font-size: (@font-size*0.8125);
+    color: rgb(58, 63, 138);
+    cursor: pointer;
+    .transition;
+    &:hover {
+        text-decoration: underline;
+    }
+}
+
+.label_text {
+  font-family: Montserrat;
+  font-size: (@font-size*0.875);
+  color: rgb(81, 82, 90);
+}
+
+.btn_primary {
+    font-family: Montserrat;
+    font-size: (@font-size*0.9375);
+    font-weight: 500;
+    color: rgb(255, 255, 255);
+}
+
+.btn_transparent {
+    font-family: Montserrat;
+    font-size: (@font-size*0.875);
+    font-weight: 500;
+    color: rgba(77, 91, 98, 0.6);
+}
+
 /*HEADER*/
 
 .tour_header {
     background-color: #fff;
     padding: 0;
-    ul {
-        padding: 0;
-        & > li {
-            list-style: none;
-            a {
-                color: fade(@main-color, 87%);
-                cursor: pointer;
-                padding: 0.2rem 1rem;
-                border-radius: 5px;
-                text-decoration: none;
-                .transition;
-                &:hover {
-                    background-color: @bg-color;
-                }
-                i {
-                    padding-left: 0;
-                }
-            }
+    position: relative;
+    z-index: 10;
+}
+
+.block_1 {
+    padding: 0;
+    margin: 0;
+    position: relative;
+    & > li {
+        padding: 0.5rem 0;
+        margin: 0 1.5rem;
+        list-style: none;
+        &:first-child {
+            line-height: 1;
+        }
+    }
+    .cash_text {
+        font-family: Oswald;
+        font-size: (@font-size*2);
+        font-weight: 500;
+        color: rgb(81, 82, 90);
+    }
+}
+
+.block_2 {
+    list-style: none;
+    .avatar {
+        margin-right: 0.5rem;
+        width: 3rem;
+        height: 3rem;
+        border-radius: 50%;
+        border: @border;
+        overflow: hidden;
+        img {
+            width: 100%;
         }
     }
 }
 
+.popup_menu {
+    padding: 0;
+    margin: 0;
+    display: none;
+    position: absolute;
+    top: 4rem;
+    right: 0.5rem;
+    width: 14rem;
+    z-index: 100;
+    border-radius: @b-radius;
+    box-shadow: @box-shadow;
+    background-color: #fff;
+    border: @border;
+    li {
+        list-style: none;
+        padding: 0.5rem 1rem;
+        cursor: pointer;
+        .transition;
+        &:hover {
+            color: rgb(77, 91, 98);
+        }
+    }
+    &__exit {
+        background-color: rgb(255, 254, 246);
+        border-bottom: @border;
+        margin-bottom: 0.5rem;
+        &:hover {
+            background-color: rgb(251, 250, 243);
+        }
+    }
+    &__count {
+        color: rgb(209, 47, 83);
+        margin-right: 0.25rem;
+    }
+}
+
+nav ul li:hover > ul {
+    display: block;
+}
 
 /*MENU*/
 
@@ -53,13 +169,99 @@
     }
 }
 
-.tour_main {
-    padding: 0 0 1rem 0;
-    .aside, .card_deck {
-        padding: 0 1rem;
+/*SEARCH*/
+
+.searchForm {
+    margin: 0;
+    border-radius: @b-radius;
+    border: @border;
+    box-shadow: @box-shadow;
+    background-color: rgb(255, 249, 201);
+    &__title {
+        margin-bottom: 1rem;
+    }
+    &__group {
+        display: flex;
+        flex-direction: column;
+        padding: 0 0.6rem;
+        input {
+            flex: 1 0 ~"calc(50% - 0.5rem)";
+            min-width: 10rem;
+            margin: 0 0.25rem 1rem;
+        }
+    }
+    &__textfield {
+        flex: auto;
+        display: flex;
+        flex-wrap: wrap;
+    }
+    &__label {
+        padding-left: 0.9rem;
+        margin-bottom: 0.5rem;
+    }
+    &__input {
+        margin-bottom: 1rem;
+        width: 100%;
+        .transition;
+    }
+    &__btn {
+        margin: 1rem 1rem 2rem auto;
+        flex: auto;
+        max-width: 12rem;
+
+    }
+    /*LIST*/
+    &__list {
+        margin: 0;
+    }
+    &__item {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        i {
+            font-size: (@font-size*1.3);
+            position: absolute;
+            top: 0;
+            right: 0;
+        }
+    }
+    &__listLink {
+        width: 100%;
+        padding: 0.5rem;
+        border-radius: @b-radius;
+        border: solid 1px rgba(77, 91, 98, 0.6);
+        margin-bottom: 0.5rem;
+        cursor: pointer;
+        .transition;
+        &:hover {
+            background-color: rgb(247, 242, 195);
+        }
+    }
+    &__itemList {
+        padding: 0 0.7rem;
+        margin: 0;
+        margin-bottom: 1rem;
+        display: none;
+        .transition;
+        li {
+            list-style: none;
+            display: flex;
+            border-bottom: solid 1px rgba(58, 62, 99, 0.15);
+            padding: 0.25rem 0;
+            label {
+                flex: auto;
+            }
+        }
     }
 }
 
+/*MAIN*/
+
+.tour_main {
+    padding: 1rem 0;
+    background-color: rgb(255, 254, 246);
+}
 
 /*МИНИ КАРТОЧКИ*/
 
@@ -172,7 +374,7 @@
             font-size: (@font-size*1.1);
             color: fade(@font-color-dark, 87%);
         }
-    }    
+    }
     &__item {
         margin-left: auto;
         display: flex;
@@ -294,8 +496,8 @@ i.close {
 /*MODAL WINDOW*/
 
 .md {
-    margin-top: 1rem;
-    padding: 0 0.5rem;
+    display: none;
+    padding: 1rem 0;
     &-win {
         position: relative;
         background-color: #fff;
@@ -368,6 +570,7 @@ i.close {
         }
     }
 }
+
 .order-col-title {
     text-align: center;
     color: fade(@font-color-dark, 87%);
@@ -375,10 +578,12 @@ i.close {
     font-weight: 600;
     padding: 0.5rem 0;
 }
+
 .order_cols {
     color: fade(@font-color-dark, 54%);
     height: 100%;
 }
+
 .order_item {
     background-color: #fff;
     border-radius: 5px;
@@ -548,7 +753,8 @@ i.close {
         padding: 0.5rem 1rem;
         border: 1px solid darken(@bg-color, 10%);
         border-radius: 5px;
-        &:hover, &:focus {
+        &:hover,
+        &:focus {
             box-shadow: 0 0 3px 1px rgba(0, 0, 0, 0.26);
         }
         .ph-dark;
@@ -614,7 +820,7 @@ i.close {
         max-height: 95%;
         overflow: auto;
         margin: auto;
-        background-color: #fff;
+        background-color: lighten(@bg-color, 4%);
         box-shadow: @box-shadow;
         border-radius: 5px;
         color: fade(@font-color-dark, 54%);
@@ -631,32 +837,127 @@ i.close {
         padding: 0.1rem 1rem;
     }
     &__label {
-        margin-right: 0.5rem;
+        margin-right: 0.25rem;
         flex-basis: 25%;
     }
     &__input,
     &__select,
     &__textarea {
         flex-basis: 75%;
+        text-align: right;
+        text-align-last: right;
+        .transition;
+    }
+    &__textarea {
+        height: 4rem;
+        resize: none;
+        overflow-x: hidden;
+        overflow-y: auto;
+    }
+    &__title {
+        border-bottom: @border;
+        border-top: @border;
+        background-color: lighten(@bg-color, 4%);
+        margin: 0.5rem 0;
+        padding: 0.5rem 0;
+        text-align: center;
+        font-weight: 600;
+        font-size: (@font-size*0.9);
+    }
+    &__sub-title {
+        border-bottom: @border;
+        border-top: @border;
+        display: flex;
+        justify-content: flex-end;
+        margin: 0.5rem 0;
+        padding: 0.5rem 0;
+        background-color: lighten(@bg-color, 4%);
+        & > * {
+            flex-basis: 33%;
+            text-align: center;
+            font-weight: 600;
+            font-size: (@font-size*0.9);
+        }
+    }
+    &__group-textfield {
+        display: flex;
+        align-items: baseline;
+        padding: 0.1rem 1rem;
+        & > * {
+            flex-basis: 30%;
+        }
+        span {
+            white-space: nowrap;
+            font-size: (@font-size*0.8);
+            font-weight: 300;
+        }
+    }
+    &__group-el-input {
+        max-width: 25%;
         padding: 0.4rem;
         line-height: 1.15;
         height: 1.7rem;
         border: @border;
-        text-align: right;
         border-radius: @b-radius;
         .transition;
-        &:hover, &:focus {
+        &:disabled {
+            border: none;
+        }
+        &:enabled {
             border: 1px solid rgba(0, 0, 0, 0.3);
         }
-        &:disabled {
-            color: fade(@font-color-dark, 54%);
+    }
+    &__group-multi-el {
+        flex-basis: 40%;
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+    }
+    &__group-el-shrink {
+        flex: none;
+        max-width: 35%;
+        text-align: right;
+    }
+    &__footer {
+        border-bottom: @border;
+        border-top: @border;
+        background-color: lighten(@bg-color, 4%);
+        margin: 0.5rem 0;
+        padding: 0.5rem 0;
+        text-align: right;
+        font-size: (@font-size*0.9);
+        strong {
+            margin-right: 1rem;
+            font-size: (@font-size*1.3);
             font-weight: 600;
-            border: none;
-            border-bottom: @border;
-            &:hover {
-                border-bottom: @border;
-            }
+            border-radius: @b-radius;
+            padding: 0.2rem 0.5rem;
         }
+    }
+    &__button {
+        display: flex;
+        padding: 0.5rem 1rem;
+    }
+}
+/*ORDERS POPUP*/
+.form-sm {
+    height: 100%;
+    &__textfield {
+        display: flex;
+        align-items: baseline;
+        padding: 0.1rem 1rem;
+    }
+    &__label {
+        margin-right: 0.25rem;
+        flex-basis: 25%;
+    }
+    &__input,
+    &__select,
+    &__textarea {
+        flex-basis: 75%;
+        text-align: right;
+        text-align-last: right;
+        .transition;
     }
     &__textarea {
         height: 4rem;
@@ -750,12 +1051,12 @@ i.close {
     }
 }
 
-.slider__button{
+.slider__button {
     padding: 0 1rem;
     text-align: right;
     cursor: pointer;
     color: @main-color;
-    &:hover{
+    &:hover {
         text-decoration: underline;
     }
 }
@@ -792,7 +1093,7 @@ i.close {
         font-weight: 600;
     }
     &__link {
-            text-decoration: underline;
+        text-decoration: underline;
         cursor: pointer;
         &:hover {
             color: @main-color;

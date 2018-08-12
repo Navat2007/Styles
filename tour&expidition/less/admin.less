@@ -1,4 +1,33 @@
 // out: false, compress: false, strictMath: true
+/*ЗАГОЛОВКИ ADMIN*/
+.title {
+    font-family: Roboto;
+    font-weight: 500;
+    color: rgb(58, 62, 99);
+}
+
+.subtitle {
+    font-family: Roboto;
+    font-size: @font-size;
+    font-weight: 500;
+    color: rgb(81, 82, 90);
+}
+
+.subtitle_2 {
+    font-family: Roboto;
+    font-size: (@font-size*0.875);
+    font-weight: 500;
+    color: rgb(81, 82, 90);
+}
+
+.admin-label {
+    font-family: Roboto;
+    font-size: @font-size;
+    font-weight: normal;
+    color: rgb(81, 82, 90);
+}
+
+/**/
 .section_store, .admin {
     padding: 0;
     overflow: hidden;
@@ -21,6 +50,9 @@
         margin: 0;
         width: 100%;
         overflow-y: hidden;
+    }
+    &__modal {
+        display: none;
     }
 }
 
@@ -403,4 +435,104 @@
             }
         }
     }
+}
+
+/*ORDERS ADMIN*/
+.adminBlock {
+    padding: 0 1rem;
+    border: @border;
+}
+
+.adminChat {
+    border: @border;
+    padding: 1rem;
+    min-height: 40vh;
+    max-height: 40vh;
+    overflow: auto;
+    &__panel {
+        border: @border;
+        display: flex;
+        padding: 0.5rem 0;
+        textarea {
+            flex: auto;
+            resize: none;
+        }
+        i {
+            cursor: pointer;
+        }
+    }
+}
+
+.textRow {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.5rem;
+    padding-left: 0.5rem;
+    span {
+        &:first-child {
+            min-width: 6rem;
+        }
+        &:last-child {
+            flex: auto;
+            padding: 0.5rem;
+            max-height: 5rem;
+            border: @border;
+            border-radius: @b-radius;
+            background-color: #fff;
+            text-align: right;
+            overflow-x: hidden;
+            overflow-y: auto;
+        }
+    }
+    &__center_text {
+    text-align: center;
+    }
+    &__third {
+        flex: 0 0 33.3333333333%;
+        min-width: 33.3333333333%;
+        max-width: 33.3333333333%;
+    }
+}
+
+.subtitleBox {
+    border: @border;
+    background-color: lighten(@bg-color, 1%);
+    background-color: rgb(225, 225, 225);
+    margin: 0.5rem 0;
+    padding: 0.5rem;
+    display: flex;
+    align-items: center;
+    &__center {
+        margin: 0 auto;
+    }
+    &__center_text {
+    text-align: center;
+    }
+    &__third {
+        flex: 0 0 33.3333333333%;
+        min-width: 33.3333333333%;
+        max-width: 33.3333333333%;
+    }
+}
+
+.cashStyle {
+    font-family: Oswald;
+    font-size: @font-size;
+    font-weight: 500;
+    color: rgb(81, 82, 90);
+}
+
+.cashBigStyle {
+    font-family: Oswald;
+    font-size: (@font-size*1.125);
+    font-weight: 500;
+    color: rgb(58, 62, 99);
+}
+
+.italicStyle {
+  font-family: Roboto;
+  font-size: (@font-size*0.875);
+  font-weight: 300;
+  font-style: italic;
+  color: rgb(81, 82, 90);
 }

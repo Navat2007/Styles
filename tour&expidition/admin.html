@@ -75,7 +75,6 @@
                 $('#togleWindow').fadeToggle();
             });
         });
-
     </script>
 </head>
 
@@ -89,38 +88,32 @@
             <!--ONLINE STORE-->
             <section class="container-fluid section_store" id="store_container">
                 <script src="/tours/controllers/Shop/shop.js"></script>
+                <!--HEADER-->
                 <div class="container-fluid tour_header" id="menu_container">
-                    <!--HEADER-->
-                    <div class="container-fluid tour_header" id="menu_container">
-                        <div class="container">
-                            <div class="row align-items-center justify-content-center">
-                                <div class="col-8 col-sm-3">
-                                    <img src="img/logo.svg" class="img-fluid" alt="EXMAS - travel technology store">
-                                </div>
-                                <nav class="col-12 col-sm-9 nav">
-                                  <div class="nav__flex">
-                                      <p class="grey-text">на твоем счету</p>
-                                      <p class="nav__cash">1500</p>
-                                      <p class="grey-text">бат</p>
-                                      <p class="link-text">детали</p>
-                                  </div>
-                                   <div class="nav__flex" id="profile">
-                                        <div class="nav__avatar"><img src="img/avatar.jpg" alt=""></div>
-                                        <div>
-                                            <p class="dark-text">Привет, Alina!</p>
-                                            <p class="nav__user-status grey-text">твой профиль (2)</p>
-                                        </div>
-                                    </div>
-                                    <div class="nav__popup" id="popup_menu">
-                                        <ul>
-                                            <li class="nav__popup-exit dark-text">Выход</li>
-                                            <li class="grey-text"><span class="nav__not-count">(2)</span>Мои заказы</li>
-                                            <li  class="grey-text">Мое избранное</li>
-                                            <li  class="grey-text">Мой кошелек</li>
-                                        </ul>
-                                    </div>
-                                </nav>
+                    <div class="container">
+                        <div class="row align-items-center justify-content-center">
+                            <!--                               logo-->
+                            <div class="col-8 col-sm-4 d-none d-sm-block" style="padding: 0">
+                                <img src="img/logo.svg" alt="EXMAS - travel technology store">
                             </div>
+                            <nav class="col-12 col-sm-8 d-flex align-items-center justify-content-center justify-content-sm-end" style="padding: 0">
+                                <ul class="d-flex flex-wrap align-items-center justify-content-center justify-content-sm-end block_1">
+                                    <li class="d-flex flex-column align-items-center align-items-center">
+                                        <p><span class="cash_text">1500</span><span class="body_2">бат</span></p>
+                                        <p><a class="link_text">детали</a></p>
+                                    </li>
+                                    <li class="d-flex align-items-center block_2">
+                                        <p class="avatar"><img src="img/avatar.jpg" alt=""></p>
+                                        <p class="body_1">Привет, Alina!<br><a class="link_text">твой профиль (2)</a></p>
+                                        <ul class="popup_menu">
+                                            <li class="popup_menu__exit body_1"><a>Выход</a></li>
+                                            <li class="body_2"><a><span class="popup_menu__count">(2)</span>Мои заказы</a></li>
+                                            <li class="body_2"><a>Мое избранное</a></li>
+                                            <li class="body_2"><a>Мой кошелек</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </nav>
                         </div>
                     </div>
                 </div>

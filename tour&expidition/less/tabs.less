@@ -46,6 +46,16 @@
         z-index: 1;
         display: flex;
     }
+    #store:checked~#store_container *,
+    #admin:checked~#admin_container * {
+        /* прикрутим анимацию */
+        -webkit-animation-duration: 0.5s;
+        animation-duration: 0.5s;
+        -webkit-animation-fill-mode: both;
+        animation-fill-mode: both;
+        -webkit-animation-name: fadeIn;
+        animation-name: fadeIn;
+    }
 }
 
 .tabs {
@@ -102,8 +112,7 @@
     #add_tour_description:checked~#add_tour_description_container,
     #add_tour_files:checked~#add_tour_files_container,
     #add_tour_extracharges:checked~#add_tour_extracharges_container,
-    #add_tour_high:checked~#add_tour_high_container,
-    #add_tour_low:checked~#add_tour_low_container,
+    #add_tour_seasons:checked~#add_tour_seasons_container,
     
     #settings_tour_guide:checked~#settings_tour_guide_container,
     #settings_tour_checkbox:checked~#settings_tour_checkbox_container,
@@ -112,5 +121,24 @@
         /* Активация секций с помощью псевдокласса :checked */
         z-index: 1;
         display: block;
+    }
+    #add_tour_main:checked~#add_tour_main_container *,
+    #add_tour_checkbox:checked~#add_tour_checkbox_container *,
+    #add_tour_description:checked~#add_tour_description_container *,
+    #add_tour_files:checked~#add_tour_files_container *,
+    #add_tour_extracharges:checked~#add_tour_extracharges_container *,
+    #add_tour_seasons:checked~#add_tour_seasons_container *,
+    
+    #settings_tour_guide:checked~#settings_tour_guide_container *,
+    #settings_tour_checkbox:checked~#settings_tour_checkbox_container *,
+    #settings_tour_type:checked~#settings_tour_type_container *,
+    #settings_tour_extracharges:checked~#settings_tour_extracharges_container * {
+        /* прикрутим анимацию */
+        -webkit-animation-duration: 0.5s;
+        animation-duration: 0.5s;
+        -webkit-animation-fill-mode: both;
+        animation-fill-mode: both;
+        -webkit-animation-name: fadeIn;
+        animation-name: fadeIn;
     }
 }

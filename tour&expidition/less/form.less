@@ -1,11 +1,5 @@
 // out: false, compress: false, strictMath: true
 
-.add_suppliers {
-    display: flex;
-    justify-content: center;
-}
-
-
 /*Авторизация*/
 
 .form_login {
@@ -44,13 +38,6 @@
         /*Placeholder*/
         .ph-dark;
     }
-    .error {
-        text-align: center;
-        color: fade(@font-color-error, 87%);
-        font-size: (@font-size*0.875);
-        height: 1rem;
-        margin-bottom: 1rem;
-    }
     .link {
         display: flex;
         margin: 1rem 0 0;
@@ -70,108 +57,89 @@
 
 /*Анкета*/
 
-.authorization_form,
-.add_suppliers_form {
-    background-color: @bg-color;
+.adminForm {
+    position: relative;
+    margin: 0.5rem auto;
+    padding: 0 2rem;
+    background-color: lighten(@bg-color, 1%);
     border-radius: @b-radius;
-    margin: 0.5rem 1rem;
-    padding: 0.5rem 1rem;
-    display: flex;
-    flex-direction: column;
+    text-align: center;
     .group_textfield {
         display: flex;
         flex-wrap: wrap;
         align-items: center;
         justify-content: space-between;
         max-width: 25rem;
+        margin: 0 -0.5rem;
         .textfield {
-            width: 12rem;
+            padding: 0 0.5rem;
+            min-width: 12rem;
+            flex: 1 1 50%;
+            label {
+                left: 1.5rem;
+            }
         }
     }
     .textfield {
         position: relative;
         color: fade(@font-color-dark, 54%);
-        font-size: (@font-size*1);
-        margin: 0.5rem 0;
+        margin-bottom: 1rem;
         label {
             position: absolute;
-            top: 0.65rem;
-            left: 0.7rem;
-            padding: 0 0.3rem;
+            top: 0.1rem;
+            border-top: 0;
+            line-height: 2.9;
+            left: 1rem;
             pointer-events: none;
+            .transition;
         }
         input,
         select {
             width: 100%;
-            color: fade(@font-color-dark, 87%);
-            cursor: pointer;
-            padding: 0.5rem 1rem;
-            height: 2.7rem;
+            padding: 0.75rem 1rem 0.25rem;
+            height: 3rem;
         }
         select:focus ~ label,
-        select:valid ~label,
-        input:focus ~ label,
-        input:valid ~label {
-            color: fade(@main-color, 87%);
-            font-size: (@font-size*0.8);
-            transform: translateY(-1.25rem);
-            background: @bg-color;
+        select:valid ~ label,
+        input:valid:not(:placeholder-shown) ~ label,
+        input:focus ~ label {
+            font-size: (@font-size*0.875);
+            line-height: 1;
         }
+        /*INVALID*/
+        input:invalid:not(:placeholder-shown):not(:focus) {
+            border-color: @font-color-error;
+        }
+        input:invalid:not(:placeholder-shown):not(:focus) ~ label {
+            font-size: (@font-size*0.875);
+            line-height: 1;
+            color: @font-color-error;
+        }
+        input:invalid:not(:placeholder-shown):not(:focus) ~ i {
+            display: block;
+        }
+
         select:not(:focus) ~ label,
         input:not(:focus) ~ label {
             color: fade(@font-color-dark, 54%);
+        }
+        i {
+            display: none;
+            position: absolute;
+            top: 0.25rem;
+            bottom: 0;
+            right: 0;
+            color: @font-color-error;
         }
         .required {
             color: @font-color-error;
         }
     }
-    .input_time {
-        display: flex;
-        div {
-            display: flex;
-            align-items: center;
-            margin: 1rem 0 0;
-        }
-        span {
-            color: fade(@font-color-dark, 54%);
-            padding: 0 0.5rem;
-            &:nth-child(3) {
-                order: -1;
-            }
-        }
-        input {
-            height: 2.7rem;
-            padding: 0.5rem;
-        }
-        input:focus ~ span,
-        input:valid ~ span {
-            color: fade(@main-color, 87%);
-        }
-        input:not(:focus) ~ span {
-            color: fade(@font-color-dark, 54%);
-        }
-    }
 }
-
-.profile_pas_form {
-    .add_suppliers_form;
-}
-
-.authorization_form {
-    margin-top: 15rem;
-}
-
 
 /*ADD TOUR*/
 
 /*FORM*/
-.admin-label {
-  font-family: Roboto;
-  font-size: @font-size;
-  line-height: 1.19;
-  color: rgb(81, 82, 90);
-}
-
 
 .textfield_admin {
     display: flex;
@@ -197,10 +165,18 @@
     margin-bottom: 0.5rem;
     justify-content: center;
 }
+
+.group_inputs-times {
+    display: flex;
+    justify-content: center;
+}
+
 .link_block {
     border-bottom: @border;
 }
+
 /*CHECKBOX*/
+
 .group_checkbox {
     padding: 0.5rem;
     margin-bottom: 0.5rem;
@@ -255,67 +231,26 @@
     }
     .extra_checkbox {
         .box_checkbox;
-		margin: 0.3rem 0;
+        margin: 0.3rem 0;
         width: 100%;
-		input[type="text"] {
+        input[type="text"] {
             width: 6rem;
             text-align-last: right;
-			text-align: right;
+            text-align: right;
             &:hover {
                 border: @border;
             }
-		}
-		input:checked ~ label {
-			color: fade(@font-color-dark, 87%);
-		}
-		input:checked ~ input[type="text"] {
-			border: @b-hover;
-		}
-		label {
-			flex: none;
-            margin-right: auto;
-		}
-    }
-}
-
-.day_detail {
-    display: flex;
-    flex-direction: column;
-    background-color: lighten(@bg-color, 4%);
-    border-radius: @b-radius;
-    box-shadow: @inset-box-shadow;
-    padding: 0.5rem;
-    .day_time {
-        padding: 0.5rem 0;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-wrap: wrap;
-        input[type="time"] {
-            padding: 0.2rem;
-            width: 5rem;
-            &:first-of-type {
-                order: -2;
-            }
-            &:last-of-type {
-                order: 1;
-            }
+        }
+        input:checked ~ label {
+            color: fade(@font-color-dark, 87%);
+        }
+        input:checked ~ input[type="text"] {
+            border: @b-hover;
         }
         label {
-            font-size: (@font-size*0.9);
-            padding: 0.2rem 1rem;
-            &:first-of-type {
-                order: -3;
-            }
-            &:last-of-type {
-                order: -1;
-            }
+            flex: none;
+            margin-right: auto;
         }
-		i {
-			order: 2;
-			font-size: (@font-size*0.8);
-			cursor: pointer;
-		}
     }
 }
 
@@ -346,7 +281,7 @@
             margin-right: 1rem;
             width: 6rem;
             text-align-last: right;
-			text-align: right;
+            text-align: right;
             &:hover {
                 border: @border;
             }
@@ -356,25 +291,36 @@
 
 .select_admin {
     display: flex;
-    align-items: baseline;
+    align-items: center;
     margin-bottom: 0.5rem;
-    max-width: 12rem;
+    max-width: 14rem;
     label {
         order: -1;
-        flex: 0 1 4rem;
+        flex: 0 1 auto;
         min-width: 4rem;
         margin-left: 1rem;
-        text-align: left;
+        margin-right: 1rem;
+        text-align: right;
     }
     select {
         flex: auto;
     }
+    input {
+        flex: auto;
+    }
+    i {
+        font-size: (@font-size*1);
+        cursor: pointer;
+    }
 }
 
 /*ADD FILE*/
+
 .form-group {
     padding: 1em;
     margin: 0 auto;
+    text-align: center;
+    text-align: -webkit-center;
     .label {
         width: 12rem;
         padding: 0.5rem;
@@ -400,37 +346,66 @@
             padding: 0.5rem 0;
         }
         input {
-          position: absolute;
-          visibility: hidden;
-          pointer-events: none;
-          user-select: none;
+            position: absolute;
+            visibility: hidden;
+            pointer-events: none;
+            user-select: none;
         }
     }
-	.main_image {
-		display: none;
+    .main_image {
+        display: none;
         width: 25rem;
         position: relative;
-		cursor: pointer;
+        cursor: pointer;
         i {
-			position: absolute;
-			top: 0;
-			right: 0;
-			background-color: fade(@bg-color,26%);
-			border-radius: @b-radius;
-			&:hover {
-				color: fade(@font-color-dark, 87%);
-				background-color: fade(@bg-color,54%);
-				}
+            position: absolute;
+            top: 0;
+            right: 0;
+            background-color: fade(@bg-color, 26%);
+            border-radius: @b-radius;
+            &:hover {
+                color: fade(@font-color-dark, 87%);
+                background-color: fade(@bg-color, 54%);
+            }
         }
-		img {
-			box-shadow: @box-shadow;
-			width: 100%;
-			height: auto;
-			border-radius: @b-radius;
-			border: 1px solid rgba(255,255,255,0.42);
-			&:hover {
-				border: 1px solid rgba(0,0,0,0.26);
-			}
-		}
-	}
+        img {
+            box-shadow: @box-shadow;
+            width: 100%;
+            height: auto;
+            border-radius: @b-radius;
+            border: 1px solid rgba(255, 255, 255, 0.42);
+            &:hover {
+                border: 1px solid rgba(0, 0, 0, 0.26);
+            }
+        }
+    }
+}
+
+
+input:not([type="checkbox"]),
+select,
+textarea {
+    outline: none;
+    background-color: #fff;
+    border-radius: @b-radius;
+    border: @border;
+    color: fade(@font-color-dark, 87%);
+    font-size: (@font-size*1);
+    font-family: 'Open Sans', sans-serif;
+    padding: 0.5rem;
+    height: 2.5rem;
+    .ph-dark;
+    &:hover,
+    &:focus {
+        border: @b-hover;
+    }
+    &:disabled {
+        background-color: transparent;
+        color: fade(@font-color-dark, 54%);
+        font-weight: 600;
+        border: @border;
+        &:hover {
+            border: @border;
+        }
+    }
 }
